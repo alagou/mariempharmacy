@@ -361,6 +361,117 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
     return scen
 
 
+CAT_A, CAT_E = "A – jour", "A – jour, ancienneté 2017 conservée (hypothèse)"
+CAT_B0, CAT_B1, CAT_BZ = "B – nuit, aucune officine B (hyp.)", "B – nuit, officines B au complet (hyp.)", "B – nuit"
+PROJ_YEARS = (2035, 2050)
+
+
+def _proj_pop(p0: float, path: tuple | None, rate: float, year: int) -> float:
+    k = year - (fc.BASE_YEAR + 1)
+    if path is not None:
+        return float(p0 * np.prod([1 + x for x in path[1:k + 1]]))
+    return float(p0 * (1 + rate) ** k)
+
+
+def all_alternatives(data: dict, s: SimSettings, n_sims: int = 1000) -> pd.DataFrame:
+    """One row per option if she switched today, nationwide (filter by distance afterwards).
+
+    Category A: every délégation (new registration at the end of the list) and the hypothetical transfer keeping
+    the 2017 date (no legal basis). Category B: every commune, under the two assumptions on the unpublished
+    number of night pharmacies (none / as many as allowed), except Zriba where one is reported. The reference
+    row (stay in Zriba A) and the Zriba B row use the same seeds and simulation count as build_scenarios, so
+    they match the Synthèse exactly; other rows use n_sims simulations.
+    """
+    prof = data["profile"]
+    cap = capacity_A(data["delegations"], s.pop_mode, s)
+    comm = communes_B(data["communes"], s.night_threshold, DEFAULT_B_EXISTING)
+    reg = prof["date_inscription"]
+    rows = []
+
+    def add(kind, cat, r_unit, gov, dist, legal, loses, note, pop0, path, rate, existing, threshold, rule, pos, n_list,
+            years, summ, risk, conf, ref=False):
+        allowed_now = fc.allowed_A(pop0, threshold) if rule == "A" else fc.allowed_B(pop0, threshold)
+        row = {"Référence": ref, "Unité": r_unit.title() if isinstance(r_unit, str) else r_unit, "Gouvernorat": gov.title(),
+               "Distance (km)": dist, "Catégorie": cat, "Type": kind, "Juridiquement possible": legal,
+               "Perd l'ancienneté 2017": loses, "Base juridique": note, "Pop. 2024": pop0}
+        for y in PROJ_YEARS:
+            py = _proj_pop(pop0, path, rate, y)
+            row[f"Pop. {y} (proj.)"] = py
+            allowed_y = fc.allowed_A(py, threshold) if rule == "A" else fc.allowed_B(py, threshold)
+            if y == PROJ_YEARS[0]:
+                row[f"Places libres {y} (proj.)"] = allowed_y - existing
+        row.update({"Seuil N": threshold, "Officines existantes": existing, "Autorisées (2024)": allowed_now,
+                    "Places libres": allowed_now - existing, "Inscrits devant": pos - 1, "Rang": pos, "Inscrits": n_list,
+                    "Année médiane": summ["median_or_later"], "P10": summ["q10"] or s.horizon + 1,
+                    "P90": summ["q90"] or s.horizon + 1, "Période": fc.period_label(summ),
+                    "≤ 5 ans": summ["p5"], "≤ 10 ans": summ["p10"], f"D'ici {s.horizon}": summ["p_horizon"],
+                    "Risque juridique": risk, "Confiance": conf,
+                    "_years": years})
+        rows.append(row)
+
+    for i, r in cap.iterrows():
+        if pd.isna(r.population_dpm) or pd.isna(r.zone_threshold) or pd.isna(r.pharmacies_A):
+            continue
+        g = growth_for_delegation(r)
+        gm, _, path = growth_inputs(g, s)
+        home = r.governorate == prof["governorate"] and r.delegation == prof["delegation"]
+        if home:
+            y, sm = simulate_unit(prof["current_rank"], int(r.pharmacies_A), r.population_dpm, r.zone_threshold, "A", g, s,
+                                  seed=1, engaged_ahead=True)
+            add("Rester (référence)", CAT_A, r.delegation, r.governorate, 0.0, True, False,
+                "Inscription actuelle (rang vérifié).", r.population_dpm, path, gm, int(r.pharmacies_A), r.zone_threshold,
+                "A", prof["current_rank"], int(r.waiting_A), y, sm, "Faible", "Moyenne", ref=True)
+            continue
+        pos = int(r.waiting_A) + 1
+        y, sm = simulate_unit(pos, int(r.pharmacies_A), r.population_dpm, r.zone_threshold, "A", g, s, seed=10_000 + i, n_sims=n_sims)
+        add("Changer de délégation", CAT_A, r.delegation, r.governorate, r.distance_km, True, True,
+            "Nouvelle demande classée à la date du nouveau dépôt (arrêté 19/12/2019 art. 5-6).", r.population_dpm, path, gm,
+            int(r.pharmacies_A), r.zone_threshold, "A", pos, int(r.waiting_A), y, sm, "Élevé", "Moyenne")
+        posE = seniority_position(data["waiting"], "A", r.governorate, r.delegation, reg)
+        y, sm = simulate_unit(posE, int(r.pharmacies_A), r.population_dpm, r.zone_threshold, "A", g, s, seed=20_000 + i, n_sims=n_sims)
+        add("Transfert hypothétique", CAT_E, r.delegation, r.governorate, r.distance_km, False, False,
+            "Aucune disposition ne permet de transférer l'ancienneté (calcul illustratif).", r.population_dpm, path, gm,
+            int(r.pharmacies_A), r.zone_threshold, "A", posE, int(r.waiting_A), y, sm, "Non applicable", "Faible")
+
+    for i, c in comm.iterrows():
+        if pd.isna(c.pop_2024):
+            continue
+        g = fc.growth_rates(c.pop_2024, c.pop_2014, c.pop_2004, c.gov_growth, c.governorate)
+        gm, _, path = growth_inputs(g, s)
+        pos = int(c.waiting_B) + 1
+        is_zriba = c.governorate == prof["governorate"] and str(c.commune_name).upper() == prof["delegation"]
+        note = "Nouvelle inscription sur la liste B de la commune (décret art. 14 ; arrêté art. 5)."
+        if pd.notna(c.existing_B):
+            ex = int(c.existing_B)
+            y, sm = simulate_unit(pos, ex, c.pop_2024, s.night_threshold, "B", g, s, first_licence_now=(ex == 0),
+                                  seed=3 if is_zriba else 30_000 + i, n_sims=None if is_zriba else n_sims)
+            add("Changer de catégorie" if is_zriba else "Changer de commune", CAT_BZ, c.commune_name, c.governorate,
+                0.0 if is_zriba else c.distance_km, True, True, note + f" Officine(s) B existante(s) : {ex} ({c.existing_B_source}).",
+                c.pop_2024, path, gm, ex, s.night_threshold, "B", pos, int(c.waiting_B), y, sm, "Élevé", "Faible")
+            continue
+        for ex, cat, seed0 in ((0, CAT_B0, 40_000), (max(int(c.allowed_B), 1), CAT_B1, 50_000)):
+            y, sm = simulate_unit(pos, ex, c.pop_2024, s.night_threshold, "B", g, s, first_licence_now=(ex == 0),
+                                  seed=seed0 + i, n_sims=n_sims)
+            add("Changer de commune", cat, c.commune_name, c.governorate, c.distance_km, True, True,
+                note + " Nombre d'officines B non publié : à confirmer auprès de la DPM.", c.pop_2024, path, gm, ex,
+                s.night_threshold, "B", pos, int(c.waiting_B), y, sm, "Élevé", "Faible")
+
+    df = pd.DataFrame(rows)
+    stay = df[df["Référence"]].iloc[0]
+    ys = stay["_years"]
+    h = s.horizon
+    df["Gain vs rester (ans)"] = stay["Année médiane"] - df["Année médiane"]
+    ys_sorted = np.sort(np.asarray(ys))
+    df["Plus tôt que rester (prob.)"] = [float(np.mean(1 - np.searchsorted(ys_sorted, np.asarray(y), "right") / len(ys_sorted)))
+                                         for y in df["_years"]]
+    df.loc[df["Référence"], "Plus tôt que rester (prob.)"] = np.nan
+    df["Médiane après l'horizon"] = df["Année médiane"] > h
+    df["Score global"] = [p * RISK_W.get(r_, 0) * CONF_W.get(c_, 0.7) if legal else np.nan
+                          for p, r_, c_, legal in zip(df["≤ 10 ans"], df["Risque juridique"], df["Confiance"], df["Juridiquement possible"])]
+    df["Rang global"] = df["Score global"].rank(ascending=False, method="min")
+    return df.drop(columns="_years").sort_values(["Année médiane", "≤ 10 ans"], ascending=[True, False]).reset_index(drop=True)
+
+
 def _scenario(code, title, legal, reg_date, position, list_size, summ, years, risk, confidence, legal_note, pros, cons, unit=None):
     return {"code": code, "title": title, "legally_feasible": legal, "registration_date": reg_date, "position": position,
             "list_size": list_size, "summary": summ, "_years": years, "legal_risk": risk, "confidence": confidence,

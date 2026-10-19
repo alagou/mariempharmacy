@@ -30,7 +30,7 @@ T = {
     "fr": {
         "title": "Prévision d'autorisation d'officine", "lang": "Langue",
         "nav": ["Vue d'ensemble", "Carte", "Comparer les délégations", "Catégorie A vs B", "Population",
-                "Historique des listes", "Simulateur rester / changer", "Réglementation", "Rapport", "Données & sources", "Vérification / Fiabilité"],
+                "Historique des listes", "Simulateur rester / changer", "Réglementation", "Rapport", "Données & sources", "Vérification / Fiabilité", "Explorer toutes les options"],
         "settings": "Hypothèses", "radius": "Rayon autour de Zriba (km)", "pop_mode": "Mise à jour de la population officielle",
         "estimates": "Estimations INS à chaque révision des listes (pratique DPM 2017-2025)", "census": "Recensements seulement (hypothèse pessimiste)", "annual": "Estimations annuelles INS avec délai réglable", "gmodel": "Modèle de croissance", "official": "Projection INS 2026 + écart local (calibré)", "trend": "Tendance 2014-2024 constante",
         "growth": "Scénario de croissance", "low": "Faible", "central": "Central", "high": "Élevé",
@@ -41,7 +41,7 @@ T = {
     "en": {
         "title": "Pharmacy licence forecast", "lang": "Language",
         "nav": ["Overview", "Map", "Compare delegations", "Category A vs B", "Population",
-                "Waiting-list history", "Stay / switch simulator", "Regulations", "Report", "Data & sources", "Verification / reliability"],
+                "Waiting-list history", "Stay / switch simulator", "Regulations", "Report", "Data & sources", "Verification / reliability", "Explore all options"],
         "settings": "Assumptions", "radius": "Radius around Zriba (km)", "pop_mode": "Official population updates",
         "estimates": "INS estimates at each list revision (DPM practice 2017-2025)", "census": "Censuses only (pessimistic)", "annual": "Annual INS estimates with adjustable lag", "gmodel": "Growth model", "official": "INS 2026 projection + local gap (calibrated)", "trend": "Constant 2014-2024 trend",
         "growth": "Growth scenario", "low": "Low", "central": "Central", "high": "High",
@@ -52,7 +52,7 @@ T = {
     "ar": {
         "title": "توقع الحصول على رخصة صيدلية", "lang": "اللغة",
         "nav": ["نظرة عامة", "الخريطة", "مقارنة المعتمديات", "الصنف أ مقابل ب", "السكان",
-                "تاريخ قائمات الانتظار", "محاكي البقاء / التغيير", "التشريع", "التقرير", "البيانات والمصادر", "التحقق / الموثوقية"],
+                "تاريخ قائمات الانتظار", "محاكي البقاء / التغيير", "التشريع", "التقرير", "البيانات والمصادر", "التحقق / الموثوقية", "استكشاف كل الخيارات"],
         "settings": "الفرضيات", "radius": "الشعاع حول الزريبة (كم)", "pop_mode": "تحيين عدد السكان الرسمي",
         "estimates": "تقديرات المعهد عند كل مراجعة للقائمات (ممارسة 2017-2025)", "census": "التعدادات فقط (فرضية متشائمة)", "annual": "تقديرات سنوية مع أجل قابل للتعديل", "gmodel": "نموذج النمو", "official": "إسقاطات المعهد 2026 + الفارق المحلي", "trend": "اتجاه 2014-2024 ثابت",
         "growth": "سيناريو النمو", "low": "منخفض", "central": "مركزي", "high": "مرتفع",
@@ -104,6 +104,11 @@ def get_scenarios(key: float, settings: tuple, target_del, target_commune, b_tar
     return an.build_scenarios(get_data(key), an.SimSettings(*settings), target_del, target_commune, b_target, b_zriba)
 
 
+@st.cache_data(show_spinner="Calcul de toutes les alternatives (≈ 10 s, une seule fois)…")
+def get_alternatives(key: float, settings: tuple) -> pd.DataFrame:
+    return an.all_alternatives(get_data(key), an.SimSettings(*settings))
+
+
 KEY = data_key()
 D = get_data(KEY)
 ATT = get_attrition(KEY)
@@ -115,7 +120,8 @@ DEF = an.default_settings(D)
 # Sidebar: navigation + assumptions + manual refresh
 # ---------------------------------------------------------------------------
 st.sidebar.title(L["title"])
-page_idx = st.sidebar.radio("Navigation", range(len(L["nav"])), format_func=lambda i: L["nav"][i], label_visibility="collapsed")
+NAV_ORDER = [0, 2, 11, 6, 1, 3, 4, 5, 10, 7, 8, 9]   # display order; page indices stay stable
+page_idx = st.sidebar.radio("Navigation", NAV_ORDER, format_func=lambda i: L["nav"][i], label_visibility="collapsed")
 
 with st.sidebar.expander(L["settings"], expanded=False):
     radius = st.slider(L["radius"], 10, 150, 100, 5)
@@ -371,6 +377,7 @@ def page_compare():
     st.markdown(f"**Catégorie A – {len(cmp)} délégations à moins de {radius} km.** Pour Zriba, le rang actuel (5) est utilisé ; "
                 "ailleurs, le rang d'un **nouveau dépôt** (fin de liste, nouvelle date). La colonne « rang si 2017 conservée » est "
                 "purement hypothétique (aucune base juridique identifiée).")
+    st.caption(f"Toutes les options A et B de toute la Tunisie, filtrables et triables : page « {L['nav'][11]} ».")
     show = cmp[["governorate", "delegation", "distance_km", "zone", "zone_threshold", "population_dpm", "pop_2014", "growth_central",
                 "pharmacies_A", "allowed_A", "free_A", "next_pop_A", "year_next_A_central", "waiting_A", "position_used",
                 "sim_q10", "period", "band10", "seniority_position_hyp", "location_quality"]].rename(columns={
@@ -782,6 +789,93 @@ def page_verification():
                "les prévisions reposent sur une prolongation (incertitude élargie de 50 % par décennie).")
 
 
+PROB_COLS = ["≤ 5 ans", "≤ 10 ans", "Plus tôt que rester (prob.)"]
+SORTS = {"Année médiane (la plus proche)": ("Année médiane", True), "Probabilité ≤ 10 ans": ("≤ 10 ans", False),
+         "Probabilité d'ici l'horizon": ("hz", False), "Score global (classement)": ("Score global", False),
+         "Gain vs rester": ("Gain vs rester (ans)", False), "Distance": ("Distance (km)", True),
+         "Inscrits devant": ("Inscrits devant", True), "Places libres 2035 (proj.)": ("Places libres 2035 (proj.)", False)}
+
+
+def page_alternatives():
+    st.title(L["nav"][11])
+    alt = get_alternatives(KEY, STUPLE).copy()
+    hz = f"D'ici {horizon}"
+    h1 = horizon + 1
+    st.caption(f"Une ligne par option si elle changeait **aujourd'hui** : chaque délégation (catégorie A, nouveau dépôt), chaque commune "
+               f"(catégorie B, sous les deux hypothèses sur les officines de nuit non publiées) et le transfert hypothétique gardant 2017. "
+               f"Même modèle et mêmes définitions que la Synthèse ; la ligne « rester » (★) est identique à celle de la Synthèse. "
+               f"Années : {h1} = « après {horizon} ». Lignes hors référence : 1 000 simulations chacune.")
+    dmax = int(math.ceil(alt["Distance (km)"].max()))
+    with st.expander("Filtres et tri", expanded=True):
+        c = st.columns(4)
+        dist = c[0].slider("Distance de Zriba (km)", 0, dmax, (0, min(100, dmax)), 5)
+        cats = c[1].multiselect("Catégorie", sorted(alt["Catégorie"].unique()),
+                                default=[x for x in sorted(alt["Catégorie"].unique()) if x != an.CAT_E])
+        govs = c[2].multiselect("Gouvernorat", sorted(alt["Gouvernorat"].unique()), placeholder="Tous")
+        q = c[3].text_input("Rechercher une délégation / commune", "")
+        c = st.columns(4)
+        ymax = c[0].slider("Année médiane au plus tard", fc.FIRST_LIST_REVISION, h1, h1)
+        pmin = c[1].slider("Probabilité ≤ 10 ans au moins (%)", 0, 100, 0, 5)
+        risks = c[2].multiselect("Risque juridique", ["Faible", "Élevé", "Non applicable"], default=["Faible", "Élevé", "Non applicable"])
+        confs = c[3].multiselect("Confiance", ["Moyenne", "Faible"], default=["Moyenne", "Faible"])
+        c = st.columns(4)
+        legal = c[0].toggle("Juridiquement possible uniquement", True)
+        better = c[1].toggle("Seulement mieux que rester", False, help="Médiane plus proche que celle du scénario « rester ».")
+        keep_ref = c[2].toggle("Toujours afficher « rester » ★", True)
+        sort = c[3].selectbox("Trier par", list(SORTS))
+    stay = alt[alt["Référence"]].iloc[0]
+    m = alt["Distance (km)"].between(*dist) & alt["Catégorie"].isin(cats) & (alt["Année médiane"] <= ymax)
+    m &= alt["≤ 10 ans"] * 100 >= pmin
+    m &= alt["Risque juridique"].isin(risks) & alt["Confiance"].isin(confs)
+    if govs:
+        m &= alt["Gouvernorat"].isin(govs)
+    if q.strip():
+        m &= alt["Unité"].map(an._norm).str.contains(an._norm(q), regex=False)
+    if legal:
+        m &= alt["Juridiquement possible"]
+    if better:
+        m &= alt["Année médiane"] < stay["Année médiane"]
+    if keep_ref:
+        m |= alt["Référence"]
+    f = alt[m].rename(columns={hz: "hz"})
+    col, asc = SORTS[sort]
+    f = f.sort_values([col, "Année médiane", "≤ 10 ans"], ascending=[asc, True, False], na_position="last")
+    f["Unité"] = np.where(f["Référence"], "★ " + f["Unité"], f["Unité"])
+    for p in PROB_COLS + ["hz"]:
+        f[p] = f[p] * 100
+    f = f.rename(columns={"hz": hz})
+    better_n = int((alt["Juridiquement possible"] & ~alt["Référence"] & (alt["Année médiane"] < stay["Année médiane"])
+                    & alt["Distance (km)"].between(*dist)).sum())
+    c = st.columns(4)
+    c[0].metric("Options affichées", f"{int((~f['Référence']).sum())}", help=f"Sur {len(alt) - 1} options calculées (toute la Tunisie).")
+    c[1].metric("Rester à Zriba (A) – médiane", str(stay["Année médiane"]) if stay["Année médiane"] <= horizon else f"> {horizon}",
+                f"{pct(stay[hz])} d'ici {horizon}", delta_color="off")
+    c[2].metric("Options légales plus rapides (médiane) dans le rayon", str(better_n))
+    best = f[~f["Référence"] & f["Juridiquement possible"]].head(1)
+    c[3].metric("Première option selon le tri", best["Unité"].iloc[0] if len(best) else "—",
+                (f"{best['Catégorie'].iloc[0].split(',')[0]} · médiane "
+                 f"{best['Année médiane'].iloc[0] if best['Année médiane'].iloc[0] <= horizon else AFTER}" if len(best) else None),
+                delta_color="off")
+    cols = ["Unité", "Gouvernorat", "Distance (km)", "Catégorie", "Juridiquement possible", "Perd l'ancienneté 2017",
+            "Année médiane", "P10", "P90", "Période", "≤ 5 ans", "≤ 10 ans", hz, "Gain vs rester (ans)", "Plus tôt que rester (prob.)",
+            "Risque juridique", "Confiance", "Score global", "Rang global", "Rang", "Inscrits devant", "Inscrits",
+            "Pop. 2024", "Pop. 2035 (proj.)", "Pop. 2050 (proj.)", "Seuil N", "Officines existantes", "Autorisées (2024)",
+            "Places libres", "Places libres 2035 (proj.)", "Base juridique", "Type"]
+    yfmt = st.column_config.NumberColumn(format="%d", help=f"{h1} = après {horizon}")
+    pfmt = {p: st.column_config.ProgressColumn(p, format="%.0f%%", min_value=0, max_value=100) for p in PROB_COLS + [hz]}
+    st.dataframe(f[cols], hide_index=True, width="stretch", height=560, column_config={
+        "Distance (km)": st.column_config.NumberColumn(format="%.0f"), "Année médiane": yfmt, "P10": yfmt, "P90": yfmt,
+        "Gain vs rester (ans)": st.column_config.NumberColumn(format="%+d", help="Calculé sur les médianes plafonnées à l'horizon"),
+        "Score global": st.column_config.NumberColumn(format="%.3f", help="Probabilité ≤ 10 ans × risque × confiance (comme le simulateur)"),
+        "Rang global": st.column_config.NumberColumn(format="%d"), "Pop. 2024": st.column_config.NumberColumn(format="%d"),
+        "Pop. 2035 (proj.)": st.column_config.NumberColumn(format="%d"), "Pop. 2050 (proj.)": st.column_config.NumberColumn(format="%d"),
+        "Seuil N": st.column_config.NumberColumn(format="%d"), **pfmt})
+    st.download_button("Télécharger la sélection (CSV)", f[cols].to_csv(index=False).encode("utf-8-sig"), "alternatives_filtrees.csv", "text/csv")
+    st.caption("Catégorie B : le nombre d'officines de nuit par commune n'est pas publié – « aucune officine B » donne la borne optimiste "
+               "(première licence de la commune, délai calibré sur les listes B), « au complet » la borne prudente. Cliquer sur un en-tête "
+               "de colonne pour trier. Toute option implique de confirmer par écrit auprès de la DPM avant de retirer l'inscription actuelle.")
+
+
 PAGES = [page_overview, page_map, page_compare, page_ab, page_population, page_history, page_simulator,
-         page_regulations, page_report, page_sources, page_verification]
+         page_regulations, page_report, page_sources, page_verification, page_alternatives]
 PAGES[page_idx]()
