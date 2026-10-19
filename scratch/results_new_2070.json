@@ -1,0 +1,210 @@
+{
+ "settings": {
+  "pop_mode": "estimates",
+  "admin_lag": 1,
+  "h_mean": 0.03041340254446323,
+  "h_sd": 0.004,
+  "lam_exceptional": 0.0023,
+  "growth_scenario": "central",
+  "horizon": 2070,
+  "n_sims": 4000,
+  "night_threshold": 60000,
+  "start_year": 2026,
+  "growth_model": "official",
+  "growth_sd": 0.008420172540428124,
+  "k_local": 0.5,
+  "g_nat_1424": 0.008663158013468841,
+  "h_other_ratio": 1.3691845954192774,
+  "award_delay": 0.5,
+  "max_per_year": 1.0,
+  "b_first_hazard": 0.12703688995771034
+ },
+ "scenarios": [
+  {
+   "code": "A",
+   "title": "Rester à Zriba – catégorie A",
+   "position": 5,
+   "q10": 2062,
+   "q50": null,
+   "q90": null,
+   "p10": 0.0,
+   "p_horizon": 0.1965,
+   "band10": "< 5 %",
+   "risk": "Faible",
+   "confidence": "Moyenne"
+  },
+  {
+   "code": "B",
+   "title": "Changer pour El Aroussa – catégorie A",
+   "position": 2,
+   "q10": null,
+   "q50": null,
+   "q90": null,
+   "p10": 0.004,
+   "p_horizon": 0.0545,
+   "band10": "< 5 %",
+   "risk": "Élevé",
+   "confidence": "Moyenne"
+  },
+  {
+   "code": "C",
+   "title": "Passer en catégorie B (nuit) à Zriba",
+   "position": 2,
+   "q10": 2068,
+   "q50": null,
+   "q90": null,
+   "p10": 0.00675,
+   "p_horizon": 0.1185,
+   "band10": "< 5 %",
+   "risk": "Élevé",
+   "confidence": "Faible"
+  },
+  {
+   "code": "D0",
+   "title": "Changer pour Saouaf – catégorie B (si aucune officine B)",
+   "position": 1,
+   "q10": 2026,
+   "q50": 2030,
+   "q90": 2042,
+   "p10": 0.75575,
+   "p_horizon": 0.9975,
+   "band10": "50 – 80 %",
+   "risk": "Élevé",
+   "confidence": "Faible"
+  },
+  {
+   "code": "D1",
+   "title": "Changer pour Saouaf – catégorie B (si une officine B existe)",
+   "position": 1,
+   "q10": null,
+   "q50": null,
+   "q90": null,
+   "p10": 0.0205,
+   "p_horizon": 0.09825,
+   "band10": "< 5 %",
+   "risk": "Élevé",
+   "confidence": "Faible"
+  },
+  {
+   "code": "E",
+   "title": "Transfert vers El Aroussa en gardant 2017 (hypothèse)",
+   "position": 1,
+   "q10": null,
+   "q50": null,
+   "q90": null,
+   "p10": 0.0205,
+   "p_horizon": 0.099,
+   "band10": "< 5 %",
+   "risk": "Non applicable",
+   "confidence": "Faible"
+  }
+ ],
+ "compare": [
+  {
+   "delegation": "LA MARSA",
+   "km": 65.6,
+   "position": 44,
+   "median": 2066,
+   "p10": 0.0
+  },
+  {
+   "delegation": "FOUCHANA",
+   "km": 42.4,
+   "position": 41,
+   "median": 2068,
+   "p10": 0.0
+  },
+  {
+   "delegation": "ZRIBA",
+   "km": 0.0,
+   "position": 5,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "ZAGHOUAN",
+   "km": 11.3,
+   "position": 19,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "SAOUAF",
+   "km": 12.8,
+   "position": 4,
+   "median": 2071,
+   "p10": 0.0033333333333333335
+  },
+  {
+   "delegation": "BOUFICHA",
+   "km": 18.7,
+   "position": 14,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "ENFIDHA",
+   "km": 23.1,
+   "position": 23,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "HAMMAMET",
+   "km": 27.6,
+   "position": 57,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "MORNAG",
+   "km": 30.3,
+   "position": 38,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "NADHOUR",
+   "km": 30.9,
+   "position": 7,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "BIR MCHARGUA",
+   "km": 31.2,
+   "position": 7,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "EL FAHS",
+   "km": 35.3,
+   "position": 13,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "HERGLA",
+   "km": 37.6,
+   "position": 18,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "GROMBALIA",
+   "km": 37.8,
+   "position": 28,
+   "median": 2071,
+   "p10": 0.0
+  },
+  {
+   "delegation": "M'HAMDIA",
+   "km": 38.1,
+   "position": 33,
+   "median": 2071,
+   "p10": 0.0
+  }
+ ],
+ "n_before_horizon": 2
+}
