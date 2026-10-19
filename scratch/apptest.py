@@ -2,7 +2,7 @@ import sys, time
 sys.stdout.reconfigure(encoding="utf-8")
 from streamlit.testing.v1 import AppTest
 
-for i in range(10):
+for i in range(11):
     t = time.time()
     at = AppTest.from_file("../app.py", default_timeout=240)
     at.run()

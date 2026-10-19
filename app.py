@@ -30,9 +30,9 @@ T = {
     "fr": {
         "title": "Prévision d'autorisation d'officine", "lang": "Langue",
         "nav": ["Vue d'ensemble", "Carte", "Comparer les délégations", "Catégorie A vs B", "Population",
-                "Historique des listes", "Simulateur rester / changer", "Réglementation", "Rapport", "Données & sources"],
+                "Historique des listes", "Simulateur rester / changer", "Réglementation", "Rapport", "Données & sources", "Vérification / Fiabilité"],
         "settings": "Hypothèses", "radius": "Rayon autour de Zriba (km)", "pop_mode": "Mise à jour de la population officielle",
-        "census": "Recensements seulement (pratique DPM actuelle)", "annual": "Estimations annuelles INS",
+        "estimates": "Estimations INS à chaque révision des listes (pratique DPM 2017-2025)", "census": "Recensements seulement (hypothèse pessimiste)", "annual": "Estimations annuelles INS avec délai réglable", "gmodel": "Modèle de croissance", "official": "Projection INS 2026 + écart local (calibré)", "trend": "Tendance 2014-2024 constante",
         "growth": "Scénario de croissance", "low": "Faible", "central": "Central", "high": "Élevé",
         "attr": "Attrition annuelle des inscrits devant elle", "exc": "Créations exceptionnelles / unité / an (art. 6)",
         "lag": "Délai administratif après mise à jour (ans)", "horizon": "Horizon des prévisions", "night": "Seuil catégorie B (annexe 2)",
@@ -41,9 +41,9 @@ T = {
     "en": {
         "title": "Pharmacy licence forecast", "lang": "Language",
         "nav": ["Overview", "Map", "Compare delegations", "Category A vs B", "Population",
-                "Waiting-list history", "Stay / switch simulator", "Regulations", "Report", "Data & sources"],
+                "Waiting-list history", "Stay / switch simulator", "Regulations", "Report", "Data & sources", "Verification / reliability"],
         "settings": "Assumptions", "radius": "Radius around Zriba (km)", "pop_mode": "Official population updates",
-        "census": "Censuses only (current DPM practice)", "annual": "Annual INS estimates",
+        "estimates": "INS estimates at each list revision (DPM practice 2017-2025)", "census": "Censuses only (pessimistic)", "annual": "Annual INS estimates with adjustable lag", "gmodel": "Growth model", "official": "INS 2026 projection + local gap (calibrated)", "trend": "Constant 2014-2024 trend",
         "growth": "Growth scenario", "low": "Low", "central": "Central", "high": "High",
         "attr": "Annual attrition of people ahead", "exc": "Exceptional licences / unit / year (art. 6)",
         "lag": "Administrative lag after update (years)", "horizon": "Forecast horizon", "night": "Category B threshold (annex 2)",
@@ -52,9 +52,9 @@ T = {
     "ar": {
         "title": "توقع الحصول على رخصة صيدلية", "lang": "اللغة",
         "nav": ["نظرة عامة", "الخريطة", "مقارنة المعتمديات", "الصنف أ مقابل ب", "السكان",
-                "تاريخ قائمات الانتظار", "محاكي البقاء / التغيير", "التشريع", "التقرير", "البيانات والمصادر"],
+                "تاريخ قائمات الانتظار", "محاكي البقاء / التغيير", "التشريع", "التقرير", "البيانات والمصادر", "التحقق / الموثوقية"],
         "settings": "الفرضيات", "radius": "الشعاع حول الزريبة (كم)", "pop_mode": "تحيين عدد السكان الرسمي",
-        "census": "التعدادات فقط (الممارسة الحالية)", "annual": "تقديرات سنوية للمعهد الوطني للإحصاء",
+        "estimates": "تقديرات المعهد عند كل مراجعة للقائمات (ممارسة 2017-2025)", "census": "التعدادات فقط (فرضية متشائمة)", "annual": "تقديرات سنوية مع أجل قابل للتعديل", "gmodel": "نموذج النمو", "official": "إسقاطات المعهد 2026 + الفارق المحلي", "trend": "اتجاه 2014-2024 ثابت",
         "growth": "سيناريو النمو", "low": "منخفض", "central": "مركزي", "high": "مرتفع",
         "attr": "نسبة الانسحاب السنوية للمسجلين قبلها", "exc": "إحداثات استثنائية / وحدة / سنة (الفصل 6)",
         "lag": "الأجل الإداري بعد التحيين (سنوات)", "horizon": "أفق التوقعات", "night": "عتبة الصنف ب (الملحق 2)",
@@ -108,6 +108,8 @@ KEY = data_key()
 D = get_data(KEY)
 ATT = get_attrition(KEY)
 PROFILE = D["profile"]
+VAL = D.get("validation")
+DEF = an.default_settings(D)
 
 # ---------------------------------------------------------------------------
 # Sidebar: navigation + assumptions + manual refresh
@@ -117,22 +119,27 @@ page_idx = st.sidebar.radio("Navigation", range(len(L["nav"])), format_func=lamb
 
 with st.sidebar.expander(L["settings"], expanded=False):
     radius = st.slider(L["radius"], 10, 150, 100, 5)
-    pop_mode = st.radio(L["pop_mode"], ["census", "annual"], format_func=lambda x: L[x])
+    pop_mode = st.radio(L["pop_mode"], ["estimates", "census", "annual"], format_func=lambda x: L[x],
+                        help="Historique DPM 2017-2025 : 11 listes, chacune fondée sur la dernière estimation INS au 1er janvier "
+                             "(RGPH 2024 pour la liste du 31/12/2025).")
+    gmodel = st.radio(L["gmodel"], ["official", "trend"], format_func=lambda x: L[x],
+                      disabled=VAL is None, help="Choisi par rétro-validation 2014→2024 (page Vérification).")
     growth = st.select_slider(L["growth"], ["low", "central", "high"], value="central", format_func=lambda x: L[x])
-    h_def = round(ATT["A"]["h_central"] * 100, 1)
-    h_mean = st.slider(L["attr"] + " (%)", 0.0, 10.0, h_def, 0.1,
-                       help=f"Estimé sur les tableaux DPM 2024→2026 : {ATT['A']['h_central']:.1%} "
-                            f"(IC 90 % {ATT['A']['h_low']:.1%}–{ATT['A']['h_high']:.1%}).") / 100
-    lam = st.slider(L["exc"], 0.0, 0.05, 0.015, 0.005,
-                    help="≥ 83 officines d'imada ou de commune créées depuis 2007 pour 263 unités ≈ 0,017/unité/an (borne basse) ; "
-                         "les critères de 2019 sont plus restrictifs.")
-    lag = st.slider(L["lag"], 1, 4, 2)
-    horizon = st.slider(L["horizon"], 2035, 2060, fc.DEFAULT_HORIZON)
+    h_mean = st.slider(L["attr"] + " (%)", 0.0, 10.0, round(DEF.h_mean * 100, 1), 0.1,
+                       help="Inscrits engagés (renouvelés en 2020 et 2024), mesuré 2024→2026"
+                            + (f" : {DEF.h_mean:.1%} (IC 90 % {VAL['attrition']['h_engaged_band'][0]:.1%}–"
+                               f"{VAL['attrition']['h_engaged_band'][1]:.1%}). Autres listes : × {DEF.h_other_ratio:.2f}." if VAL else ".")) / 100
+    lam = st.slider(L["exc"], 0.0, 0.03, float(round(DEF.lam_exceptional, 3)), 0.001, format="%.3f",
+                    help="Aucune convocation hors formule dans les unités saturées (liste du 31/12/2025) → estimation de Jeffreys ; "
+                         "l'ancienne valeur 0,015 reposait sur les créations 2007-2019 (ancien régime).")
+    lag = st.slider(L["lag"], 1, 4, 2, help="Utilisé seulement pour les modes « recensements » et « annuel ».")
+    horizon = st.slider(L["horizon"], 2035, 2080, fc.DEFAULT_HORIZON, 5)
     night = st.radio(L["night"], [60000, 50000], format_func=lambda x: f"{x:,} hab. (zone {'2 – présumée' if x == 60000 else '1'})".replace(",", " "))
 
-SETTINGS = an.SimSettings(pop_mode=pop_mode, admin_lag=lag, h_mean=h_mean,
-                          h_sd=max((ATT["A"]["h_high"] - ATT["A"]["h_low"]) / 3.3, 0.003),
-                          lam_exceptional=lam, growth_scenario=growth, horizon=horizon, night_threshold=night)
+SETTINGS = an.default_settings(D, pop_mode=pop_mode, admin_lag=lag, h_mean=h_mean, lam_exceptional=lam,
+                               growth_scenario=growth, horizon=horizon, night_threshold=night,
+                               **({"growth_model": gmodel} if VAL else {}))
+AFTER = fc.after_horizon(horizon)
 STUPLE = tuple(asdict(SETTINGS).values())
 
 with st.sidebar.expander("🔄 " + L["refresh"]):
@@ -155,7 +162,7 @@ st.sidebar.caption(f"Instantané DPM : {D['delegations'].snapshot_date.max()} ·
 # ---------------------------------------------------------------------------
 # Shared computations
 # ---------------------------------------------------------------------------
-CAP = an.capacity_A(D["delegations"], pop_mode)
+CAP = an.capacity_A(D["delegations"], pop_mode, SETTINGS)
 HOME = CAP[(CAP.governorate == PROFILE["governorate"]) & (CAP.delegation == PROFILE["delegation"])].iloc[0]
 COMM = an.communes_B(D["communes"], night, an.DEFAULT_B_EXISTING)
 ZR_C = COMM[(COMM.governorate == "ZAGHOUAN") & (COMM.commune_name == "Zriba")].iloc[0]
@@ -262,9 +269,10 @@ def page_overview():
     st.markdown(
         f"- **Zriba, catégorie A** : la 4e officine ne sera possible que lorsque la population *officielle* atteindra "
         f"{fmt(HOME.next_pop_A)} habitants (seuil zone 9 = 10 000, règle de la tranche semi-entière). "
-        f"Avec la croissance observée 2014-2024 ({HOME.growth_central:.2%}/an) et des mises à jour aux recensements, "
-        f"ce seuil serait atteint au recensement de **{int(yc) if pd.notna(yc) else 'après 2054'}**, "
-        f"puis il faut encore être première de la liste (4 inscrits la précèdent).\n"
+        f"Croissance retenue : {HOME.growth_central:.2%}/an vers 2035 ({HOME.growth_basis}) ; "
+        f"seuil atteint, scénario central : **{int(yc) if pd.notna(yc) else AFTER}**"
+        + (f" (croissance haute : {int(HOME.year_next_A_high)})" if pd.notna(HOME.year_next_A_high) else "")
+        + ". Il faut ensuite être première de la liste : la licence revient au 1er inscrit, et 4 inscrits la précèdent.\n"
         f"- **Scénario « rester »** : période la plus probable **{a['period']}** ; autorisation sous 5 ans : {a['summary']['band5']}, "
         f"sous 10 ans : {a['summary']['band10']}.\n"
         f"- La liste de Zriba est **inchangée depuis 2020** (mêmes 5 personnes, tous renouvelés en 2020, 2024 et 2026).\n"
@@ -280,8 +288,10 @@ def page_overview():
             "- **Reconstitué** : listes catégorie B (ordre chronologique du tableau 2026 – la DPM ne publie pas de liste B en ligne exploitable).\n"
             "- **Source secondaire** : populations communales et valeurs 2004 par délégation (citypopulation.de, compilation INS).\n"
             "- **Inconnu** : nombre d'officines B par commune ; annexe 2 (zones B) ; intentions des autres inscrits.\n"
-            "- La DPM indique : « Population est arrêtée selon le recensement général de la population et de l'Habitat 2024 » – "
-            "d'où l'hypothèse par défaut de mises à jour aux recensements.")
+            "- La liste du 31/12/2025 est arrêtée sur le RGPH 2024, mais les listes de 2017 à 2023 l'ont été sur les *estimations INS au "
+            "1er janvier* (pages DPM archivées) : le modèle suppose donc une révision par an sur la dernière estimation INS.\n"
+            f"- Au-delà de {fc.OFFICIAL_PROJECTION_END} (fin de la projection officielle INS), la croissance est prolongée au dernier "
+            "taux publié et l'incertitude est élargie ; résultats indicatifs jusqu'à l'horizon choisi.")
 
 
 def _default_commune():
@@ -446,9 +456,21 @@ def page_population():
     g = an.growth_for_delegation(r)
     proj = fc.project_population(r.population_dpm, g, end=max(fc.PROJECTION_END, horizon))
     fig = go.Figure()
+    _, gsd, gpath = an.growth_inputs(g, an.SimSettings(**{**asdict(SETTINGS), "growth_scenario": "central"}))
+    if gpath is not None:
+        yrs = np.arange(fc.BASE_YEAR + 1, proj.year.max() + 1)
+        gp = np.asarray(gpath[:len(yrs)])
+        wid = fc.growth_sd_factor(yrs)
+        for lab, z, dash in [("basse (−1 σ)", -1, "dot"), ("centrale", 0, "solid"), ("haute (+1 σ)", 1, "dot")]:
+            gg = gp + z * gsd * wid
+            pop = r.population_dpm * np.cumprod(np.r_[1.0, 1 + gg[1:]])
+            fig.add_trace(go.Scatter(x=yrs, y=pop, name=f"INS 2026 + écart local – {lab}", line=dict(dash=dash, color="#1f6f8b")))
+        fig.add_vrect(x0=fc.OFFICIAL_PROJECTION_END, x1=proj.year.max(), fillcolor="#eee", opacity=0.5, line_width=0,
+                      annotation_text="au-delà de la projection INS", annotation_position="top left")
     for col, dash in [("Faible", "dot"), ("Central (TCAM)", "solid"), ("Élevé", "dot"), ("Linéaire", "dash")]:
         if col in proj:
-            fig.add_trace(go.Scatter(x=proj.year, y=proj[col], name=f"Projection – {col}", line=dict(dash=dash)))
+            fig.add_trace(go.Scatter(x=proj.year, y=proj[col], name=f"Tendance 2014-2024 – {col}", line=dict(dash=dash),
+                                     visible=True if gpath is None else "legendonly"))
     obs = [(2004, r.pop_2004, "Recensement 2004 (source secondaire)"), (2014, r.pop_2014, "Recensement 2014 (INS)"),
            (2024, r.population_dpm, "Recensement 2024 (INS/DPM)")]
     obs = [o for o in obs if pd.notna(o[1])]
@@ -462,13 +484,15 @@ def page_population():
             fig.add_vline(x=c, line_dash="dot", line_color="#999")
     fig.update_layout(height=430, margin=dict(t=10), yaxis_title="Habitants", legend=dict(orientation="h"))
     st.plotly_chart(fig, width="stretch")
-    st.caption(f"Base de croissance : {g.basis}. Lignes verticales : prochains recensements. Les projections sont des estimations, "
+    st.caption((f"Courbes bleues : projection nationale INS 2026 (base RGPH 2024) + {SETTINGS.k_local:.0%} de l'écart local observé "
+                f"2014-2024 ; bande ± 1 écart-type ({gsd:.2%}/an, élargie après {fc.OFFICIAL_PROJECTION_END}). " if gpath is not None else "")
+               + f"Tendance : {g.basis}. Lignes verticales : prochains recensements. Les projections sont des estimations, "
                "distinctes des valeurs observées.")
     rows = []
     for k in (1, 2, 3):
         target = r.next_pop_A + (k - 1) * r.zone_threshold
         rows.append({"Licence supplémentaire": f"+{k}", "Population requise": fmt(target),
-                     **{f"{lab} – {mode}": str(fc.year_reaching(r.population_dpm, rate, target, mode=m) or "> 2060")
+                     **{f"{lab} – {mode}": str(fc.year_reaching(r.population_dpm, rate, target, mode=m, horizon=horizon) or f"> {horizon}")
                         for lab, rate in [("Faible", g.low), ("Central", g.central), ("Élevé", g.high)]
                         for m, mode in [("annual", "annuel"), ("census", "recensement")]}})
     st.subheader("Années de franchissement des seuils (catégorie A)")
@@ -480,9 +504,20 @@ def page_population():
     if len(cc):
         st.dataframe(cc[["commune_name", "pop_2004", "pop_2014", "pop_2024", "allowed_B", "waiting_B", "population_note"]],
                      hide_index=True, width="stretch")
-    st.subheader("Projection nationale INS (hypothèse moyenne, base RGPH 2014)")
-    npj = D["population"][D["population"].level == "national_projection"]
-    st.line_chart(npj.set_index("year")["population"], height=220)
+    st.subheader("Projections nationales INS")
+    pj = pd.read_csv(DATA / "population_projections.csv")
+    pj = pj[pj.level == "national"]
+    fig = go.Figure()
+    for (base, kind), x in pj.groupby(["base", "kind"]):
+        fig.add_trace(go.Scatter(x=x.year, y=x.population, name=f"{base} – {kind}",
+                                 mode="lines+markers" if kind == "projection officielle" else "lines",
+                                 line=dict(dash="dot" if kind != "projection officielle" else "solid")))
+    nat = an.val.national_census(D["population"])
+    fig.add_trace(go.Scatter(x=list(nat), y=list(nat.values()), mode="markers", marker=dict(size=10, color="black"), name="Recensements"))
+    fig.update_layout(height=300, margin=dict(t=10), yaxis_title="Habitants", legend=dict(orientation="h"))
+    st.plotly_chart(fig, width="stretch")
+    st.caption("La projection base 2014 surestimait 2024 (12,34 M contre 11,97 M recensés). Projection 2026 : valeurs officielles 2025-2030 "
+               "et 2054 (Flash INS, mai 2026) ; 2031-2053 reconstitué à partir du texte (≈ 0,5 %/an vers 2035, 0,03 % en 2054).")
 
 
 def page_history():
@@ -526,6 +561,8 @@ def page_history():
                 f"prévu {bt['predicted_two_year_stay']:.1%}, observé {bt['observed_two_year_stay']:.1%} (écart {bt['abs_error_points']:.1f} points). {bt['caveat']}\n"
                 f"- **Formule du décret** : officines A existantes = autorisées dans {bc['share_equal']:.0%} des {bc['n_units']} unités, à ±1 près dans "
                 f"{bc['share_within_1']:.0%} ({bc['units_above']} au-dessus, {bc['units_below']} en dessous). {bc['note']}")
+    st.caption(f"Rétro-validations complètes (population, attrition par engagement, convocations, file d'attente 2020→2026) : "
+               f"page « {L['nav'][10]} ».")
 
 
 def page_simulator():
@@ -624,14 +661,22 @@ def page_report():
         metrics = {"Population officielle de Zriba (RGPH 2024)": fmt(HOME.population_dpm), "Zone / seuil": "9 / 10 000 habitants",
                    "Officines A existantes / autorisées": f"{int(HOME.pharmacies_A)} / {int(HOME.allowed_A)}",
                    "Population requise pour la 4e licence": fmt(HOME.next_pop_A),
-                   "Croissance annuelle 2014-2024": f"{HOME.growth_central:.2%}",
-                   "Recensement où le seuil serait atteint (central)": str(int(HOME.year_next_A_central)) if pd.notna(HOME.year_next_A_central) else "après 2054",
+                   "Croissance retenue (vers 2035)": f"{HOME.growth_central:.2%} – {HOME.growth_basis}",
+                   "Année où le seuil serait atteint (central / haut)":
+                       f"{int(HOME.year_next_A_central) if pd.notna(HOME.year_next_A_central) else AFTER} / "
+                       f"{int(HOME.year_next_A_high) if pd.notna(HOME.year_next_A_high) else AFTER}",
                    "Catégorie B à Zriba": f"{int(ZR_C.waiting_B)} inscrite (2014) ; 1 officine de nuit signalée (non officiel)"}
-        settings = {"Mise à jour population": L[pop_mode], "Scénario de croissance": L[growth], "Attrition annuelle": f"{h_mean:.1%}",
-                    "Créations exceptionnelles": f"{lam:.3f} / unité / an", "Délai administratif": f"{lag} an(s)",
-                    "Horizon": str(horizon), "Seuil catégorie B": fmt(night), "Rayon": f"{radius} km", "Simulations": str(SETTINGS.n_sims)}
+        settings = {"Mise à jour population": L[pop_mode], "Modèle de croissance": L[SETTINGS.growth_model],
+                    "Scénario de croissance": L[growth],
+                    "Attrition annuelle (inscrits devant elle / autres listes)": f"{h_mean:.1%} / {min(h_mean * SETTINGS.h_other_ratio, 0.5):.1%}",
+                    "Créations exceptionnelles": f"{lam:.4f} / unité / an",
+                    "Délai d'attribution / licences par unité et par an":
+                        f"Poisson {SETTINGS.award_delay:g} an / {'illimité' if math.isinf(SETTINGS.max_per_year) else int(SETTINGS.max_per_year)}",
+                    "Délai administratif (modes recensement/annuel)": f"{lag} an(s)",
+                    "Horizon": f"{horizon} (projection INS officielle jusqu'en {fc.OFFICIAL_PROJECTION_END}, prolongée au-delà)",
+                    "Seuil catégorie B": fmt(night), "Rayon": f"{radius} km", "Simulations": str(SETTINGS.n_sims)}
         path = report.build_pdf(D, scen, an.scenario_table(scen), an.recommendation(scen), settings, metrics, ATT["A"],
-                                {"attr": ATT["bt_attr"], "cap": ATT["bt_cap"]}, near)
+                                {"attr": ATT["bt_attr"], "cap": ATT["bt_cap"], "validation": VAL}, near)
         st.success(f"Rapport enregistré : {path.relative_to(ROOT)}")
         st.download_button("Télécharger le PDF", path.read_bytes(), path.name, "application/pdf")
 
@@ -657,6 +702,86 @@ def page_sources():
                "enregistrées comme observations.")
 
 
+def page_verification():
+    st.title(L["nav"][10])
+    if not VAL:
+        st.warning("Aucun résultat de validation : exécuter `python validation.py` (hors ligne, ≈ 15 s).")
+        return
+    qo, qn, pb, att, now, w = VAL["queue"]["queue_old"], VAL["queue"]["queue_new"], VAL["population"], VAL["attrition"], VAL["nowcast"], VAL["waits"]
+    st.caption(f"Le modèle est rejoué sur le passé avec les seules informations disponibles à l'époque, puis comparé à ce qui s'est "
+               f"réellement passé. Calcul du {VAL['generated']} (`python validation.py`, données locales).")
+    c = st.columns(4)
+    c[0].metric("File d'attente 2020→2026 : score de Brier", f"{qn['brier']:.3f}", f"{qn['brier'] - qo['brier']:+.3f} vs ancien réglage",
+                delta_color="inverse", help=f"Plus bas = meilleur. Référence « même probabilité pour tous » : {qn['brier_climatology']:.3f}.")
+    c[1].metric("Licences prévues / observées (2021-2026)", f"{qn['pred_total']:.0f} / {qn['obs_total']}",
+                f"ancien réglage : {qo['pred_total']:.0f}", delta_color="off",
+                help=f"Observé = titulaires retrouvés dans le registre 2026 ; seuls {VAL['processing']['registry_recall']:.0%} des licences "
+                     f"connues de 2016-2021 y sont retrouvées par le nom → le vrai total est probablement entre {qn['obs_total']} et "
+                     f"{qn['obs_total'] / VAL['processing']['registry_recall']:.0f}.")
+    c[2].metric("Unités dans l'intervalle P10–P90", pct(qn["coverage_p10_p90"]), f"ancien : {pct(qo['coverage_p10_p90'])}", delta_color="off")
+    best = min(pb["table"], key=lambda r: r["RMSE (pt/an)"] if "réelle" not in r["Méthode"] else 9)
+    c[3].metric("Population 2014→2024 : erreur médiane", f"{best['Erreur pop. 2024 médiane (%)']:.1f} %",
+                help=f"Méthode : {best['Méthode']} ({pb['n_units']} unités).")
+
+    st.subheader("Son attente prévue face aux attentes réellement observées")
+    scen = get_scenarios(KEY, STUPLE, default_target_del(get_compare(KEY, radius, STUPLE)), _default_commune(), None, 1)
+    a = next(s for s in scen if s["code"] == "A")
+    reg = pd.Timestamp(PROFILE["date_inscription"]).year
+    sat = w["saturated_rank4plus"]
+    st.markdown(
+        f"- **Prévision pour elle (rester à Zriba)** : médiane {year_txt(a)}, soit plus de "
+        f"{(a['summary']['median_or_later'] - reg)} ans d'attente depuis {reg} ; {pct(a['summary']['p_horizon'])} de chances d'ici {horizon}.\n"
+        f"- **Convoqués actuels** (« * », {w['convoked_wait']['n']} personnes) : inscrits en {w['convoked_reg_year']['median']:.0f} en médiane, "
+        f"soit **{w['convoked_wait']['median']:.0f} ans d'attente** (P10–P90 : {w['convoked_wait']['p10']:.0f}–{w['convoked_wait']['p90']:.0f} ans).\n"
+        f"- **Licences 2020-2026** retrouvées dans le registre ({w['licensed_2020_2026']['n']}) : inscrits en "
+        f"{w['licensed_2020_2026']['reg_year']['median']:.0f} en médiane, rang médian {w['licensed_2020_2026']['rank_2020']['median']:.0f} en 2020.\n"
+        f"- **Premiers de liste** : inscrits en {w['head_reg_year']['median']:.0f} en médiane ; à Zriba, la première attend depuis 2008.\n"
+        f"- **Situation comparable** (rang ≥ 4 en 2020 dans une délégation sans place libre) : {sat['licensed']} licences sur "
+        f"{sat['n']} personnes en 6 ans ({sat['licensed'] / max(sat['n'], 1):.1%}).")
+    st.caption("Lecture : une attente de plus de 20 ans est la norme actuelle pour les licences de catégorie A ; l'échéance tardive de Zriba "
+               "vient de la capacité saturée (3/3) et des 4 inscrits engagés qui la précèdent, pas d'une erreur de calcul.")
+
+    with st.expander("Population : quelle méthode de projection ? (rétro-validation 2014 → 2024)", expanded=False):
+        st.dataframe(pd.DataFrame(pb["table"]).round(2), hide_index=True, width="stretch")
+        n = pb["national"]
+        st.caption(f"Croissance nationale : {n['g_0414']:.2%}/an (2004-2014), {n['g_1424']:.2%}/an (2014-2024) ; la projection INS base 2014 "
+                   f"prévoyait {n['g_ins14_proj']:.2%}/an ({fmt(n['ins14_2024'])} hab. en 2024). Retenu : projection INS 2026 + "
+                   f"{pb['k_local']:.0%} de l'écart local ; incertitude {pb['growth_sd']:.2%}/an (erreur locale + erreur de la projection nationale).")
+    with st.expander("Attrition des inscrits (entraînement 2020→2024, test 2024→2026)"):
+        rows = [{"Groupe": k, "Inscrits suivis": v["n"], "Sorties observées": round(v["exits"]), "Sorties prévues (taux 2020-2024)":
+                 round(v["predicted_exits_from_train"]), "Taux annuel mesuré": f"{v['h']:.1%} ({v['h_low']:.1%}–{v['h_high']:.1%})"}
+                for k, v in att["test"].items()]
+        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+        st.caption(f"Taux 2020→2024 : {att['train']['h']:.1%}/an. Régularisation des non-renouvelés : {att['regul_2022']:.0%} (2022), "
+                   f"{att['regul_2024']:.0%} (2024). Ancienne valeur unique : {att['h_old']:.1%}. Les 4 personnes devant elle sont engagées "
+                   "(renouvelées en 2020, 2024 et 2026) → taux « engagés ».")
+    with st.expander("Formule du décret vs convocations actuelles (« * »)"):
+        st.markdown(f"- {now['stars_total']} convocations, **toutes** dans des délégations où la formule donne une place libre "
+                    f"({now['stars_in_free']}) ; **aucune** dans les {now['full_units']} délégations saturées.\n"
+                    f"- {now['free_units_with_star']} des {now['free_units']} délégations à place libre ont une convocation ; jamais plus "
+                    "d'une par délégation → la DPM traite un candidat à la fois (1 licence / unité / an dans le modèle).\n"
+                    f"- Créations hors formule : {VAL['exceptional']['lam']:.4f} / unité / an (borne haute 90 % : "
+                    f"{VAL['exceptional']['lam_high90']:.4f} ; ancienne valeur {VAL['exceptional']['lam_old']}).")
+        st.dataframe(pd.DataFrame(now["table"]), hide_index=True, width="stretch")
+    with st.expander("File d'attente rejouée depuis 2020 : calibrage des probabilités"):
+        cal = pd.DataFrame(qn["calibration"]).merge(pd.DataFrame(qo["calibration"]), on="bin", suffixes=(" (calibré)", " (ancien)"))
+        st.dataframe(cal.rename(columns={"bin": "Probabilité prévue"}).round(3), hide_index=True, width="stretch")
+        st.dataframe(pd.DataFrame(VAL["process_grid"]).round(4), hide_index=True, width="stretch")
+        pr = VAL["processing"]
+        st.caption(f"Dossiers DPM archivés : révision de liste → demande {pr['list_to_request']['median']:.1f} an (médiane), → arrêté "
+                   f"{pr['list_to_licence']['median']:.1f} an (P90 {pr['list_to_licence']['p90']:.1f}). Les délais plus longs obtiennent un "
+                   "meilleur score car une partie des licences n'est pas retrouvée dans le registre ; délai retenu d'après les dossiers. "
+                   "Limite : le nombre d'officines en 2020 n'est pas publié et a été reconstitué (2026 − licences observées).")
+    with st.expander("Historique des révisions de listes et base de population (pages DPM archivées)"):
+        st.dataframe(pd.read_csv(DATA / "dpm_list_updates.csv")[["list_date", "population_basis", "first_seen"]].rename(
+            columns={"list_date": "Liste arrêtée au", "population_basis": "Population utilisée", "first_seen": "Vue en ligne"}),
+            hide_index=True, width="stretch")
+    bf = VAL["b_first"]
+    st.caption(f"Catégorie B : dans {bf['n']} communes < 20 000 hab., le premier inscrit attend depuis {bf['median_wait']:.0f} ans en médiane "
+               f"(P90 {bf['p90_wait']:.0f}) → la « première officine B » n'est pas immédiate. Au-delà de {fc.OFFICIAL_PROJECTION_END}, "
+               "les prévisions reposent sur une prolongation (incertitude élargie de 50 % par décennie).")
+
+
 PAGES = [page_overview, page_map, page_compare, page_ab, page_population, page_history, page_simulator,
-         page_regulations, page_report, page_sources]
+         page_regulations, page_report, page_sources, page_verification]
 PAGES[page_idx]()

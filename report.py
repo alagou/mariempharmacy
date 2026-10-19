@@ -96,6 +96,22 @@ def build_pdf(data: dict, scenarios: list[dict], scen_table: pd.DataFrame, recom
                      f"(écart {backtests['attr']['abs_error_points']:.1f} points). {_esc(backtests['attr']['caveat'])}", small),
            Paragraph(f"Contrôle de la formule du décret : le nombre d'officines A est égal au nombre autorisé dans "
                      f"{backtests['cap']['share_equal']:.0%} des {backtests['cap']['n_units']} unités et à ±1 près dans {backtests['cap']['share_within_1']:.0%}.", small)]
+    v = backtests.get("validation")
+    if v:
+        qo, qn, w = v["queue"]["queue_old"], v["queue"]["queue_new"], v["waits"]
+        el += [Paragraph(f"Vérification historique ({_esc(v['generated'])}, python validation.py)", h2),
+               Paragraph(f"File d'attente rejouée depuis 2020 ({qn['n_people']} inscrits, {qn['n_units']} délégations) : score de Brier "
+                         f"{qn['brier']:.3f} (ancien réglage {qo['brier']:.3f}) ; licences prévues {qn['pred_total']:.0f} pour "
+                         f"{qn['obs_total']} retrouvées dans le registre 2026 (ancien réglage {qo['pred_total']:.0f}) ; délégations dans "
+                         f"l'intervalle P10–P90 : {qn['coverage_p10_p90']:.0%} (ancien {qo['coverage_p10_p90']:.0%}).", small),
+               Paragraph(f"Population : projection retenue = projection nationale INS 2026 + {v['population']['k_local']:.0%} de l'écart local "
+                         f"2014-2024 (choisie sur la rétro-validation 2014→2024) ; incertitude {v['population']['growth_sd']:.2%}/an, élargie "
+                         "au-delà de la dernière année de projection officielle.", small),
+               Paragraph(f"Attentes observées : les convoqués actuels attendent depuis {w['convoked_wait']['median']:.0f} ans en médiane ; "
+                         f"rang ≥ 4 en 2020 dans une délégation saturée : {w['saturated_rank4plus']['licensed']} licences sur "
+                         f"{w['saturated_rank4plus']['n']} en 6 ans.", small),
+               Paragraph(f"Convocations : {v['nowcast']['stars_in_free']} sur {v['nowcast']['stars_total']} dans des délégations à place libre "
+                         f"selon la formule ; créations hors formule {v['exceptional']['lam']:.4f} / unité / an.", small)]
     if nearby is not None and len(nearby):
         el += [Paragraph("7. Délégations proches (catégorie A, nouveau dépôt)", h2), tbl(nearby, fs=6.5)]
     el += [Paragraph("8. Principales sources", h2)]
