@@ -1,0 +1,824 @@
+{
+ "generated": "2026-10-19",
+ "params": {
+  "k_local": 0.5,
+  "growth_sd": 0.008420172540428124,
+  "g_nat_1424": 0.008663158013468841,
+  "h_engaged": 0.03041340254446323,
+  "h_all": 0.04164156225816451,
+  "h_sd": 0.004,
+  "lam": 0.0023,
+  "award_delay": 0.5,
+  "max_per_year": 1.0,
+  "b_first_hazard": 0.12703688995771034
+ },
+ "nat_path": {
+  "2025": 0.0006541003555831093,
+  "2026": 0.0025041736227044975,
+  "2027": 0.0024979184013322886,
+  "2028": 0.0033222591362125353,
+  "2029": 0.0033112582781456013,
+  "2030": 0.0033003300330032292,
+  "2031": 0.003636184210526361,
+  "2032": 0.003972069979751192,
+  "2033": 0.00430795126491379,
+  "2034": 0.0046438674944391245,
+  "2035": 0.0046437563684917915,
+  "2036": 0.004643869620282626,
+  "2037": 0.004643801942135761,
+  "2038": 0.004643795523662897,
+  "2039": 0.0046438487822324515,
+  "2040": 0.004643802083218018,
+  "2041": 0.004643814152084147,
+  "2042": 0.004643805141858026,
+  "2043": 0.004643852927872949,
+  "2044": 0.004643800831576561,
+  "2045": 0.004643804688673425,
+  "2046": 0.004643863012651961,
+  "2047": 0.004643821308216722,
+  "2048": 0.004023274459198811,
+  "2049": 0.003402734461019241,
+  "2050": 0.0027821740374522896,
+  "2051": 0.0021616202600200918,
+  "2052": 0.0015410817211127803,
+  "2053": 0.0009205523374111735,
+  "2054": 0.00030001496322751287,
+  "2055": 0.00030001496322751287,
+  "2056": 0.00030001496322751287,
+  "2057": 0.00030001496322751287,
+  "2058": 0.00030001496322751287,
+  "2059": 0.00030001496322751287,
+  "2060": 0.00030001496322751287,
+  "2061": 0.00030001496322751287,
+  "2062": 0.00030001496322751287,
+  "2063": 0.00030001496322751287,
+  "2064": 0.00030001496322751287,
+  "2065": 0.00030001496322751287,
+  "2066": 0.00030001496322751287,
+  "2067": 0.00030001496322751287,
+  "2068": 0.00030001496322751287,
+  "2069": 0.00030001496322751287,
+  "2070": 0.00030001496322751287
+ },
+ "population": {
+  "table": [
+   {
+    "Méthode": "Tendance de l'unité 2004-2014",
+    "Unités": 221,
+    "Biais (pt/an)": 0.04993269890498747,
+    "Écart-type (pt/an)": 1.0652886739951037,
+    "Erreur absolue moy. (pt/an)": 0.794605555234052,
+    "RMSE (pt/an)": 1.06404803036495,
+    "Erreur pop. 2024 médiane (%)": 5.922530967506756
+   },
+   {
+    "Méthode": "Tendance du gouvernorat 2004-2014",
+    "Unités": 221,
+    "Biais (pt/an)": 0.116650803938815,
+    "Écart-type (pt/an)": 0.9465683127939087,
+    "Erreur absolue moy. (pt/an)": 0.7376811080935595,
+    "RMSE (pt/an)": 0.9516011351106024,
+    "Erreur pop. 2024 médiane (%)": 5.734963472097232
+   },
+   {
+    "Méthode": "Tendance nationale 2004-2014",
+    "Unités": 221,
+    "Biais (pt/an)": 0.2385335761749167,
+    "Écart-type (pt/an)": 0.9536169324107651,
+    "Erreur absolue moy. (pt/an)": 0.7652746361715927,
+    "RMSE (pt/an)": 0.9809019601069165,
+    "Erreur pop. 2024 médiane (%)": 5.7323038603183
+   },
+   {
+    "Méthode": "Projection INS 2014 (nationale) seule",
+    "Unités": 221,
+    "Biais (pt/an)": 0.3524508236569816,
+    "Écart-type (pt/an)": 0.9536169324107651,
+    "Erreur absolue moy. (pt/an)": 0.7872531945692586,
+    "RMSE (pt/an)": 1.014638837949386,
+    "Erreur pop. 2024 médiane (%)": 6.009887868080743
+   },
+   {
+    "Méthode": "Projection INS 2014 + 50% de l'écart local",
+    "Unités": 221,
+    "Biais (pt/an)": 0.258150385022017,
+    "Écart-type (pt/an)": 0.7941583102676756,
+    "Erreur absolue moy. (pt/an)": 0.6285667654211916,
+    "RMSE (pt/an)": 0.8333518187509161,
+    "Erreur pop. 2024 médiane (%)": 4.508406177876678
+   },
+   {
+    "Méthode": "Croissance nationale réelle + 50% de l'écart local (référence)",
+    "Unités": 221,
+    "Biais (pt/an)": -0.0216810541312494,
+    "Écart-type (pt/an)": 0.7941583102676756,
+    "Erreur absolue moy. (pt/an)": 0.5917193742585019,
+    "RMSE (pt/an)": 0.7926561049009123,
+    "Erreur pop. 2024 médiane (%)": 4.34539176873614
+   }
+  ],
+  "k_local": 0.5,
+  "oracle_rmse": {
+   "0.0": 0.009542242731059058,
+   "0.25": 0.008184052671816792,
+   "0.5": 0.007926561049009124,
+   "0.75": 0.008866191523097193,
+   "1.0": 0.010691850369173117
+  },
+  "growth_sd": 0.008420172540428124,
+  "local_sd": 0.007941583102676756,
+  "national": {
+   "g_0414": 0.010322299930180856,
+   "g_1424": 0.008663158013468841,
+   "g_ins14_proj": 0.011461472405001505,
+   "census": {
+    "1994": 8785364,
+    "2004": 9910872,
+    "2014": 10982754,
+    "2024": 11972169
+   },
+   "ins14_2024": 12336026.0
+  },
+  "n_units": 221,
+  "zriba": {
+   "r_0414": 0.017162449579028127,
+   "r_1424": 0.012412381830835928
+  },
+  "source": "Somme des 24 gouvernorats (INS, RGPH 2004/2014/2024) ; unités DPM comparables (délégations.csv) ; projection INS base RGPH 2014"
+ },
+ "attrition": {
+  "train": {
+   "n": 2133,
+   "exits": 217.0,
+   "p_period": 0.10173464603844351,
+   "h": 0.02646591309439017,
+   "h_low": 0.02366892989248426,
+   "h_high": 0.029505256565089066
+  },
+  "test": {
+   "Tous": {
+    "n": 2663,
+    "exits": 217.16526610644257,
+    "p_period": 0.08154910480902838,
+    "h": 0.04164156225816451,
+    "h_low": 0.03727494982656199,
+    "h_high": 0.046380031116215914,
+    "predicted_exits_from_train": 139.09216928830767
+   },
+   "Engagés (renouvelés 2020 et 2024)": {
+    "n": 1821,
+    "exits": 109.0812324929972,
+    "p_period": 0.05990183003459484,
+    "h": 0.03041340254446323,
+    "h_low": 0.025970459307152804,
+    "h_high": 0.03541160483804162,
+    "predicted_exits_from_train": 95.11334595343908
+   },
+   "Inscrits après 2020 ou absents en 2020": {
+    "n": 842,
+    "exits": 108.08403361344537,
+    "p_period": 0.12836583564542206,
+    "h": 0.06638650162148041,
+    "h_low": 0.05678885709571513,
+    "h_high": 0.07710361990997883,
+    "predicted_exits_from_train": 43.97882333486859
+   }
+  },
+  "regul_2022": 0.0,
+  "regul_2024": 0.24929971988795518,
+  "h_all": 0.04164156225816451,
+  "h_engaged": 0.03041340254446323,
+  "h_engaged_band": [
+   0.025970459307152804,
+   0.03541160483804162
+  ],
+  "h_old": 0.04247593910686642,
+  "source": "Tableaux DPM des renouvellements 2020, 2022 (non renouvelés), 2024, 2026 ; registre des officines 2026"
+ },
+ "exceptional": {
+  "lam": 0.0022935779816513763,
+  "lam_high90": 0.006179089475722073,
+  "x": 0,
+  "n": 218,
+  "lam_old": 0.015,
+  "note": "Estimation de Jeffreys : (convocations hors formule + 0,5) / unités saturées ; l'ancienne valeur 0,015 venait des créations par imada/commune 2007-2019 (ancien régime)."
+ },
+ "b_first": {
+  "n": 46,
+  "median_wait": 5.10184804928133,
+  "p90_wait": 15.9303901437371,
+  "hazard": 0.12703688995771034,
+  "source": "Listes B reconstituées (tableau des renouvellements 2026), communes < 20 000 hab."
+ },
+ "processing": {
+  "list_to_request": {
+   "n": 164,
+   "p10": 0.056399726214921286,
+   "median": 0.23545516769336072,
+   "p90": 0.7140314852840522
+  },
+  "list_to_licence": {
+   "n": 44,
+   "p10": 0.405201916495551,
+   "median": 0.5941136208076659,
+   "p90": 1.1633127994524304
+  },
+  "registry_recall": 0.6164383561643836,
+  "n_licensed": 73,
+  "source": "Pages DPM « suivi des dossiers des officines » archivées 2018-2024 (data/officine_dossiers.csv)"
+ },
+ "nowcast": {
+  "units": 250,
+  "free_units": 32,
+  "full_units": 218,
+  "stars_total": 26,
+  "stars_in_free": 26,
+  "stars_in_full": 0,
+  "free_units_with_star": 26,
+  "full_units_with_star": 0,
+  "allowed_total": 1505,
+  "existing_total": 1556,
+  "free_slots": 42,
+  "waiting_total": 3607,
+  "table": [
+   {
+    "del_code": "203",
+    "governorate": "ARIANA",
+    "delegation": "KALAAT ANDALOUS",
+    "population_dpm": 32520.0,
+    "zone_threshold": 7000.0,
+    "allowed": 5,
+    "pharmacies_A": 4.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "202",
+    "governorate": "ARIANA",
+    "delegation": "RAOUED",
+    "population_dpm": 141471.0,
+    "zone_threshold": 6000.0,
+    "allowed": 24,
+    "pharmacies_A": 23.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "205",
+    "governorate": "ARIANA",
+    "delegation": "SOUKRA",
+    "population_dpm": 159862.0,
+    "zone_threshold": 6000.0,
+    "allowed": 27,
+    "pharmacies_A": 24.0,
+    "free": 3.0,
+    "stars": 1
+   },
+   {
+    "del_code": "312",
+    "governorate": "BEN AROUS",
+    "delegation": "FOUCHANA",
+    "population_dpm": 100868.0,
+    "zone_threshold": 6000.0,
+    "allowed": 17,
+    "pharmacies_A": 15.0,
+    "free": 2.0,
+    "stars": 1
+   },
+   {
+    "del_code": "311",
+    "governorate": "BEN AROUS",
+    "delegation": "M'HAMDIA",
+    "population_dpm": 84465.0,
+    "zone_threshold": 8000.0,
+    "allowed": 11,
+    "pharmacies_A": 10.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "310",
+    "governorate": "BEN AROUS",
+    "delegation": "MORNAG",
+    "population_dpm": 75170.0,
+    "zone_threshold": 7000.0,
+    "allowed": 11,
+    "pharmacies_A": 9.0,
+    "free": 2.0,
+    "stars": 1
+   },
+   {
+    "del_code": "602",
+    "governorate": "BIZERTE",
+    "delegation": "BIZERTE SUD",
+    "population_dpm": 75669.0,
+    "zone_threshold": 12000.0,
+    "allowed": 6,
+    "pharmacies_A": 5.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "603",
+    "governorate": "BIZERTE",
+    "delegation": "MENZEL JEMIL",
+    "population_dpm": 57010.0,
+    "zone_threshold": 7000.0,
+    "allowed": 8,
+    "pharmacies_A": 7.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "608",
+    "governorate": "BIZERTE",
+    "delegation": "UTIQUE",
+    "population_dpm": 22777.0,
+    "zone_threshold": 14000.0,
+    "allowed": 2,
+    "pharmacies_A": 1.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1807",
+    "governorate": "GAFSA",
+    "delegation": "GAFSA SUD",
+    "population_dpm": 118274.0,
+    "zone_threshold": 6000.0,
+    "allowed": 20,
+    "pharmacies_A": 19.0,
+    "free": 1.0,
+    "stars": 0
+   },
+   {
+    "del_code": "1806",
+    "governorate": "GAFSA",
+    "delegation": "METLAOUI",
+    "population_dpm": 44547.0,
+    "zone_threshold": 8000.0,
+    "allowed": 6,
+    "pharmacies_A": 5.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1110",
+    "governorate": "KAIROUAN",
+    "delegation": "HAJEB ELAYOUN",
+    "population_dpm": 40655.0,
+    "zone_threshold": 16000.0,
+    "allowed": 3,
+    "pharmacies_A": 2.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1103",
+    "governorate": "KAIROUAN",
+    "delegation": "SBIKHA",
+    "population_dpm": 77650.0,
+    "zone_threshold": 14000.0,
+    "allowed": 6,
+    "pharmacies_A": 5.0,
+    "free": 1.0,
+    "stars": 0
+   },
+   {
+    "del_code": "1108",
+    "governorate": "KAIROUAN",
+    "delegation": "SIDI AMOR BOUHAJLA",
+    "population_dpm": 78634.0,
+    "zone_threshold": 12000.0,
+    "allowed": 7,
+    "pharmacies_A": 6.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1201",
+    "governorate": "KASSERINE",
+    "delegation": "KASSERINE NORD",
+    "population_dpm": 74925.0,
+    "zone_threshold": 5000.0,
+    "allowed": 15,
+    "pharmacies_A": 14.0,
+    "free": 1.0,
+    "stars": 0
+   },
+   {
+    "del_code": "1202",
+    "governorate": "KASSERINE",
+    "delegation": "KASSERINE SUD",
+    "population_dpm": 27048.0,
+    "zone_threshold": 16000.0,
+    "allowed": 2,
+    "pharmacies_A": 1.0,
+    "free": 1.0,
+    "stars": 0
+   },
+   {
+    "del_code": "2001",
+    "governorate": "KEBILI",
+    "delegation": "KEBILI NORD",
+    "population_dpm": 36132.0,
+    "zone_threshold": 8000.0,
+    "allowed": 5,
+    "pharmacies_A": 4.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1609",
+    "governorate": "MAHDIA",
+    "delegation": "SOUASSI",
+    "population_dpm": 58683.0,
+    "zone_threshold": 9000.0,
+    "allowed": 7,
+    "pharmacies_A": 6.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "2408",
+    "governorate": "MANOUBA",
+    "delegation": "JEDEIDA",
+    "population_dpm": 52713.0,
+    "zone_threshold": 8000.0,
+    "allowed": 7,
+    "pharmacies_A": 6.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "2205",
+    "governorate": "MEDENINE",
+    "delegation": "HOUMT SOUK",
+    "population_dpm": 89228.0,
+    "zone_threshold": 4000.0,
+    "allowed": 22,
+    "pharmacies_A": 21.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "2206",
+    "governorate": "MEDENINE",
+    "delegation": "JERBA MIDOUN",
+    "population_dpm": 74437.0,
+    "zone_threshold": 4000.0,
+    "allowed": 19,
+    "pharmacies_A": 18.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "2201",
+    "governorate": "MEDENINE",
+    "delegation": "MEDENINE NORD",
+    "population_dpm": 64010.0,
+    "zone_threshold": 4000.0,
+    "allowed": 16,
+    "pharmacies_A": 15.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "407",
+    "governorate": "NABEUL",
+    "delegation": "SLIMENE",
+    "population_dpm": 72220.0,
+    "zone_threshold": 6000.0,
+    "allowed": 12,
+    "pharmacies_A": 11.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1709",
+    "governorate": "SFAX",
+    "delegation": "AGAREB",
+    "population_dpm": 46652.0,
+    "zone_threshold": 10000.0,
+    "allowed": 5,
+    "pharmacies_A": 4.0,
+    "free": 1.0,
+    "stars": 0
+   },
+   {
+    "del_code": "1707",
+    "governorate": "SFAX",
+    "delegation": "EL HANCHA",
+    "population_dpm": 55434.0,
+    "zone_threshold": 12000.0,
+    "allowed": 5,
+    "pharmacies_A": 4.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1705",
+    "governorate": "SFAX",
+    "delegation": "SFAX SUD",
+    "population_dpm": 142716.0,
+    "zone_threshold": 4000.0,
+    "allowed": 36,
+    "pharmacies_A": 33.0,
+    "free": 3.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1304",
+    "governorate": "SIDI BOUZID",
+    "delegation": "JELMA",
+    "population_dpm": 45519.0,
+    "zone_threshold": 10000.0,
+    "allowed": 5,
+    "pharmacies_A": 4.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1302",
+    "governorate": "SIDI BOUZID",
+    "delegation": "SIDI BOUZID EST",
+    "population_dpm": 57961.0,
+    "zone_threshold": 12000.0,
+    "allowed": 5,
+    "pharmacies_A": 4.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "1414",
+    "governorate": "SOUSSE",
+    "delegation": "BOUFICHA",
+    "population_dpm": 36094.0,
+    "zone_threshold": 9000.0,
+    "allowed": 4,
+    "pharmacies_A": 3.0,
+    "free": 1.0,
+    "stars": 0
+   },
+   {
+    "del_code": "1406",
+    "governorate": "SOUSSE",
+    "delegation": "HAMMAM SOUSSE",
+    "population_dpm": 48899.0,
+    "zone_threshold": 3300.0,
+    "allowed": 15,
+    "pharmacies_A": 14.0,
+    "free": 1.0,
+    "stars": 1
+   },
+   {
+    "del_code": "120",
+    "governorate": "TUNIS",
+    "delegation": "LA MARSA",
+    "population_dpm": 113133.0,
+    "zone_threshold": 3300.0,
+    "allowed": 34,
+    "pharmacies_A": 29.0,
+    "free": 5.0,
+    "stars": 1
+   },
+   {
+    "del_code": "501",
+    "governorate": "ZAGHOUAN",
+    "delegation": "ZAGHOUAN",
+    "population_dpm": 43813.0,
+    "zone_threshold": 5000.0,
+    "allowed": 9,
+    "pharmacies_A": 8.0,
+    "free": 1.0,
+    "stars": 1
+   }
+  ]
+ },
+ "waits": {
+  "convoked_reg_year": {
+   "n": 29,
+   "p10": 2000.6301163586586,
+   "median": 2004.5694729637235,
+   "p90": 2009.060232717317
+  },
+  "convoked_wait": {
+   "n": 29,
+   "p10": 16.939767282683032,
+   "median": 21.430527036276544,
+   "p90": 25.36988364134149
+  },
+  "head_reg_year": {
+   "n": 259,
+   "p10": 2001.8958247775497,
+   "median": 2007.0273785078714,
+   "p90": 2019.2175222450378
+  },
+  "head_wait": {
+   "n": 259,
+   "p10": 6.782477754962293,
+   "median": 18.97262149212861,
+   "p90": 24.104175222450387
+  },
+  "licensed_2020_2026": {
+   "n": 128,
+   "reg_year": {
+    "n": 128,
+    "p10": 1997.7,
+    "median": 2004.0,
+    "p90": 2011.3
+   },
+   "rank_2020": {
+    "n": 128,
+    "p10": 1.0,
+    "median": 2.0,
+    "p90": 6.299999999999997
+   }
+  },
+  "saturated_rank4plus": {
+   "n": 1535,
+   "licensed": 25
+  },
+  "source": "Liste d'attente DPM arrêtée au 31/12/2025 ; tableau des renouvellements 2020 ; registre des officines 2026"
+ },
+ "process_grid": [
+  {
+   "Délai moyen (ans)": 0.5,
+   "Licences / unité / an": 1,
+   "Brier": 0.03737506919731119,
+   "Prévu": 168.72,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8584474885844748
+  },
+  {
+   "Délai moyen (ans)": 0.5,
+   "Licences / unité / an": 2,
+   "Brier": 0.04047182680901542,
+   "Prévu": 178.37333333333333,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8584474885844748
+  },
+  {
+   "Délai moyen (ans)": 0.5,
+   "Licences / unité / an": "illimité",
+   "Brier": 0.04083856267299328,
+   "Prévu": 178.95333333333332,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8584474885844748
+  },
+  {
+   "Délai moyen (ans)": 1.0,
+   "Licences / unité / an": 1,
+   "Brier": 0.03511916271253459,
+   "Prévu": 159.75,
+   "Observé": 107,
+   "Couverture P10-P90": 0.867579908675799
+  },
+  {
+   "Délai moyen (ans)": 1.0,
+   "Licences / unité / an": 2,
+   "Brier": 0.03797027975484381,
+   "Prévu": 169.85666666666668,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8584474885844748
+  },
+  {
+   "Délai moyen (ans)": 1.0,
+   "Licences / unité / an": "illimité",
+   "Brier": 0.03848846381969157,
+   "Prévu": 171.02666666666667,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8584474885844748
+  },
+  {
+   "Délai moyen (ans)": 1.5,
+   "Licences / unité / an": 1,
+   "Brier": 0.033236951364175565,
+   "Prévu": 151.23333333333335,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8721461187214612
+  },
+  {
+   "Délai moyen (ans)": 1.5,
+   "Licences / unité / an": 2,
+   "Brier": 0.03595930209569,
+   "Prévu": 161.76,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8584474885844748
+  },
+  {
+   "Délai moyen (ans)": 1.5,
+   "Licences / unité / an": "illimité",
+   "Brier": 0.036622029458283904,
+   "Prévu": 163.48333333333332,
+   "Observé": 107,
+   "Couverture P10-P90": 0.8584474885844748
+  }
+ ],
+ "queue": {
+  "queue_old": {
+   "brier": 0.05527805950968762,
+   "brier_climatology": 0.04533230803814541,
+   "pred_total": 237.13666666666666,
+   "obs_total": 107,
+   "coverage_p10_p90": 0.6575342465753424,
+   "bias_per_unit": 0.5942313546423136,
+   "mae_per_unit": 0.6855251141552511,
+   "calibration": [
+    {
+     "bin": "< 5 %",
+     "personnes": 1709,
+     "prob_moyenne": 0.0033021259996099082,
+     "taux_observe": 0.0076067875950848445
+    },
+    {
+     "bin": "5–20 %",
+     "personnes": 212,
+     "prob_moyenne": 0.0904559748427673,
+     "taux_observe": 0.02830188679245283
+    },
+    {
+     "bin": "20–50 %",
+     "personnes": 93,
+     "prob_moyenne": 0.2934050179211469,
+     "taux_observe": 0.043010752688172046
+    },
+    {
+     "bin": "50–80 %",
+     "personnes": 167,
+     "prob_moyenne": 0.7578443113772455,
+     "taux_observe": 0.2934131736526946
+    },
+    {
+     "bin": "> 80 %",
+     "personnes": 67,
+     "prob_moyenne": 0.8726865671641791,
+     "taux_observe": 0.5223880597014925
+    }
+   ],
+   "n_people": 2248,
+   "n_units": 219,
+   "settings": {
+    "mode": "census",
+    "h": 0.0425,
+    "h_sd": 0.01,
+    "lam": 0.015,
+    "pending_delay": 1.0,
+    "award_delay": 0.0
+   }
+  },
+  "queue_new": {
+   "brier": 0.03737506919731119,
+   "brier_climatology": 0.04533230803814541,
+   "pred_total": 168.72,
+   "obs_total": 107,
+   "coverage_p10_p90": 0.8584474885844748,
+   "bias_per_unit": 0.2818264840182648,
+   "mae_per_unit": 0.39181126331811267,
+   "calibration": [
+    {
+     "bin": "< 5 %",
+     "personnes": 1933,
+     "prob_moyenne": 0.0026659768925676843,
+     "taux_observe": 0.007759958613554061
+    },
+    {
+     "bin": "5–20 %",
+     "personnes": 100,
+     "prob_moyenne": 0.11066666666666666,
+     "taux_observe": 0.05
+    },
+    {
+     "bin": "20–50 %",
+     "personnes": 59,
+     "prob_moyenne": 0.34163841807909606,
+     "taux_observe": 0.15254237288135594
+    },
+    {
+     "bin": "50–80 %",
+     "personnes": 41,
+     "prob_moyenne": 0.6741463414634147,
+     "taux_observe": 0.24390243902439024
+    },
+    {
+     "bin": "> 80 %",
+     "personnes": 115,
+     "prob_moyenne": 0.910463768115942,
+     "taux_observe": 0.591304347826087
+    }
+   ],
+   "n_people": 2248,
+   "n_units": 219,
+   "settings": {
+    "mode": "estimates",
+    "h": 0.04164156225816451,
+    "h_sd": 0.004,
+    "lam": 0.0023,
+    "pending_delay": 0.5,
+    "award_delay": 0.5,
+    "growth_sd": 0.008420172540428124,
+    "max_per_year": 1.0
+   }
+  }
+ }
+}
