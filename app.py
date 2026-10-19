@@ -169,6 +169,21 @@ def badge(text: str, kind: str = "warn") -> str:
     return f"<span class='badge {kind}'>{text}</span>"
 
 
+def pct(p: float) -> str:
+    return f"{p:.0%}".replace("%", " %")
+
+
+def year_txt(s: dict, short: bool = False) -> str:
+    sm = s["summary"]
+    return str(sm["q50"]) if sm["q50"] else (f"> {sm['horizon']}" if short else f"après {sm['horizon']}")
+
+
+def span_txt(s: dict) -> str:
+    sm = s["summary"]
+    lo, hi = (str(sm[k]) if sm[k] else f"après {sm['horizon']}" for k in ("q10", "q90"))
+    return lo if lo == hi else f"{lo} – {hi}"
+
+
 def default_target_del(cmp: pd.DataFrame) -> str | None:
     c = cmp[cmp.delegation != PROFILE["delegation"]]
     return None if c.empty else c.sort_values(["sim_median", "position_used", "distance_km"]).iloc[0].del_code
@@ -179,6 +194,51 @@ def b_candidates() -> pd.DataFrame:
     return c.sort_values(["waiting_B", "distance_km"])
 
 
+def synthesis(scen: list[dict], cmp: pd.DataFrame) -> None:
+    """Compact top-of-page summary; same scenarios, ranking and 'faster' rule as an.recommendation."""
+    a = next(s for s in scen if s["code"] == "A")
+    alts = sorted((s for s in scen if s["legally_feasible"] and s["code"] != "A"), key=lambda s: s["rank_overall"])
+    h = a["summary"]["horizon"]
+    with st.container(border=True):
+        st.markdown("**Synthèse** <span class='small'>· année médiane d'autorisation (P10 – P90), probabilité sous 10 ans, "
+                    "risque juridique · confiance</span>", unsafe_allow_html=True)
+        for col, s in zip(st.columns(1 + len(alts)), [a] + alts):
+            tag = {"A": " (rester)", "D0": " sans officine B", "D1": " avec officine B"}.get(s["code"], "")
+            col.metric(f"{s['code']} · {(s['unit'] or PROFILE['delegation']).title()} "
+                       f"{'B' if 'catégorie B' in s['title'] else 'A'}{tag}", year_txt(s, short=True),
+                       help=f"{s['title']} · classement global : {s['rank_overall']} · {s['legal_note']}")
+            col.caption(f"{span_txt(s)} · ≤ 10 ans : {s['summary']['band10']}  \n"
+                        f"Risque {s['legal_risk'].lower()} · confiance {s['confidence'].lower()}")
+        faster = [s for s in alts if s["summary"]["median_or_later"] + 5 <= a["summary"]["median_or_later"]]
+        txt = [f"Rester à Zriba (rang {a['position']}/{a['list_size']}) mène à une autorisation médiane {year_txt(a)} "
+               f"(P10 – P90 : {span_txt(a)}, {pct(a['summary']['p_horizon'])} de chances d'ici {h}) avec un risque juridique "
+               f"{a['legal_risk'].lower()}."]
+        best = min(faster, key=lambda s: s["summary"]["median_or_later"]) if faster else None
+        twin = next((s for s in alts if best and s is not best and s["code"][0] == best["code"][0] == "D"), None)
+        if best:
+            txt.append(f"L'option la plus rapide, « {best['title']} », donnerait {year_txt(best)} ({span_txt(best)}, "
+                       f"{best['summary']['band10']} sous 10 ans), au prix d'un risque {best['legal_risk'].lower()} "
+                       f"(perte définitive de l'inscription du {pd.Timestamp(PROFILE['date_inscription']):%d/%m/%Y}) "
+                       f"et d'une confiance {best['confidence'].lower()}"
+                       + (f" ; dans l'autre cas ({twin['title'].split('(')[-1].rstrip(')')}), elle recule à {year_txt(twin)} "
+                          f"({pct(twin['summary']['p_horizon'])} d'ici {h})" if twin else "") + ".")
+        rest = [s for s in alts if s is not best and s is not twin]
+        new = cmp[(cmp.delegation != PROFILE["delegation"]) & (cmp.sim_median <= h)]
+        txt.append(("Les autres options restent tardives (" + " ; ".join(
+            f"{s['code']} : {year_txt(s)}, {pct(s['summary']['p_horizon'])} d'ici {h}" for s in rest) + ") et " if rest else "")
+            + (f"aucune des {len(cmp) - 1} autres délégations à ≤ {radius} km n'offre une médiane avant {h + 1} pour un nouveau dépôt."
+               if new.empty else f"{len(new)} des {len(cmp) - 1} autres délégations à ≤ {radius} km offrent une médiane avant "
+                                 f"{h + 1} pour un nouveau dépôt (meilleure : {new.iloc[0].delegation.title()}, {int(new.iloc[0].sim_median)})."))
+        if best:
+            check = f"l'absence d'officine de nuit à {best['unit']} et " if best["code"][0] in "CD" else ""
+            txt.append(f"**Recommandation** : conserver l'inscription de Zriba et obtenir d'abord de la DPM une confirmation écrite de "
+                       f"{check}de la position sur la liste visée ; ne changer que si l'hypothèse favorable est confirmée.")
+        else:
+            txt.append("**Recommandation** : rester à Zriba – aucun changement n'offre un gain assez net et fiable pour justifier "
+                       "la perte de l'ancienneté.")
+        st.markdown(" ".join(txt))
+
+
 # ---------------------------------------------------------------------------
 # Pages
 # ---------------------------------------------------------------------------
@@ -186,6 +246,9 @@ def page_overview():
     st.title(L["title"])
     st.markdown(f"**{PROFILE['name']}** · Zaghouan › Zriba · catégorie A (jour) "
                 + badge("Inscription vérifiée", "ok") + badge("Données locales", "ok"), unsafe_allow_html=True)
+    cmp = get_compare(KEY, radius, STUPLE)
+    scen = get_scenarios(KEY, STUPLE, default_target_del(cmp), _default_commune(), None, 1)
+    synthesis(scen, cmp)
     c = st.columns(5)
     c[0].metric(L["rank"], f"{PROFILE['current_rank']} / {PROFILE['list_size']}")
     c[1].metric(L["registered"], "26/07/2017")
@@ -193,8 +256,6 @@ def page_overview():
     c[3].metric("Officines A : existantes / autorisées", f"{int(HOME.pharmacies_A)} / {int(HOME.allowed_A)}")
     c[4].metric("Population requise pour la 4e licence", fmt(HOME.next_pop_A))
 
-    scen = get_scenarios(KEY, STUPLE, default_target_del(get_compare(KEY, radius, STUPLE)),
-                         _default_commune(), None, 1)
     a = next(s for s in scen if s["code"] == "A")
     st.subheader("En bref")
     yc = HOME.year_next_A_central
