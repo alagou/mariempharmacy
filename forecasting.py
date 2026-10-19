@@ -103,18 +103,34 @@ def project_population(p0: float, rates: GrowthRates, start: int = BASE_YEAR, en
     return out
 
 
+def year_reaching_path(p0: float, path, target: float, base_year: int = BASE_YEAR, horizon: int = 2060) -> int | None:
+    """First year whose official population at 1 January reaches `target` (pop(1/1/base+1) = p0,
+    path[k] = growth during the year ending 1/1/(base+1+k), as in QueueParams.growth_path)."""
+    if p0 >= target:
+        return base_year
+    pop = p0
+    for k, g in enumerate(path[1:], start=1):
+        y = base_year + 1 + k
+        if y > horizon:
+            break
+        pop *= 1 + g
+        if pop >= target:
+            return y
+    return None
+
+
 def year_reaching(p0: float, rate: float, target: float, start: int = BASE_YEAR,
                   mode: str = "census", horizon: int = 2060) -> int | None:
     """First year in which the *official* population reaches `target`.
 
-    mode='annual': official figure updated every year (INS estimates).
+    mode='annual' / 'estimates': official figure updated every year (INS estimates).
     mode='census': official figure only changes at censuses (2034, 2044, ...).
     """
     if p0 >= target:
         return start
     if rate <= 0:
         return None
-    if mode == "annual":
+    if mode in ("annual", "estimates"):
         y = start + math.log(target / p0) / math.log(1 + rate)
         y = math.ceil(y)
         return y if y <= horizon else None
@@ -229,26 +245,64 @@ def backtest_capacity(delegations: pd.DataFrame) -> dict:
 # ---------------------------------------------------------------------------
 # Queue simulation (Monte Carlo)
 # ---------------------------------------------------------------------------
+# DPM list revisions 2017-2025 (data/dpm_list_updates.csv): 11 lists, at least one per year except 2024
+# (waiting for RGPH 2024), each based on the latest INS estimate at 1 January of the same or previous year.
+FIRST_LIST_REVISION = 2026
+REVISION_STEP = 1
+
+
 @dataclass
 class QueueParams:
     position: int                 # 1 = first in line
     existing: int                 # licences already granted in the unit (same category)
-    p0: float                     # official population (base year)
+    p0: float                     # official population at the base date (RGPH 2024 ≈ 1/1/2025)
     threshold: float              # numerus clausus N
     rule: str = "A"               # "A" (semi-integer) or "B" (incomplete tranche)
-    growth_mean: float = 0.01
-    growth_sd: float = 0.003
+    growth_mean: float = 0.01     # constant central growth (used when growth_path is None)
+    growth_sd: float = 0.003      # sd of the per-simulation growth shift (calibrated on the 2014→2024 backtest)
+    growth_path: tuple | None = None  # central annual growth for each year from base_year (index 0)
     h_mean: float = 0.04          # annual attrition of people ahead
     h_sd: float = 0.01
     lam_exceptional: float = 0.01 # extra licences per year (art. 6, closures...)
     first_licence_now: bool = False  # e.g. commune without any category-B pharmacy
-    pop_mode: str = "census"      # "census" or "annual"
-    admin_lag: int = 2            # years between an official population update and the licence
+    pop_mode: str = "estimates"   # "estimates" (DPM practice since 2017), "census" or "annual"
+    admin_lag: int = 2            # census/annual modes: years between the population reference and the licence
+    award_delay: float = 0.5      # estimates mode: mean extra years (Poisson) after the year following a list revision
     open_slot_delay_extra: float = 1.0  # mean extra years (Poisson) to process an already-open slot
+    max_per_year: float = np.inf  # licences processed per unit and year (DPM convokes one candidate at a time)
+    pending_hazard: float | None = None  # annual probability that an already-open slot is awarded (replaces the Poisson delay)
+    revision_years: tuple | None = None  # estimates mode: list revision years (population at 1 January)
+    base_year: int = BASE_YEAR
     start_year: int = 2026
     horizon: int = DEFAULT_HORIZON
     n_sims: int = 4000
     seed: int = 42
+
+
+def population_paths(p: QueueParams, rng: np.random.Generator, last_year: int) -> tuple[np.ndarray, np.ndarray]:
+    """Simulated official population at 1 January of base_year+1 … last_year (one row per simulation)."""
+    yrs = np.arange(p.base_year + 1, last_year + 1)
+    k = len(yrs)
+    if p.growth_path is not None:
+        path = np.asarray(p.growth_path, dtype=float)
+        path = np.concatenate([path, np.full(max(k - len(path), 0), path[-1] if len(path) else p.growth_mean)])[:k]
+    else:
+        path = np.full(k, p.growth_mean)
+    shift = rng.normal(0.0, p.growth_sd, p.n_sims)[:, None]
+    g = np.maximum(path[None, :] + shift, -0.05)
+    pop = p.p0 * np.cumprod(1 + g, axis=1) / (1 + g[:, :1])   # pop at 1/1/base+1 = p0
+    return yrs, pop
+
+
+def _update_events(p: QueueParams) -> list[tuple[int, int]]:
+    """(year the new licences become available, reference year of the official population)."""
+    if p.pop_mode == "estimates":
+        revs = p.revision_years or tuple(range(FIRST_LIST_REVISION, p.horizon + 1, REVISION_STEP))
+        return [(r + 1, r) for r in revs if r + 1 <= p.horizon]
+    # population at 1 January of ref; a census held in year c is taken as the population of 1/1/(c+1)
+    if p.pop_mode == "annual":
+        return [(y, y - p.admin_lag + 1) for y in range(p.start_year, p.horizon + 1) if y - p.admin_lag >= p.base_year + 1]
+    return [(c + p.admin_lag, c + 1) for c in NEXT_CENSUSES if c + p.admin_lag <= p.horizon]
 
 
 def simulate_queue(p: QueueParams) -> np.ndarray:
@@ -258,7 +312,6 @@ def simulate_queue(p: QueueParams) -> np.ndarray:
     years = np.arange(p.start_year, p.horizon + 1)
     ahead = np.full(n, max(p.position - 1, 0), dtype=float)
     result = np.full(n, np.inf)
-    g = rng.normal(p.growth_mean, p.growth_sd, n)
     a_h, b_h = _beta_params(p.h_mean, p.h_sd)
     h = rng.beta(a_h, b_h, n) if p.h_mean > 0 else np.zeros(n)
     granted = np.full(n, float(p.existing))
@@ -269,41 +322,100 @@ def simulate_queue(p: QueueParams) -> np.ndarray:
     else:
         def vec_allowed(pop):
             return np.ceil(pop / p.threshold)
+    pyears, pop = population_paths(p, rng, p.horizon + 2)
     # licences already available today (population allows more than existing)
     today_allowed = rule_fn(p.p0, p.threshold)
-    pending = np.full(n, float(max(today_allowed - p.existing, 0)))
+    pending = float(max(today_allowed - p.existing, 0))
+    pending = np.full(n, pending)
     if p.first_licence_now and p.existing == 0:
         pending = np.maximum(pending, 1.0)
+    granted += pending
+    # schedule[sim, year index] = licences becoming available that year
+    schedule = np.zeros((n, len(years) + 60))
     # open slots: convocation, 30+30 days for the file, CNOPT opinion, ministerial decision
-    pending_year = p.start_year + 1 + rng.poisson(p.open_slot_delay_extra, n)
-    for y in years:
+    if p.pending_hazard:
+        pend_idx = np.minimum(rng.geometric(p.pending_hazard, n) - 1, schedule.shape[1] - 1)
+    else:
+        pend_idx = np.minimum(rng.poisson(p.open_slot_delay_extra, n), schedule.shape[1] - 1)
+    np.add.at(schedule, (np.arange(n), pend_idx), pending)
+    events = {avail: ref for avail, ref in _update_events(p) if avail >= p.start_year}
+    backlog = np.zeros(n)
+    for i, y in enumerate(years):
         active = np.isinf(result)
         # attrition of people ahead (non-renewal, withdrawal, death, other list...)
         if p.h_mean > 0:
             leave = rng.binomial(ahead.astype(int), np.clip(h, 0, 1))
             ahead = np.where(active, ahead - leave, ahead)
-        # new licences this year
-        slots = np.where(pending_year == y, pending, 0.0)
-        eff_year = y - p.admin_lag
-        if p.pop_mode == "annual":
-            update = eff_year >= BASE_YEAR + 1
-        else:
-            update = eff_year in NEXT_CENSUSES
-        if update:
-            pop = p.p0 * (1 + g) ** (eff_year - BASE_YEAR)
-            allowed = vec_allowed(pop)
-            new = np.maximum(allowed - (granted + pending), 0)
-            slots += new
-            granted += new
+        if y in events:
+            j = np.searchsorted(pyears, events[y])
+            if j < len(pyears):
+                new = np.maximum(vec_allowed(pop[:, j]) - granted, 0)
+                granted += new
+                d = rng.poisson(p.award_delay, n) if p.pop_mode == "estimates" else np.zeros(n, dtype=int)
+                np.add.at(schedule, (np.arange(n), np.minimum(i + d, schedule.shape[1] - 1)), new)
+        backlog += schedule[:, i]
         if p.lam_exceptional > 0:
             exc = rng.poisson(p.lam_exceptional, n)
-            slots += exc
+            backlog += exc
             granted += exc  # art. 7: counted within the numerus clausus
+        slots = np.minimum(backlog, p.max_per_year)
         # allocate slots in list order
         got = active & (slots > ahead)
         result[got] = y
+        backlog -= np.where(active, np.minimum(slots, ahead + 1), slots)
         ahead = np.where(active & ~got, np.maximum(ahead - slots, 0), ahead)
     return result
+
+
+def simulate_positions(n_queue: int, existing: int, threshold: float, pop_by_year: dict, years: range,
+                       events: list[tuple[int, int]], h_mean: float, h_sd: float, lam: float,
+                       pending_delay: float, award_delay: float, growth_sd: float = 0.0,
+                       n_sims: int = 400, seed: int = 0, h_by_pos: np.ndarray | None = None,
+                       max_per_year: float = np.inf) -> np.ndarray:
+    """Backtest engine: authorisation year of every queue position (sims × n_queue; inf = none).
+
+    pop_by_year: official population per reference year (deterministic central values; an optional
+    per-simulation multiplicative error with sd growth_sd·(years since first reference) is applied).
+    max_per_year: licences actually processed per unit and year (open slots beyond it wait).
+    """
+    rng = np.random.default_rng(seed)
+    yrs = list(years)
+    res = np.full((n_sims, n_queue), np.inf)
+    alive = np.ones((n_sims, n_queue), dtype=bool)
+    a_h, b_h = _beta_params(max(h_mean, 1e-4), max(h_sd, 1e-4))
+    hs = rng.beta(a_h, b_h, n_sims)[:, None]
+    if h_by_pos is not None:
+        hs = np.clip(hs / max(h_mean, 1e-4) * h_by_pos[None, :], 0, 1)
+    sched = np.zeros((n_sims, len(yrs) + 30))
+    ref0 = min(pop_by_year)
+    err = rng.normal(0, growth_sd, n_sims)
+    granted = np.full(n_sims, float(existing))
+    allowed0 = math.floor(pop_by_year[ref0] / threshold + 0.5)
+    pend = max(allowed0 - existing, 0)
+    granted += pend
+    idx = np.minimum(rng.poisson(pending_delay, n_sims), sched.shape[1] - 1)
+    np.add.at(sched, (np.arange(n_sims), idx), pend)
+    for avail, ref in events:
+        if ref not in pop_by_year or avail < yrs[0]:
+            continue
+        pop = pop_by_year[ref] * np.exp(err * (ref - ref0))
+        new = np.maximum(np.floor(pop / threshold + 0.5) - granted, 0)
+        granted += new
+        idx = np.minimum(avail - yrs[0] + rng.poisson(award_delay, n_sims), sched.shape[1] - 1)
+        np.add.at(sched, (np.arange(n_sims), idx), new)
+    backlog = np.zeros(n_sims)
+    for i, y in enumerate(yrs):
+        waiting = alive & np.isinf(res)
+        alive &= ~(waiting & (rng.random((n_sims, n_queue)) < hs))
+        backlog += sched[:, i] + (rng.poisson(lam, n_sims) if lam > 0 else 0)
+        slots = np.minimum(backlog, max_per_year)
+        waiting = alive & np.isinf(res)
+        order = np.cumsum(waiting, axis=1)
+        got = waiting & (order <= slots[:, None])
+        res[got] = y
+        backlog -= np.minimum(slots, waiting.sum(axis=1))
+    res[~alive & np.isinf(res)] = -1   # left the list before being authorised
+    return res
 
 
 def _beta_params(mean: float, sd: float) -> tuple[float, float]:
