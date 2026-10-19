@@ -1,6 +1,7 @@
-"""PDF report (reportlab). Written locally to reports/ – never uploaded."""
+"""PDF report (reportlab), built in memory and returned as bytes (downloaded from the dashboard)."""
 from __future__ import annotations
 
+import io
 from datetime import datetime
 from pathlib import Path
 
@@ -15,7 +16,6 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 ROOT = Path(__file__).resolve().parent
-REPORTS = ROOT / "reports"
 
 
 def _fonts() -> tuple[str, str]:
@@ -33,8 +33,7 @@ def _esc(s) -> str:
 
 
 def build_pdf(data: dict, scenarios: list[dict], scen_table: pd.DataFrame, recommendation: str,
-              settings: dict, metrics: dict, attrition: dict, backtests: dict, nearby: pd.DataFrame | None = None) -> Path:
-    REPORTS.mkdir(exist_ok=True)
+              settings: dict, metrics: dict, attrition: dict, backtests: dict, nearby: pd.DataFrame | None = None) -> bytes:
     font, bold = _fonts()
     ss = getSampleStyleSheet()
     body = ParagraphStyle("b", parent=ss["Normal"], fontName=font, fontSize=9, leading=12, alignment=TA_LEFT)
@@ -44,8 +43,8 @@ def build_pdf(data: dict, scenarios: list[dict], scen_table: pd.DataFrame, recom
     warn = ParagraphStyle("w", parent=body, textColor=colors.HexColor("#8a1c1c"))
     prof = data["profile"]
     now = datetime.now()
-    path = REPORTS / f"rapport_autorisation_officine_{now:%Y%m%d_%H%M}.pdf"
-    doc = SimpleDocTemplate(str(path), pagesize=landscape(A4), leftMargin=1.4 * cm, rightMargin=1.4 * cm,
+    buf = io.BytesIO()
+    doc = SimpleDocTemplate(buf, pagesize=landscape(A4), leftMargin=1.4 * cm, rightMargin=1.4 * cm,
                             topMargin=1.2 * cm, bottomMargin=1.2 * cm, title="Prévision d'autorisation d'officine",
                             author="Outil local")
 
@@ -125,4 +124,4 @@ def build_pdf(data: dict, scenarios: list[dict], scen_table: pd.DataFrame, recom
                      "explicites et sur les données publiques disponibles ; elles ne constituent pas un avis juridique. Toute décision doit être "
                      "précédée d'une confirmation écrite de la Direction de la Pharmacie et du Médicament.", warn)]
     doc.build(el)
-    return path
+    return buf.getvalue()

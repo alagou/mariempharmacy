@@ -109,6 +109,12 @@ def get_alternatives(key: float, settings: tuple) -> pd.DataFrame:
     return an.all_alternatives(get_data(key), an.SimSettings(*settings))
 
 
+@st.cache_data(show_spinner="Rédaction du PDF explicatif…", max_entries=200)
+def get_explain_pdf(key: float, settings: tuple, spec_json: str, meta_json: str) -> bytes:
+    import explain
+    return explain.build_pdf(get_data(key), an.SimSettings(*settings), json.loads(spec_json), json.loads(meta_json))
+
+
 KEY = data_key()
 D = get_data(KEY)
 ATT = get_attrition(KEY)
@@ -252,6 +258,48 @@ def synthesis(scen: list[dict], cmp: pd.DataFrame) -> None:
         st.markdown(" ".join(txt))
 
 
+def _pdf_name(label: str) -> str:
+    return "explication_" + "_".join(an._norm(w).lower() for w in label.split() if an._norm(w))[:60] + ".pdf"
+
+
+def explain_button(options: list[tuple[str, str, dict, dict]], key: str, selected: str | None = None) -> None:
+    """Option picker + primary button → detailed PDF built in memory (cached per option and settings) → download.
+
+    options: (stable id, label, analysis.option_spec, table labels); selected: id of the row clicked in the table."""
+    if not options:
+        st.info("Aucune option affichée : élargir les filtres pour choisir une option à expliquer.")
+        return
+    by = {o[0]: o for o in options}
+    sk, last = f"{key}_sel", f"{key}_last_click"
+    if selected in by and st.session_state.get(last) != selected:
+        st.session_state[sk] = selected
+    st.session_state[last] = selected
+    if st.session_state.get(sk) not in by:
+        st.session_state[sk] = options[0][0]
+    with st.container(border=True):
+        c1, c2 = st.columns([3, 2], vertical_alignment="bottom")
+        sel = c1.selectbox("Option à expliquer – cliquer une ligne du tableau ou choisir ici", list(by),
+                           format_func=lambda i: by[i][1], key=sk)
+        go_ = c2.button("📄 Générer le PDF explicatif de l'option sélectionnée", type="primary", key=f"{key}_go", width="stretch")
+        _, label, spec, meta = by[sel]
+        st.caption(f"Option sélectionnée : **{label}**. Le PDF (2 à 3 pages) détaille population, seuils légaux, historique de la "
+                   "liste, séquence année par année et calcul des probabilités, avec les mêmes paramètres que l'écran.")
+        pk, sig = f"{key}_pdf", (sel, KEY, STUPLE)
+        if go_:
+            st.session_state[pk] = (sig, get_explain_pdf(KEY, STUPLE, json.dumps(spec, sort_keys=True),
+                                                         json.dumps(meta, sort_keys=True, default=str)))
+        got = st.session_state.get(pk)
+        if got and got[0] == sig:
+            st.download_button(f"⬇️ Télécharger le PDF – {label}", got[1], _pdf_name(label), "application/pdf",
+                               type="primary", key=f"{key}_dl", on_click="ignore")
+
+
+def scenario_options(scen: list[dict]) -> list[tuple[str, str, dict, dict]]:
+    return [(f"scen_{s['code']}", f"{s['code']} – {s['title']}", s["spec"],
+             {"Juridiquement possible": bool(s["legally_feasible"]), "Risque juridique": s["legal_risk"], "Confiance": s["confidence"]})
+            for s in scen if s.get("spec")]
+
+
 # ---------------------------------------------------------------------------
 # Pages
 # ---------------------------------------------------------------------------
@@ -262,6 +310,8 @@ def page_overview():
     cmp = get_compare(KEY, radius, STUPLE)
     scen = get_scenarios(KEY, STUPLE, default_target_del(cmp), _default_commune(), None, 1)
     synthesis(scen, cmp)
+    with st.expander("📄 Comprendre un scénario de la synthèse : PDF explicatif détaillé"):
+        explain_button(scenario_options(scen), "ov")
     c = st.columns(5)
     c[0].metric(L["rank"], f"{PROFILE['current_rank']} / {PROFILE['list_size']}")
     c[1].metric(L["registered"], "26/07/2017")
@@ -597,6 +647,7 @@ def page_simulator():
     scen = get_scenarios(KEY, STUPLE, tgt, tuple(ck.split("|")), None if bt == "unk" else int(bt), int(bz))
     st.subheader("Résultats")
     st.dataframe(an.scenario_table(scen), hide_index=True, width="stretch")
+    explain_button(scenario_options(scen), "sim")
     st.caption("Probabilités par classes, car les données ne justifient pas une précision supérieure. « Après X » = aucune autorisation "
                "simulée avant l'horizon dans la majorité des cas. Classement global = probabilité à 10 ans × risque juridique (×0,5 si perte "
                "de l'ancienneté) × confiance (×0,7 si données faibles) – indicatif.")
@@ -653,7 +704,7 @@ def page_regulations():
 
 def page_report():
     st.title(L["nav"][8])
-    st.write("Génère un rapport PDF personnel, enregistré localement dans le dossier `reports/`.")
+    st.write("Génère un rapport PDF personnel, construit en mémoire et proposé au téléchargement (rien n'est enregistré sur le serveur).")
     scen = st.session_state.get("last_scen") or get_scenarios(KEY, STUPLE, default_target_del(get_compare(KEY, radius, STUPLE)),
                                                               _default_commune(), None, 1)
     st.caption("Scénarios utilisés : ceux du dernier passage dans le simulateur (sinon les choix par défaut).")
@@ -682,10 +733,13 @@ def page_report():
                     "Délai administratif (modes recensement/annuel)": f"{lag} an(s)",
                     "Horizon": f"{horizon} (projection INS officielle jusqu'en {fc.OFFICIAL_PROJECTION_END}, prolongée au-delà)",
                     "Seuil catégorie B": fmt(night), "Rayon": f"{radius} km", "Simulations": str(SETTINGS.n_sims)}
-        path = report.build_pdf(D, scen, an.scenario_table(scen), an.recommendation(scen), settings, metrics, ATT["A"],
-                                {"attr": ATT["bt_attr"], "cap": ATT["bt_cap"], "validation": VAL}, near)
-        st.success(f"Rapport enregistré : {path.relative_to(ROOT)}")
-        st.download_button("Télécharger le PDF", path.read_bytes(), path.name, "application/pdf")
+        pdf = report.build_pdf(D, scen, an.scenario_table(scen), an.recommendation(scen), settings, metrics, ATT["A"],
+                               {"attr": ATT["bt_attr"], "cap": ATT["bt_cap"], "validation": VAL}, near)
+        st.session_state["report_pdf"] = (pdf, f"rapport_autorisation_officine_{pd.Timestamp.now():%Y%m%d_%H%M}.pdf")
+    if st.session_state.get("report_pdf"):
+        pdf, name = st.session_state["report_pdf"]
+        st.success(f"Rapport prêt ({len(pdf) // 1024} Ko).")
+        st.download_button("Télécharger le PDF", pdf, name, "application/pdf", on_click="ignore")
 
 
 def page_sources():
@@ -790,10 +844,16 @@ def page_verification():
 
 
 PROB_COLS = ["≤ 5 ans", "≤ 10 ans", "Plus tôt que rester (prob.)"]
-SORTS = {"Année médiane (la plus proche)": ("Année médiane", True), "Probabilité ≤ 10 ans": ("≤ 10 ans", False),
-         "Probabilité d'ici l'horizon": ("hz", False), "Score global (classement)": ("Score global", False),
-         "Gain vs rester": ("Gain vs rester (ans)", False), "Distance": ("Distance (km)", True),
-         "Inscrits devant": ("Inscrits devant", True), "Places libres 2035 (proj.)": ("Places libres 2035 (proj.)", False)}
+SORT_LEVELS = 4
+
+
+def alt_cols(hz: str) -> list[str]:
+    return ["Unité", "Gouvernorat", "Distance (km)", "Catégorie", "Juridiquement possible", "Perd l'ancienneté 2017",
+            "Année médiane", "P10", "P90", "Période", "≤ 5 ans", "≤ 10 ans", hz, "Gain vs rester (ans)", "Plus tôt que rester (prob.)",
+            "Risque juridique", "Confiance", "Score global", "Rang global", "Rang", "Inscrits devant", "Inscrits",
+            "Pop. 2024", "Pop. 2035 (proj.)", "Pop. 2050 (proj.)", "Seuil N", "Officines existantes", "Autorisées (2024)",
+            "Places libres", "Places libres 2035 (proj.)", "Base juridique", "Type"]
+SORT_DEFAULT = [("Année médiane", False), ("≤ 10 ans", True), ("Distance (km)", False), (None, False)]  # (column, descending)
 
 
 def page_alternatives():
@@ -822,7 +882,21 @@ def page_alternatives():
         legal = c[0].toggle("Juridiquement possible uniquement", True)
         better = c[1].toggle("Seulement mieux que rester", False, help="Médiane plus proche que celle du scénario « rester ».")
         keep_ref = c[2].toggle("Toujours afficher « rester » ★", True)
-        sort = c[3].selectbox("Trier par", list(SORTS))
+        pin_ref = c[3].toggle("Épingler « rester » ★ en tête", False, help="Sinon la ligne ★ est triée comme les autres.")
+        st.markdown("**Tri sur plusieurs colonnes** <span class='small'>· appliqué dans l'ordre : « Trier par », puis les niveaux "
+                    f"suivants pour départager les égalités ; années : {h1} = « après {horizon} » ; un clic sur un en-tête du "
+                    "tableau trie ensuite sur cette seule colonne.</span>", unsafe_allow_html=True)
+        sortable = [x for x in alt_cols(hz) if x not in ("Base juridique",)]
+        levels, used = [], set()
+        for k, col in enumerate(st.columns(SORT_LEVELS)):
+            dcol, ddesc = SORT_DEFAULT[k]
+            opts = ["—"] + sortable
+            name = col.selectbox("Trier par" if k == 0 else "puis par", opts, index=opts.index(dcol) if dcol in opts else 0,
+                                 key=f"alt_sort_{k}")
+            desc = col.toggle("Décroissant", ddesc, key=f"alt_desc_{k}", disabled=name == "—")
+            if name != "—" and name not in used:
+                levels.append((name, not desc))
+                used.add(name)
     stay = alt[alt["Référence"]].iloc[0]
     m = alt["Distance (km)"].between(*dist) & alt["Catégorie"].isin(cats) & (alt["Année médiane"] <= ymax)
     m &= alt["≤ 10 ans"] * 100 >= pmin
@@ -837,13 +911,15 @@ def page_alternatives():
         m &= alt["Année médiane"] < stay["Année médiane"]
     if keep_ref:
         m |= alt["Référence"]
-    f = alt[m].rename(columns={hz: "hz"})
-    col, asc = SORTS[sort]
-    f = f.sort_values([col, "Année médiane", "≤ 10 ans"], ascending=[asc, True, False], na_position="last")
+    f = alt[m]
+    if levels:
+        f = f.sort_values([c_ for c_, _ in levels], ascending=[a_ for _, a_ in levels], na_position="last", kind="mergesort")
+    if pin_ref:
+        f = pd.concat([f[f["Référence"]], f[~f["Référence"]]])
+    f = f.reset_index(drop=True)
     f["Unité"] = np.where(f["Référence"], "★ " + f["Unité"], f["Unité"])
-    for p in PROB_COLS + ["hz"]:
+    for p in PROB_COLS + [hz]:
         f[p] = f[p] * 100
-    f = f.rename(columns={"hz": hz})
     better_n = int((alt["Juridiquement possible"] & ~alt["Référence"] & (alt["Année médiane"] < stay["Année médiane"])
                     & alt["Distance (km)"].between(*dist)).sum())
     c = st.columns(4)
@@ -856,20 +932,31 @@ def page_alternatives():
                 (f"{best['Catégorie'].iloc[0].split(',')[0]} · médiane "
                  f"{best['Année médiane'].iloc[0] if best['Année médiane'].iloc[0] <= horizon else AFTER}" if len(best) else None),
                 delta_color="off")
-    cols = ["Unité", "Gouvernorat", "Distance (km)", "Catégorie", "Juridiquement possible", "Perd l'ancienneté 2017",
-            "Année médiane", "P10", "P90", "Période", "≤ 5 ans", "≤ 10 ans", hz, "Gain vs rester (ans)", "Plus tôt que rester (prob.)",
-            "Risque juridique", "Confiance", "Score global", "Rang global", "Rang", "Inscrits devant", "Inscrits",
-            "Pop. 2024", "Pop. 2035 (proj.)", "Pop. 2050 (proj.)", "Seuil N", "Officines existantes", "Autorisées (2024)",
-            "Places libres", "Places libres 2035 (proj.)", "Base juridique", "Type"]
+    cols = alt_cols(hz)
     yfmt = st.column_config.NumberColumn(format="%d", help=f"{h1} = après {horizon}")
     pfmt = {p: st.column_config.ProgressColumn(p, format="%.0f%%", min_value=0, max_value=100) for p in PROB_COLS + [hz]}
-    st.dataframe(f[cols], hide_index=True, width="stretch", height=560, column_config={
+    st.caption("👉 Cliquer sur la case à gauche d'une ligne pour la sélectionner, puis sur le bouton « Générer le PDF explicatif » "
+               "sous le tableau.")
+    event = st.dataframe(f[["ID"] + cols], hide_index=True, width="stretch", height=560, key="alt_table", column_order=cols,
+                         on_select="rerun", selection_mode="single-row", column_config={
         "Distance (km)": st.column_config.NumberColumn(format="%.0f"), "Année médiane": yfmt, "P10": yfmt, "P90": yfmt,
         "Gain vs rester (ans)": st.column_config.NumberColumn(format="%+d", help="Calculé sur les médianes plafonnées à l'horizon"),
         "Score global": st.column_config.NumberColumn(format="%.3f", help="Probabilité ≤ 10 ans × risque × confiance (comme le simulateur)"),
         "Rang global": st.column_config.NumberColumn(format="%d"), "Pop. 2024": st.column_config.NumberColumn(format="%d"),
         "Pop. 2035 (proj.)": st.column_config.NumberColumn(format="%d"), "Pop. 2050 (proj.)": st.column_config.NumberColumn(format="%d"),
         "Seuil N": st.column_config.NumberColumn(format="%d"), **pfmt})
+    rows = event.selection.rows if event is not None and hasattr(event, "selection") else []
+    picked = f.iloc[rows[0]]["ID"] if rows and rows[0] < len(f) else None
+    spec_by_id = dict(zip(alt["ID"], alt["_spec"]))
+
+    def lab(r) -> str:
+        med = r["Année médiane"]
+        return (f"{r['Unité']} ({r['Gouvernorat']}) – {r['Catégorie']} – médiane {med if med <= horizon else AFTER} – "
+                f"rang {r['Rang']}")
+
+    explain_button([(r["ID"], lab(r), spec_by_id[r["ID"]],
+                     {"Juridiquement possible": bool(r["Juridiquement possible"]), "Risque juridique": r["Risque juridique"],
+                      "Confiance": r["Confiance"]}) for _, r in f.iterrows()], "alt", selected=picked)
     st.download_button("Télécharger la sélection (CSV)", f[cols].to_csv(index=False).encode("utf-8-sig"), "alternatives_filtrees.csv", "text/csv")
     st.caption("Catégorie B : le nombre d'officines de nuit par commune n'est pas publié – « aucune officine B » donne la borne optimiste "
                "(première licence de la commune, délai calibré sur les listes B), « au complet » la borne prudente. Cliquer sur un en-tête "

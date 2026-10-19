@@ -47,7 +47,8 @@ La langue par défaut est le français ; l'anglais et l'arabe sont disponibles p
 | Historique des listes | Liste de Zriba au fil des instantanés, renouvellements 2020 / 2024 / 2026, flux |
 | Simulateur rester / changer | Scénarios A à E, probabilités par classes, courbes cumulées, classements |
 | Réglementation | Textes (liens et copies locales), réponses aux 7 questions juridiques avec leur statut |
-| Rapport | Génération d'un rapport PDF dans `reports/` |
+| Explorer toutes les options | Toutes les options A / B (tri sur plusieurs colonnes) ; PDF explicatif de l'option sélectionnée |
+| Rapport | Génération d'un rapport PDF, téléchargé directement (rien n'est écrit sur le disque) |
 | Données & sources | Provenance de chaque fichier (URL, date, empreinte SHA-256), données téléchargeables |
 
 Les hypothèses (rayon, mode de mise à jour de la population, croissance, attrition, créations exceptionnelles,
@@ -139,7 +140,6 @@ partout où un changement est évoqué.
 | `data/boundaries.geojson` | Limites des délégations (HDX/OCHA, simplifiées) |
 | `data/sources.json` | Registre de provenance : URL, date de téléchargement, SHA-256, chemin local |
 | `documents/` | Copies locales des textes (`regulations/`), des listes (`waiting_lists/`) et des statistiques (`statistics/`) |
-| `reports/` | Rapports PDF générés |
 
 Principales sources :
 
@@ -219,12 +219,12 @@ app.py            Tableau de bord Streamlit (10 pages, FR / EN / AR)
 research.py       Collecte manuelle des sources officielles et construction des fichiers data/
 analysis.py       Chargement des données, capacité par délégation / commune, scénarios A à E
 forecasting.py    Règles du numerus clausus, projections de population, simulation Monte-Carlo, contrôles
-report.py         Génération du rapport PDF
+report.py         Génération du rapport PDF (en mémoire)
+explain.py        PDF explicatif d'une option : trajectoire centrale tracée année par année, probabilités
 requirements.txt  Dépendances
 .streamlit/       Configuration (127.0.0.1, télémétrie désactivée)
 data/             Données structurées (CSV / JSON / GeoJSON) et registre de provenance
 documents/        Copies locales : regulations/, waiting_lists/, statistics/
-reports/          Rapports PDF générés
 scratch/          Scripts d'exploration et de test (non nécessaires à l'application)
 ```
 
