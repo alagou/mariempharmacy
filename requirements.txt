@@ -1,5 +1,5 @@
 # Tableau de bord (hors ligne)
-streamlit>=1.40
+streamlit>=1.50
 pandas>=2.2
 numpy>=1.26
 plotly>=5.24
