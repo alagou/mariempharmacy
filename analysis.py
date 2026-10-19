@@ -13,6 +13,7 @@ import numpy as np
 import pandas as pd
 
 import forecasting as fc
+import validation as val
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
@@ -50,7 +51,7 @@ def load_data() -> dict:
     communes["gov_growth"] = communes.governorate.map(lambda g: gov_growth.get(_norm(g)))
     return {"regs": regs, "profile": profile, "delegations": dele, "population": pop, "communes": communes,
             "waiting": waiting, "pharmacies": pharm, "renewals": renewals, "history": history,
-            "sources": sources, "geo": geo, "gov_growth": gov_growth}
+            "sources": sources, "geo": geo, "gov_growth": gov_growth, "validation": val.load_saved()}
 
 
 # ---------------------------------------------------------------------------
@@ -60,7 +61,9 @@ def growth_for_delegation(row) -> fc.GrowthRates:
     return fc.growth_rates(row.population_dpm, row.pop_2014, row.pop_2004, row.gov_growth, row.governorate)
 
 
-def capacity_A(dele: pd.DataFrame, pop_mode: str = "census") -> pd.DataFrame:
+def capacity_A(dele: pd.DataFrame, pop_mode: str = "estimates", s: "SimSettings | None" = None) -> pd.DataFrame:
+    """Free slots today and first year the official population allows one more licence
+    (with s.growth_model == 'official': INS national projection + local differential, ± growth_sd)."""
     d = dele.copy()
     d["allowed_A"] = [fc.allowed_A(p, n) for p, n in zip(d.population_dpm, d.zone_threshold)]
     d["free_A"] = d.allowed_A - d.pharmacies_A
@@ -72,6 +75,13 @@ def capacity_A(dele: pd.DataFrame, pop_mode: str = "census") -> pd.DataFrame:
             rows.append((np.nan, np.nan, None, None, None, ""))
             continue
         g = growth_for_delegation(r)
+        if s is not None and s.growth_model == "official" and s.nat_path and pop_mode != "census":
+            _, sd, path = growth_inputs(g, SimSettings(**{**asdict(s), "growth_scenario": "central"}))
+            yc, yh, yl = (fc.year_reaching_path(r.population_dpm, [x + dx for x in path], r.next_pop_A)
+                          for dx in (0.0, sd, -sd))
+            rows.append((path[10], sd, yc, yh, yl, "Projection INS 2026 (nationale) + écart local 2014-2024 × "
+                         f"{s.k_local:.0%}"))
+            continue
         yc = fc.year_reaching(r.population_dpm, g.central, r.next_pop_A, mode=pop_mode)
         yh = fc.year_reaching(r.population_dpm, g.high, r.next_pop_A, mode=pop_mode)
         yl = fc.year_reaching(r.population_dpm, g.low, r.next_pop_A, mode=pop_mode)
@@ -157,29 +167,70 @@ def list_flows(renewals: pd.DataFrame, category: str = "A") -> pd.DataFrame:
 # ---------------------------------------------------------------------------
 @dataclass
 class SimSettings:
-    pop_mode: str = "census"
+    """Fixed defaults are the pre-calibration values; use default_settings() for the calibrated ones."""
+    pop_mode: str = "estimates"
     admin_lag: int = 2
-    h_mean: float = 0.04
+    h_mean: float = 0.04               # people ahead of her in Zriba (all renewed in 2020, 2024 and 2026)
     h_sd: float = 0.01
-    lam_exceptional: float = 0.015     # ≥ 83 imada/commune creations since 2007 over 263 units ≈ 0.017 / unit / year
+    lam_exceptional: float = 0.015
     growth_scenario: str = "central"   # low / central / high
     horizon: int = fc.DEFAULT_HORIZON
     n_sims: int = 4000
     night_threshold: int = 60000
     start_year: int = date.today().year
+    growth_model: str = "trend"        # "official": INS 2026 national projection + local differential; "trend": census CAGR
+    growth_sd: float | None = None     # per-simulation growth shift (None: unit census band)
+    k_local: float = 0.5
+    g_nat_1424: float = 0.0087
+    nat_path: tuple = ()               # national growth for base_year+1, base_year+2, ...
+    h_other_ratio: float = 1.0         # attrition on other lists (mixed engagement) / h_mean
+    award_delay: float = 0.5
+    max_per_year: float = math.inf
+    b_first_hazard: float | None = None
+
+
+def default_settings(data: dict | None = None, **over) -> SimSettings:
+    """Settings calibrated on history (data/validation.json, produced by `python validation.py`)."""
+    v = (data or {}).get("validation") or val.load_saved()
+    if not v:
+        return SimSettings(**over)
+    p = v["params"]
+    nat = v["nat_path"]
+    kw = dict(pop_mode="estimates", admin_lag=1, h_mean=p["h_engaged"], h_sd=p["h_sd"], lam_exceptional=p["lam"],
+              growth_model="official", growth_sd=p["growth_sd"], k_local=p["k_local"], g_nat_1424=p["g_nat_1424"],
+              nat_path=tuple(nat[y] for y in range(fc.BASE_YEAR + 1, max(nat) + 1)),
+              h_other_ratio=p["h_all"] / p["h_engaged"], award_delay=p["award_delay"], max_per_year=p["max_per_year"],
+              b_first_hazard=p["b_first_hazard"])
+    kw.update(over)
+    return SimSettings(**kw)
 
 
 def _growth_pick(g: fc.GrowthRates, scen: str) -> float:
     return {"low": g.low, "high": g.high}.get(scen, g.central)
 
 
+def growth_inputs(g: fc.GrowthRates, s: SimSettings) -> tuple[float, float, tuple | None]:
+    """(constant growth, per-simulation sd, growth path) for the simulator."""
+    if s.growth_model == "official" and s.nat_path:
+        sd = s.growth_sd if s.growth_sd is not None else g.sd
+        shift = {"low": -sd, "high": sd}.get(s.growth_scenario, 0.0)
+        path = tuple(n + s.k_local * (g.central - s.g_nat_1424) + shift for n in s.nat_path)
+        return path[min(10, len(path) - 1)], sd, path
+    return _growth_pick(g, s.growth_scenario), (s.growth_sd if s.growth_sd is not None else g.sd), None
+
+
 def simulate_unit(position: int, existing: int, p0: float, threshold: float, rule: str, g: fc.GrowthRates,
-                  s: SimSettings, first_licence_now: bool = False, seed: int = 42, n_sims: int | None = None):
+                  s: SimSettings, first_licence_now: bool = False, seed: int = 42, n_sims: int | None = None,
+                  engaged_ahead: bool = False):
+    gm, gsd, path = growth_inputs(g, s)
+    h = s.h_mean if engaged_ahead else min(s.h_mean * s.h_other_ratio, 0.5)
     qp = fc.QueueParams(position=position, existing=int(existing), p0=float(p0), threshold=float(threshold), rule=rule,
-                        growth_mean=_growth_pick(g, s.growth_scenario), growth_sd=g.sd, h_mean=s.h_mean, h_sd=s.h_sd,
+                        growth_mean=gm, growth_sd=gsd, growth_path=path, h_mean=h, h_sd=s.h_sd,
                         lam_exceptional=s.lam_exceptional, first_licence_now=first_licence_now, pop_mode=s.pop_mode,
-                        admin_lag=s.admin_lag, start_year=s.start_year, horizon=s.horizon,
-                        n_sims=n_sims or s.n_sims, seed=seed)
+                        admin_lag=s.admin_lag, award_delay=s.award_delay, open_slot_delay_extra=max(s.award_delay, 0.5),
+                        max_per_year=s.max_per_year,
+                        pending_hazard=s.b_first_hazard if (first_licence_now and rule == "B") else None,
+                        start_year=s.start_year, horizon=s.horizon, n_sims=n_sims or s.n_sims, seed=seed)
     years = fc.simulate_queue(qp)
     return years, fc.summarize(years, s.start_year, s.horizon)
 
@@ -191,7 +242,7 @@ def seniority_position(waiting: pd.DataFrame, category: str, governorate: str, u
 
 def compare_delegations(data: dict, radius_km: float, s: SimSettings, n_sims: int = 600) -> pd.DataFrame:
     """Category A comparison for a newcomer (new registration date) in every delegation within the radius."""
-    cap = capacity_A(data["delegations"], s.pop_mode)
+    cap = capacity_A(data["delegations"], s.pop_mode, s)
     near = cap[(cap.distance_km <= radius_km) & cap.population_dpm.notna() & cap.zone_threshold.notna()].copy()
     prof = data["profile"]
     out = []
@@ -200,7 +251,7 @@ def compare_delegations(data: dict, radius_km: float, s: SimSettings, n_sims: in
         is_home = r.delegation == prof["delegation"]
         pos = prof["current_rank"] if is_home else int(r.waiting_A) + 1
         years, summ = simulate_unit(pos, int(r.pharmacies_A), r.population_dpm, r.zone_threshold, "A", g, s,
-                                    seed=1000 + i, n_sims=n_sims)
+                                    seed=1000 + i, n_sims=n_sims, engaged_ahead=is_home)
         out.append({"del_code": r.del_code, "position_used": pos, "sim_median": summ["median_or_later"],
                     "sim_q10": summ["q10"], "p5": summ["p5"], "p10": summ["p10"], "band10": summ["band10"],
                     "period": fc.period_label(summ),
@@ -213,13 +264,14 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
                     b_existing_target: int | None, b_existing_zriba: int = 1, include_hypothetical_e: bool = True) -> list[dict]:
     prof = data["profile"]
     regs = data["regs"]
-    cap = capacity_A(data["delegations"], s.pop_mode)
+    cap = capacity_A(data["delegations"], s.pop_mode, s)
     home = cap[(cap.governorate == prof["governorate"]) & (cap.delegation == prof["delegation"])].iloc[0]
     g_home = growth_for_delegation(home)
     scen = []
 
     # A – stay in Zriba, Category A
-    yA, sA = simulate_unit(prof["current_rank"], int(home.pharmacies_A), home.population_dpm, home.zone_threshold, "A", g_home, s, seed=1)
+    yA, sA = simulate_unit(prof["current_rank"], int(home.pharmacies_A), home.population_dpm, home.zone_threshold, "A", g_home, s, seed=1,
+                            engaged_ahead=True)
     scen.append(_scenario("A", "Rester à Zriba – catégorie A", True, prof["date_inscription"], prof["current_rank"],
                           int(home.waiting_A), sA, yA, "Faible", "Moyenne",
                           "Inscription vérifiée (rang 5/5). Aucune démarche requise hormis le renouvellement de janvier 2028.",
@@ -266,6 +318,10 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
         stalled = cz[(cz.governorate == gname) & (cz.waiting_B > 0) & (cz.first_B_date.fillna("9999") <= cutoff)
                      & (cz.pop_2024 < s.night_threshold)]
         evidence = [f"Listes B : seuls {b_att['rank1_two_year_exit']:.0%} des premiers inscrits ont quitté leur liste entre 2024 et 2026"]
+        bf = (data.get("validation") or {}).get("b_first")
+        if bf and s.b_first_hazard:
+            evidence.append(f"Communes < 20 000 hab. : le premier inscrit B attend depuis {bf['median_wait']:.0f} ans en médiane "
+                            f"({bf['n']} communes) ; délai de première licence B simulé en conséquence")
         if len(stalled):
             names = ", ".join(f"{r.commune_name} (depuis {r.first_B_date[:4]})" for _, r in stalled.iterrows())
             evidence.append(f"Dans ce gouvernorat, le premier inscrit B attend depuis plus de 4 ans à : {names} – "

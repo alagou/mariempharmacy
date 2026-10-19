@@ -39,7 +39,7 @@
       "distance_min_m": 200,
       "distance_min_imada_m": 4000,
       "transfer": "Pas de transfert d'une officine A d'une commune à une autre de la même délégation (art. 8).",
-      "population_reference": "Population officiellement communiquée par l'INS (art. 18). La DPM applique actuellement le RGPH 2024 (listes arrêtées au 31/12/2025).",
+      "population_reference": "Population officiellement communiquée par l'INS (art. 18). La DPM applique actuellement le RGPH 2024 (listes arrêtées au 31/12/2025) ; de 2017 à 2023, chaque révision des listes reposait sur la dernière estimation INS au 1er janvier (pages DPM archivées, data/dpm_list_updates.csv).",
       "zone_source": "Annexe 1 du décret ; zones et seuils relevés sur les listes d'attente en ligne de la DPM (dpm.tn)."
     },
     "B": {
