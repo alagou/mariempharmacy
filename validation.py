@@ -54,7 +54,7 @@ def national_census(pop: pd.DataFrame) -> dict[int, float]:
 
 
 def national_projection_path(proj: pd.DataFrame | None = None, base_year: int = fc.BASE_YEAR,
-                             census_base: float | None = None, last_year: int = 2070) -> dict[int, float]:
+                             census_base: float | None = None, last_year: int = fc.DEFAULT_HORIZON + 10) -> dict[int, float]:
     """Annual national growth g[y] = N(y)/N(y-1) - 1 from the INS 2026 Flash projection (base RGPH 2024).
 
     2025-2030 and 2054 are official values, 2031-2053 the documented interpolation of research.py;
@@ -122,7 +122,7 @@ def population_backtest(dele: pd.DataFrame, pop: pd.DataFrame, proj: pd.DataFram
 
 
 def unit_growth_path(r_1424: float | None, g_nat_1424: float, k_local: float, nat_path: dict[int, float],
-                     base_year: int = fc.BASE_YEAR, last_year: int = 2070) -> tuple[float, ...]:
+                     base_year: int = fc.BASE_YEAR, last_year: int = fc.DEFAULT_HORIZON + 10) -> tuple[float, ...]:
     """growth_path for QueueParams: official national growth + k × (unit − national) observed 2014-2024."""
     diff = (r_1424 - g_nat_1424) if r_1424 is not None and not pd.isna(r_1424) else 0.0
     return tuple(nat_path.get(y, nat_path[max(nat_path)]) + k_local * diff for y in range(base_year + 1, last_year + 1))
@@ -435,7 +435,7 @@ def run_all(d: dict | None = None, n_sims: int = 300) -> dict:
             grid.append((q["brier"], delay, cap, q))
     best = min((g for g in grid if g[1] == delay0), key=lambda t: t[0])
     cal["award_delay"], cal["max_per_year"], cal["processing"] = best[1], best[2], proc
-    grid_table = pd.DataFrame([{"Délai moyen (ans)": dl, "Licences / unité / an": ("illimité" if math.isinf(c) else int(c)),
+    grid_table = pd.DataFrame([{"Délai moyen (ans)": dl, "Licences / unité / an": ("illimité" if math.isinf(c) else str(int(c))),
                                 "Brier": b, "Prévu": q["pred_total"], "Observé": q["obs_total"],
                                 "Couverture P10-P90": q["coverage_p10_p90"]} for b, dl, c, q in grid])
     waits = observed_waits(d["waiting"], d["renewals"], d["delegations"], d["pharmacies"])

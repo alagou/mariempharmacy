@@ -15,9 +15,21 @@ import numpy as np
 import pandas as pd
 
 BASE_YEAR = 2024          # last census (RGPH 2024) used by the DPM
-NEXT_CENSUSES = (2034, 2044, 2054)
-DEFAULT_HORIZON = 2050       # queue forecasts; population projections are shown to 2045 by default
-PROJECTION_END = 2045
+NEXT_CENSUSES = (2034, 2044, 2054, 2064)
+DEFAULT_HORIZON = 2070       # single source of truth for queue forecasts, population charts and labels
+PROJECTION_END = DEFAULT_HORIZON
+# Last year covered by the official INS projection (Flash 2026, base RGPH 2024). Beyond it the national
+# growth is held at the last published rate and the per-simulation growth uncertainty widens.
+OFFICIAL_PROJECTION_END = 2054
+SD_WIDEN_PER_DECADE = 0.5    # growth sd × (1 + 0.5 per decade beyond OFFICIAL_PROJECTION_END)
+
+
+def growth_sd_factor(years) -> np.ndarray:
+    return 1 + SD_WIDEN_PER_DECADE * np.maximum(np.asarray(years, dtype=float) - OFFICIAL_PROJECTION_END, 0) / 10
+
+
+def after_horizon(horizon: int = DEFAULT_HORIZON) -> str:
+    return f"après {horizon}"
 
 
 # ---------------------------------------------------------------------------
@@ -103,7 +115,7 @@ def project_population(p0: float, rates: GrowthRates, start: int = BASE_YEAR, en
     return out
 
 
-def year_reaching_path(p0: float, path, target: float, base_year: int = BASE_YEAR, horizon: int = 2060) -> int | None:
+def year_reaching_path(p0: float, path, target: float, base_year: int = BASE_YEAR, horizon: int = DEFAULT_HORIZON) -> int | None:
     """First year whose official population at 1 January reaches `target` (pop(1/1/base+1) = p0,
     path[k] = growth during the year ending 1/1/(base+1+k), as in QueueParams.growth_path)."""
     if p0 >= target:
@@ -120,7 +132,7 @@ def year_reaching_path(p0: float, path, target: float, base_year: int = BASE_YEA
 
 
 def year_reaching(p0: float, rate: float, target: float, start: int = BASE_YEAR,
-                  mode: str = "census", horizon: int = 2060) -> int | None:
+                  mode: str = "census", horizon: int = DEFAULT_HORIZON) -> int | None:
     """First year in which the *official* population reaches `target`.
 
     mode='annual' / 'estimates': official figure updated every year (INS estimates).
@@ -288,7 +300,7 @@ def population_paths(p: QueueParams, rng: np.random.Generator, last_year: int) -
         path = np.concatenate([path, np.full(max(k - len(path), 0), path[-1] if len(path) else p.growth_mean)])[:k]
     else:
         path = np.full(k, p.growth_mean)
-    shift = rng.normal(0.0, p.growth_sd, p.n_sims)[:, None]
+    shift = rng.normal(0.0, p.growth_sd, p.n_sims)[:, None] * growth_sd_factor(yrs)[None, :]
     g = np.maximum(path[None, :] + shift, -0.05)
     pop = p.p0 * np.cumprod(1 + g, axis=1) / (1 + g[:, :1])   # pop at 1/1/base+1 = p0
     return yrs, pop
