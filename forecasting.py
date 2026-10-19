@@ -289,10 +289,16 @@ class QueueParams:
     horizon: int = DEFAULT_HORIZON
     n_sims: int = 4000
     seed: int = 42
+    # central path: every random draw replaced by its central value (mean growth and attrition, median delays,
+    # exceptional licences only once their expected cumulative number reaches 1); used to explain one option
+    deterministic: bool = False
 
 
-def population_paths(p: QueueParams, rng: np.random.Generator, last_year: int) -> tuple[np.ndarray, np.ndarray]:
-    """Simulated official population at 1 January of base_year+1 … last_year (one row per simulation)."""
+def population_paths(p: QueueParams, rng: np.random.Generator, last_year: int,
+                     z: np.ndarray | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """Simulated official population at 1 January of base_year+1 … last_year (one row per simulation).
+
+    z: optional growth shift in standard deviations per simulation (default: drawn from N(0, 1))."""
     yrs = np.arange(p.base_year + 1, last_year + 1)
     k = len(yrs)
     if p.growth_path is not None:
@@ -300,7 +306,8 @@ def population_paths(p: QueueParams, rng: np.random.Generator, last_year: int) -
         path = np.concatenate([path, np.full(max(k - len(path), 0), path[-1] if len(path) else p.growth_mean)])[:k]
     else:
         path = np.full(k, p.growth_mean)
-    shift = rng.normal(0.0, p.growth_sd, p.n_sims)[:, None] * growth_sd_factor(yrs)[None, :]
+    zz = rng.normal(0.0, 1.0, p.n_sims) if z is None else np.asarray(z, dtype=float)
+    shift = (zz * p.growth_sd)[:, None] * growth_sd_factor(yrs)[None, :]
     g = np.maximum(path[None, :] + shift, -0.05)
     pop = p.p0 * np.cumprod(1 + g, axis=1) / (1 + g[:, :1])   # pop at 1/1/base+1 = p0
     return yrs, pop
@@ -317,15 +324,37 @@ def _update_events(p: QueueParams) -> list[tuple[int, int]]:
     return [(c + p.admin_lag, c + 1) for c in NEXT_CENSUSES if c + p.admin_lag <= p.horizon]
 
 
-def simulate_queue(p: QueueParams) -> np.ndarray:
-    """Return simulated authorisation years (np.inf = not before the horizon)."""
+def poisson_median(lam: float) -> int:
+    k, term = 0, math.exp(-lam)
+    cdf = term
+    while cdf < 0.5:
+        k += 1
+        term *= lam / k
+        cdf += term
+    return k
+
+
+def geometric0_median(p: float) -> int:
+    """Median of (Geometric(p) - 1), i.e. number of full years before the event."""
+    return max(math.ceil(math.log(0.5) / math.log(1 - p)) - 1, 0)
+
+
+def simulate_queue(p: QueueParams, trace: dict | None = None) -> np.ndarray:
+    """Return simulated authorisation years (np.inf = not before the horizon).
+
+    trace: if given, filled with the initial state and one record per year for simulation 0
+    (meant for p.deterministic with n_sims=1, see central_path)."""
     rng = np.random.default_rng(p.seed)
+    det = p.deterministic
     n = p.n_sims
     years = np.arange(p.start_year, p.horizon + 1)
     ahead = np.full(n, max(p.position - 1, 0), dtype=float)
     result = np.full(n, np.inf)
     a_h, b_h = _beta_params(p.h_mean, p.h_sd)
-    h = rng.beta(a_h, b_h, n) if p.h_mean > 0 else np.zeros(n)
+    if det:
+        h = np.full(n, max(p.h_mean, 0.0))
+    else:
+        h = rng.beta(a_h, b_h, n) if p.h_mean > 0 else np.zeros(n)
     granted = np.full(n, float(p.existing))
     rule_fn = allowed_A if p.rule == "A" else allowed_B
     if p.rule == "A":
@@ -334,7 +363,7 @@ def simulate_queue(p: QueueParams) -> np.ndarray:
     else:
         def vec_allowed(pop):
             return np.ceil(pop / p.threshold)
-    pyears, pop = population_paths(p, rng, p.horizon + 2)
+    pyears, pop = population_paths(p, rng, p.horizon + 2, z=np.zeros(n) if det else None)
     # licences already available today (population allows more than existing)
     today_allowed = rule_fn(p.p0, p.threshold)
     pending = float(max(today_allowed - p.existing, 0))
@@ -345,38 +374,77 @@ def simulate_queue(p: QueueParams) -> np.ndarray:
     # schedule[sim, year index] = licences becoming available that year
     schedule = np.zeros((n, len(years) + 60))
     # open slots: convocation, 30+30 days for the file, CNOPT opinion, ministerial decision
-    if p.pending_hazard:
+    if det:
+        k0 = geometric0_median(p.pending_hazard) if p.pending_hazard else poisson_median(p.open_slot_delay_extra)
+        pend_idx = np.full(n, min(k0, schedule.shape[1] - 1))
+    elif p.pending_hazard:
         pend_idx = np.minimum(rng.geometric(p.pending_hazard, n) - 1, schedule.shape[1] - 1)
     else:
         pend_idx = np.minimum(rng.poisson(p.open_slot_delay_extra, n), schedule.shape[1] - 1)
     np.add.at(schedule, (np.arange(n), pend_idx), pending)
     events = {avail: ref for avail, ref in _update_events(p) if avail >= p.start_year}
     backlog = np.zeros(n)
+    exc_expected = 0.0
+    if trace is not None:
+        trace.update(init={"today_allowed": today_allowed, "pending": float(pending[0]), "pending_year": int(years[0] + pend_idx[0]),
+                           "h": float(h[0]), "ahead": float(ahead[0]), "existing": p.existing},
+                     pyears=pyears, pop=pop[0].copy(), events=events, years=[])
     for i, y in enumerate(years):
         active = np.isinf(result)
+        ahead_start = ahead.copy()
+        leave = np.zeros(n)
         # attrition of people ahead (non-renewal, withdrawal, death, other list...)
         if p.h_mean > 0:
-            leave = rng.binomial(ahead.astype(int), np.clip(h, 0, 1))
+            leave = ahead * np.clip(h, 0, 1) if det else rng.binomial(ahead.astype(int), np.clip(h, 0, 1))
             ahead = np.where(active, ahead - leave, ahead)
+        new = np.zeros(n)
         if y in events:
             j = np.searchsorted(pyears, events[y])
             if j < len(pyears):
                 new = np.maximum(vec_allowed(pop[:, j]) - granted, 0)
                 granted += new
-                d = rng.poisson(p.award_delay, n) if p.pop_mode == "estimates" else np.zeros(n, dtype=int)
+                if det:
+                    d = np.full(n, poisson_median(p.award_delay) if p.pop_mode == "estimates" else 0)
+                else:
+                    d = rng.poisson(p.award_delay, n) if p.pop_mode == "estimates" else np.zeros(n, dtype=int)
                 np.add.at(schedule, (np.arange(n), np.minimum(i + d, schedule.shape[1] - 1)), new)
         backlog += schedule[:, i]
+        exc = np.zeros(n)
         if p.lam_exceptional > 0:
-            exc = rng.poisson(p.lam_exceptional, n)
+            if det:
+                exc_expected += p.lam_exceptional
+                exc = np.full(n, float(exc_expected >= 1))
+                exc_expected -= exc[0]
+            else:
+                exc = rng.poisson(p.lam_exceptional, n)
             backlog += exc
             granted += exc  # art. 7: counted within the numerus clausus
         slots = np.minimum(backlog, p.max_per_year)
-        # allocate slots in list order
-        got = active & (slots > ahead)
+        # allocate slots in list order (central path: expected number ahead rounded to whole people)
+        ahead_n = np.floor(ahead + 0.5) if det else ahead
+        got = active & (slots > ahead_n)
         result[got] = y
-        backlog -= np.where(active, np.minimum(slots, ahead + 1), slots)
+        served = np.where(active, np.minimum(slots, ahead_n + 1), slots)
+        if trace is not None:
+            trace["years"].append({
+                "year": int(y), "ref": events.get(int(y)), "new": float(new[0]), "granted": float(granted[0]),
+                "exc": float(exc[0]), "available": float(backlog[0]), "slots": float(slots[0]),
+                "ahead_start": float(ahead_start[0]), "leave": float(leave[0]) if active[0] else 0.0,
+                "served_ahead": float(min(slots[0], ahead_n[0])) if active[0] else 0.0, "got": bool(got[0]),
+                "active": bool(active[0])})
+        backlog -= served
         ahead = np.where(active & ~got, np.maximum(ahead - slots, 0), ahead)
+        if trace is not None:
+            trace["years"][-1]["ahead_end"] = float(ahead[0]) if active[0] and not got[0] else 0.0
     return result
+
+
+def central_path(p: QueueParams) -> tuple[float, dict]:
+    """Deterministic run of simulate_queue (same code, central values) with its year-by-year trace."""
+    from dataclasses import replace
+    tr: dict = {}
+    res = simulate_queue(replace(p, deterministic=True, n_sims=1), trace=tr)
+    return float(res[0]), tr
 
 
 def simulate_positions(n_queue: int, existing: int, threshold: float, pop_by_year: dict, years: range,

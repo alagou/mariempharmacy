@@ -219,20 +219,53 @@ def growth_inputs(g: fc.GrowthRates, s: SimSettings) -> tuple[float, float, tupl
     return _growth_pick(g, s.growth_scenario), (s.growth_sd if s.growth_sd is not None else g.sd), None
 
 
+def unit_params(position: int, existing: int, p0: float, threshold: float, rule: str, g: fc.GrowthRates,
+                s: SimSettings, first_licence_now: bool = False, seed: int = 42, n_sims: int | None = None,
+                engaged_ahead: bool = False) -> fc.QueueParams:
+    gm, gsd, path = growth_inputs(g, s)
+    h = s.h_mean if engaged_ahead else min(s.h_mean * s.h_other_ratio, 0.5)
+    return fc.QueueParams(position=position, existing=int(existing), p0=float(p0), threshold=float(threshold), rule=rule,
+                          growth_mean=gm, growth_sd=gsd, growth_path=path, h_mean=h, h_sd=s.h_sd,
+                          lam_exceptional=s.lam_exceptional, first_licence_now=first_licence_now, pop_mode=s.pop_mode,
+                          admin_lag=s.admin_lag, award_delay=s.award_delay, open_slot_delay_extra=max(s.award_delay, 0.5),
+                          max_per_year=s.max_per_year,
+                          pending_hazard=s.b_first_hazard if (first_licence_now and rule == "B") else None,
+                          start_year=s.start_year, horizon=s.horizon, n_sims=n_sims or s.n_sims, seed=seed)
+
+
 def simulate_unit(position: int, existing: int, p0: float, threshold: float, rule: str, g: fc.GrowthRates,
                   s: SimSettings, first_licence_now: bool = False, seed: int = 42, n_sims: int | None = None,
                   engaged_ahead: bool = False):
-    gm, gsd, path = growth_inputs(g, s)
-    h = s.h_mean if engaged_ahead else min(s.h_mean * s.h_other_ratio, 0.5)
-    qp = fc.QueueParams(position=position, existing=int(existing), p0=float(p0), threshold=float(threshold), rule=rule,
-                        growth_mean=gm, growth_sd=gsd, growth_path=path, h_mean=h, h_sd=s.h_sd,
-                        lam_exceptional=s.lam_exceptional, first_licence_now=first_licence_now, pop_mode=s.pop_mode,
-                        admin_lag=s.admin_lag, award_delay=s.award_delay, open_slot_delay_extra=max(s.award_delay, 0.5),
-                        max_per_year=s.max_per_year,
-                        pending_hazard=s.b_first_hazard if (first_licence_now and rule == "B") else None,
-                        start_year=s.start_year, horizon=s.horizon, n_sims=n_sims or s.n_sims, seed=seed)
-    years = fc.simulate_queue(qp)
+    years = fc.simulate_queue(unit_params(position, existing, p0, threshold, rule, g, s, first_licence_now, seed, n_sims,
+                                          engaged_ahead))
     return years, fc.summarize(years, s.start_year, s.horizon)
+
+
+def option_spec(kind: str, level: str, governorate: str, unit: str, position: int, existing: int, rule: str,
+                threshold: float, seed: int, n_sims: int, first_licence_now: bool = False, engaged_ahead: bool = False,
+                b_case: str = "") -> dict:
+    """Everything needed to re-run one option exactly (explain.py); `id` is stable across sorting/filtering."""
+    return {"id": f"{kind}|{governorate}|{unit}|{existing}", "kind": kind, "level": level, "governorate": governorate,
+            "unit": unit, "position": int(position), "existing": int(existing), "rule": rule, "threshold": float(threshold),
+            "seed": int(seed), "n_sims": int(n_sims), "first_licence_now": bool(first_licence_now),
+            "engaged_ahead": bool(engaged_ahead), "b_case": b_case}
+
+
+def unit_inputs(data: dict, s: SimSettings, spec: dict) -> tuple[pd.Series, fc.GrowthRates, float]:
+    """(unit row, growth rates, official population used) for an option spec, from the same tables as the model."""
+    if spec["level"] == "delegation":
+        cap = capacity_A(data["delegations"], s.pop_mode, s)
+        r = cap[(cap.governorate == spec["governorate"]) & (cap.delegation == spec["unit"])].iloc[0]
+        return r, growth_for_delegation(r), float(r.population_dpm)
+    comm = communes_B(data["communes"], s.night_threshold, DEFAULT_B_EXISTING)
+    c = comm[(comm.governorate == spec["governorate"]) & (comm.commune_name == spec["unit"])].iloc[0]
+    return c, fc.growth_rates(c.pop_2024, c.pop_2014, c.pop_2004, c.gov_growth, c.governorate), float(c.pop_2024)
+
+
+def spec_params(data: dict, s: SimSettings, spec: dict) -> fc.QueueParams:
+    _, g, p0 = unit_inputs(data, s, spec)
+    return unit_params(spec["position"], spec["existing"], p0, spec["threshold"], spec["rule"], g, s,
+                       spec["first_licence_now"], spec["seed"], spec["n_sims"], spec["engaged_ahead"])
 
 
 def seniority_position(waiting: pd.DataFrame, category: str, governorate: str, unit: str, reg_date: str) -> int:
@@ -278,6 +311,8 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
                           ["Ancienneté du 26/07/2017 conservée", "Aucun risque administratif"],
                           [f"Prochaine licence à Zriba quand la population officielle atteindra {int(home.next_pop_A):,} hab.".replace(",", " "),
                            "4 inscrits la précèdent ; la licence revient au premier de la liste"]))
+    scen[-1]["spec"] = option_spec("stay", "delegation", home.governorate, home.delegation, prof["current_rank"],
+                                   int(home.pharmacies_A), "A", home.zone_threshold, 1, s.n_sims, engaged_ahead=True)
 
     # B – other delegation, Category A (new registration date)
     if target_del:
@@ -291,6 +326,8 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
                               [f"Distance de Zriba : {t.distance_km:.0f} km", f"Capacité légale actuelle : {int(t.allowed_A)} pour {int(t.pharmacies_A)} officines"],
                               ["Perte de la date du 26/07/2017", f"Placement en fin de liste ({pos}e)", "Irréversible"],
                               unit=t.delegation))
+        scen[-1]["spec"] = option_spec("A_new", "delegation", t.governorate, t.delegation, pos, int(t.pharmacies_A), "A",
+                                       t.zone_threshold, 2, s.n_sims)
 
     # C – Zriba, Category B
     cz = data["communes"]
@@ -306,6 +343,8 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
                           ["Perte de la date du 26/07/2017", f"Officine B existante supposée : {b_existing_zriba}",
                            f"Seconde officine B seulement au-delà de {s.night_threshold:,} hab.".replace(",", " "),
                            "Liste B reconstituée à partir du tableau des renouvellements 2026"], unit="Zriba"))
+    scen[-1]["spec"] = option_spec("B", "commune", zr.governorate, zr.commune_name, posC, b_existing_zriba, "B", s.night_threshold,
+                                   3, s.n_sims, b_existing_zriba == 0, b_case="known")
 
     # D – other commune, Category B
     if target_commune:
@@ -339,6 +378,9 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
                                    "Commune sans inscrit B" if tc.waiting_B == 0 else f"{int(tc.waiting_B)} inscrit(s) B"],
                                   ["Perte de la date du 26/07/2017", "Existence d'une officine B non vérifiée",
                                    "Viabilité économique d'une officine de nuit non évaluée", "Irréversible"] + evidence, unit=cname))
+            scen[-1]["spec"] = option_spec("B", "commune", gname, cname, posD, existing, "B", s.night_threshold, 4 + existing,
+                                           s.n_sims, existing == 0,
+                                           b_case="known" if not suffix else ("best" if existing == 0 else "cautious"))
 
     # E – transfer keeping seniority (no legal basis identified)
     if include_hypothetical_e and target_del:
@@ -351,6 +393,8 @@ def build_scenarios(data: dict, s: SimSettings, target_del: str | None, target_c
                               "Aucune disposition ne permet de transférer l'ancienneté (seulement art. 14-15, transitoires/administratifs). Calcul purement illustratif.",
                               ["Montre l'effet de la date de 2017 sur une autre liste"],
                               ["Non autorisé en l'état des textes – nécessite une confirmation officielle écrite"], unit=t.delegation))
+        scen[-1]["spec"] = option_spec("A_keep", "delegation", t.governorate, t.delegation, posE, int(t.pharmacies_A), "A",
+                                       t.zone_threshold, 5, s.n_sims)
 
     # comparisons with the stay scenario
     for sc in scen:
@@ -389,9 +433,10 @@ def all_alternatives(data: dict, s: SimSettings, n_sims: int = 1000) -> pd.DataF
     rows = []
 
     def add(kind, cat, r_unit, gov, dist, legal, loses, note, pop0, path, rate, existing, threshold, rule, pos, n_list,
-            years, summ, risk, conf, ref=False):
+            years, summ, risk, conf, ref=False, spec=None):
         allowed_now = fc.allowed_A(pop0, threshold) if rule == "A" else fc.allowed_B(pop0, threshold)
-        row = {"Référence": ref, "Unité": r_unit.title() if isinstance(r_unit, str) else r_unit, "Gouvernorat": gov.title(),
+        row = {"ID": spec["id"], "_spec": spec,
+               "Référence": ref, "Unité": r_unit.title() if isinstance(r_unit, str) else r_unit, "Gouvernorat": gov.title(),
                "Distance (km)": dist, "Catégorie": cat, "Type": kind, "Juridiquement possible": legal,
                "Perd l'ancienneté 2017": loses, "Base juridique": note, "Pop. 2024": pop0}
         for y in PROJ_YEARS:
@@ -420,18 +465,24 @@ def all_alternatives(data: dict, s: SimSettings, n_sims: int = 1000) -> pd.DataF
                                   seed=1, engaged_ahead=True)
             add("Rester (référence)", CAT_A, r.delegation, r.governorate, 0.0, True, False,
                 "Inscription actuelle (rang vérifié).", r.population_dpm, path, gm, int(r.pharmacies_A), r.zone_threshold,
-                "A", prof["current_rank"], int(r.waiting_A), y, sm, "Faible", "Moyenne", ref=True)
+                "A", prof["current_rank"], int(r.waiting_A), y, sm, "Faible", "Moyenne", ref=True,
+                spec=option_spec("stay", "delegation", r.governorate, r.delegation, prof["current_rank"], int(r.pharmacies_A),
+                                 "A", r.zone_threshold, 1, s.n_sims, engaged_ahead=True))
             continue
         pos = int(r.waiting_A) + 1
         y, sm = simulate_unit(pos, int(r.pharmacies_A), r.population_dpm, r.zone_threshold, "A", g, s, seed=10_000 + i, n_sims=n_sims)
         add("Changer de délégation", CAT_A, r.delegation, r.governorate, r.distance_km, True, True,
             "Nouvelle demande classée à la date du nouveau dépôt (arrêté 19/12/2019 art. 5-6).", r.population_dpm, path, gm,
-            int(r.pharmacies_A), r.zone_threshold, "A", pos, int(r.waiting_A), y, sm, "Élevé", "Moyenne")
+            int(r.pharmacies_A), r.zone_threshold, "A", pos, int(r.waiting_A), y, sm, "Élevé", "Moyenne",
+            spec=option_spec("A_new", "delegation", r.governorate, r.delegation, pos, int(r.pharmacies_A), "A",
+                             r.zone_threshold, 10_000 + i, n_sims))
         posE = seniority_position(data["waiting"], "A", r.governorate, r.delegation, reg)
         y, sm = simulate_unit(posE, int(r.pharmacies_A), r.population_dpm, r.zone_threshold, "A", g, s, seed=20_000 + i, n_sims=n_sims)
         add("Transfert hypothétique", CAT_E, r.delegation, r.governorate, r.distance_km, False, False,
             "Aucune disposition ne permet de transférer l'ancienneté (calcul illustratif).", r.population_dpm, path, gm,
-            int(r.pharmacies_A), r.zone_threshold, "A", posE, int(r.waiting_A), y, sm, "Non applicable", "Faible")
+            int(r.pharmacies_A), r.zone_threshold, "A", posE, int(r.waiting_A), y, sm, "Non applicable", "Faible",
+            spec=option_spec("A_keep", "delegation", r.governorate, r.delegation, posE, int(r.pharmacies_A), "A",
+                             r.zone_threshold, 20_000 + i, n_sims))
 
     for i, c in comm.iterrows():
         if pd.isna(c.pop_2024):
@@ -447,14 +498,18 @@ def all_alternatives(data: dict, s: SimSettings, n_sims: int = 1000) -> pd.DataF
                                   seed=3 if is_zriba else 30_000 + i, n_sims=None if is_zriba else n_sims)
             add("Changer de catégorie" if is_zriba else "Changer de commune", CAT_BZ, c.commune_name, c.governorate,
                 0.0 if is_zriba else c.distance_km, True, True, note + f" Officine(s) B existante(s) : {ex} ({c.existing_B_source}).",
-                c.pop_2024, path, gm, ex, s.night_threshold, "B", pos, int(c.waiting_B), y, sm, "Élevé", "Faible")
+                c.pop_2024, path, gm, ex, s.night_threshold, "B", pos, int(c.waiting_B), y, sm, "Élevé", "Faible",
+                spec=option_spec("B", "commune", c.governorate, c.commune_name, pos, ex, "B", s.night_threshold,
+                                 3 if is_zriba else 30_000 + i, s.n_sims if is_zriba else n_sims, ex == 0, b_case="known"))
             continue
-        for ex, cat, seed0 in ((0, CAT_B0, 40_000), (max(int(c.allowed_B), 1), CAT_B1, 50_000)):
+        for ex, cat, seed0, case in ((0, CAT_B0, 40_000, "best"), (max(int(c.allowed_B), 1), CAT_B1, 50_000, "cautious")):
             y, sm = simulate_unit(pos, ex, c.pop_2024, s.night_threshold, "B", g, s, first_licence_now=(ex == 0),
                                   seed=seed0 + i, n_sims=n_sims)
             add("Changer de commune", cat, c.commune_name, c.governorate, c.distance_km, True, True,
                 note + " Nombre d'officines B non publié : à confirmer auprès de la DPM.", c.pop_2024, path, gm, ex,
-                s.night_threshold, "B", pos, int(c.waiting_B), y, sm, "Élevé", "Faible")
+                s.night_threshold, "B", pos, int(c.waiting_B), y, sm, "Élevé", "Faible",
+                spec=option_spec("B", "commune", c.governorate, c.commune_name, pos, ex, "B", s.night_threshold,
+                                 seed0 + i, n_sims, ex == 0, b_case=case))
 
     df = pd.DataFrame(rows)
     stay = df[df["Référence"]].iloc[0]

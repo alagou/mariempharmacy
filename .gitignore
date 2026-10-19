@@ -3,4 +3,5 @@ __pycache__/
 .venv/
 venv/
 reports/
+scratch/explain_samples/
 .streamlit/secrets.toml
