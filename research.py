@@ -85,6 +85,7 @@ DOCUMENTS = [
     ("statistics", "https://ins.tn/sites/default/files-ftp3/files/publication/pdf/Bilan_D%C3%A9mographique.pdf", "INS – RGPH 2024 : bilan démographique (premiers résultats)"),
     ("statistics", "https://www.ins.tn/sites/default/files-ftp3/files/publication/pdf/Estimation%20de%20la%20population%202024_0.pdf", "INS – Estimations de la population par délégation et commune au 1er janvier 2024"),
     ("statistics", "https://www.cgdr.nat.tn/upload/files/gouvchiffres/gech2016/Zaghouan%202016.pdf", "CGDR/ODNE – Gouvernorat de Zaghouan en chiffres 2016 (données INS)"),
+    ("statistics", "https://www.ins.tn/sites/default/files-ftp3/files/publication/pdf/Flash_Projection_de%20la%20Population.pdf", "INS – Flash : projections de la population 2025-2054 (base RGPH 2024, approche bayésienne)"),
     # --- Statistics ---
     ("statistics", f"{DPM}/images/pharmacies/hist0.html", "DPM – Évolution du nombre de pharmacies par catégorie (Jour/Nuit)"),
     ("statistics", f"{DPM}/images/pharmacies/hist3.html", "DPM – Répartition des officines de jour par gouvernorat"),
@@ -810,6 +811,129 @@ def _add_ins_projection(sheets: dict, add) -> None:
                 "Projection officielle établie sur la base du RGPH 2014 ; ne tient pas compte du RGPH 2024")
 
 
+INS_PROJ_XLSX = "Excel_Projection_de_la_population_par_gouvernorat_final_2016-2020.docx_1_-4.xlsx"
+INS_PROJ_URL = ("https://www.ins.tn/sites/default/files-ftp3/files/2021-03/Excel%20Projection%20de%20la%20population%20par%20"
+                "gouvernorat%20final%20%20%20%20%20%20%202016-2020.docx%20%281%29-4.xlsx")
+
+
+INS_FLASH_PDF = "Flash_Projection_de_la_Population.pdf"
+INS_FLASH_URL = "https://www.ins.tn/sites/default/files-ftp3/files/publication/pdf/Flash_Projection_de%20la%20Population.pdf"
+
+
+def extract_ins_flash_2026() -> pd.DataFrame:
+    """INS 'Flash projection de la population' (May 2026, base RGPH 2024, central scenario).
+
+    Only the national level is published (sub-national projections are announced for a later
+    report). Extracted: annual totals 2025-2030 (fig. 6 labels, p. 3) and the 2054 total
+    (women 6.95 M + men 6.38 M, p. 4). The text also states growth ≈ 0.5 % around 2035 and
+    0.03 % in 2054; the annual path between 2030 and 2054 is reconstructed from these anchors
+    (kind = 'interpolation', never presented as an official figure).
+    """
+    import pymupdf
+    doc = pymupdf.open(DOCS / "statistics" / INS_FLASH_PDF)
+    p3, p4 = doc[2].get_text(), doc[3].get_text()
+    base = {"level": "national", "key": "TUNISIE", "hypothesis": "centrale (médiane bayésienne)", "base": "RGPH 2024",
+            "source": "INS – Flash : projections de la population 2025-2054 (mai 2026)", "url": INS_FLASH_URL,
+            "local_path": f"documents/statistics/{INS_FLASH_PDF}"}
+    rows = []
+    m = re.search(r"((?:1[12],\d{2}\s*\n\s*){5}1[12],\d{2})", p3)
+    vals = [float(v.replace(",", ".")) for v in re.findall(r"1[12],\d{2}", m.group(1))] if m else []
+    if len(vals) == 6 and vals[-1] == 12.16:
+        for y, v in zip(range(2025, 2031), vals):
+            rows.append({**base, "year": y, "population": round(v * 1e6), "kind": "projection officielle",
+                         "location": "p. 3, figure 6 (valeurs en millions, arrondies à 10 000)"})
+    f = re.search(r"(\d,\d{2})\s*millions en 2054", p4)
+    h = re.search(r"masculine atteindrait\s*(\d,\d{2})\s*millions", p4)
+    if f and h:
+        p2054 = (float(f.group(1).replace(",", ".")) + float(h.group(1).replace(",", "."))) * 1e6
+        rows.append({**base, "year": 2054, "population": round(p2054), "kind": "projection officielle",
+                     "location": "p. 4, figure 11 et texte (femmes 6,95 M + hommes 6,38 M)"})
+    out = pd.DataFrame(rows)
+    if len(out) == 7:
+        out = pd.concat([out, _flash_interpolation(out, base)], ignore_index=True)
+    return out
+
+
+def _flash_interpolation(anchors: pd.DataFrame, base: dict) -> pd.DataFrame:
+    """Annual 2031-2053 path: growth rises linearly from the 2029-30 rate to a plateau around 2035,
+    then falls linearly to 0.03 % in 2054; the plateau level is solved so that 2054 matches INS."""
+    import numpy as np
+    a = anchors.set_index("year").population
+    r30 = a[2030] / a[2029] - 1
+
+    def path(plateau):
+        rates = {}
+        for y in range(2031, 2055):
+            if y <= 2034:
+                rates[y] = r30 + (plateau - r30) * (y - 2030) / 4
+            elif y <= 2047:
+                rates[y] = plateau
+            else:
+                rates[y] = plateau + (0.0003 - plateau) * (y - 2047) / 7
+        return rates
+
+    lo, hi = 0.0, 0.02
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        if a[2030] * np.prod([1 + r for r in path(mid).values()]) < a[2054]:
+            lo = mid
+        else:
+            hi = mid
+    rates, pop, rows = path(lo), a[2030], []
+    for y in range(2031, 2054):
+        pop *= 1 + rates[y]
+        rows.append({**base, "year": y, "population": round(pop), "kind": "interpolation",
+                     "location": f"reconstitution : croissance {rates[y]:.2%} (palier {lo:.2%} 2035-2047, 0,03 % en 2054 – texte p. 3-4)"})
+    return pd.DataFrame(rows)
+
+
+def extract_ins_projections() -> pd.DataFrame:
+    """Official INS projections (medium hypothesis, base RGPH 2014) -> data/population_projections.csv.
+
+    Sheets '2016'..'2020': population by governorate, sex and age; the third block of each
+    sheet is both sexes. Sheet 'Feuil1': Tunisia 2014-2044 (last 'Total' row = both sexes).
+    """
+    path = DOCS / "statistics" / INS_PROJ_XLSX
+    sheets = pd.read_excel(path, sheet_name=None, header=None)
+    govs = {_norm_name(g): g for g in GOV_HDX}
+    rows = []
+    for name, df in sheets.items():
+        if not name.isdigit():
+            continue
+        year = int(name)
+        tot_col = next(j for i in range(3) for j, v in enumerate(df.iloc[i].tolist()) if str(v).strip() == "Total")
+        seen: dict[str, int] = {}
+        for i in range(len(df)):
+            cells = [str(v).strip().upper() for v in df.iloc[i, :3].tolist()]
+            gov = next((govs[_norm_name(c)] for c in cells if _norm_name(c) in govs), None)
+            if not gov:
+                continue
+            seen[gov] = seen.get(gov, 0) + 1
+            if seen[gov] == 3:  # Masculin, Féminin, Total (both sexes)
+                rows.append({"level": "governorate", "key": gov, "year": year, "population": round(float(df.iloc[i, tot_col])),
+                             "location": f"feuille {name}, ligne {i + 1}, colonne 'Total' (bloc 'Total' = deux sexes)"})
+    feuil = sheets.get("Feuil1")
+    if feuil is not None:
+        first = feuil[0].astype(str).str.strip()
+        tot = first.index[first == "Total"].tolist()[-1]
+        hdr = max(i for i in feuil.index[:tot] if feuil.iloc[i, 1] == 2014)
+        for y, v in zip(feuil.iloc[hdr, 1:].tolist(), feuil.iloc[tot, 1:].tolist()):
+            if isinstance(y, (int, float)) and not pd.isna(y) and isinstance(v, (int, float)) and not pd.isna(v):
+                rows.append({"level": "national", "key": "TUNISIE", "year": int(y), "population": round(float(v)),
+                             "location": f"feuille Feuil1, ligne {tot + 1} ('Total', deux sexes)"})
+    out = pd.DataFrame(rows)
+    out["kind"] = "projection officielle"
+    out["hypothesis"] = "moyenne"
+    out["base"] = "RGPH 2014"
+    out["source"] = "INS – Projections de la population 2014-2044 (fichier Excel « Projection de la population par gouvernorat 2016-2020 »)"
+    out["url"] = INS_PROJ_URL
+    out["local_path"] = f"documents/statistics/{INS_PROJ_XLSX}"
+    out = pd.concat([out, extract_ins_flash_2026()], ignore_index=True)
+    out = out.sort_values(["base", "level", "key", "year"])
+    out.to_csv(DATA / "population_projections.csv", index=False, encoding="utf-8")
+    return out
+
+
 def _build_boundaries(log=print) -> None:
     import zipfile
     import geopandas as gpd
@@ -821,6 +945,150 @@ def _build_boundaries(log=print) -> None:
     g["geometry"] = g.geometry.set_precision(0.0001)
     g.to_file(DATA / "boundaries.geojson", driver="GeoJSON")
     log(f"  limites simplifiées : {(DATA / 'boundaries.geojson').stat().st_size // 1024} Ko")
+
+
+# ----------------------------------------------------------------------------
+# Archived DPM pages (Internet Archive) -> list-update history and licence dossiers
+# ----------------------------------------------------------------------------
+WAYBACK = "http://web.archive.org"
+WAYBACK_DIR = DOCS / "raw_html" / "wayback"
+# family -> URL prefixes as archived (old Joomla paths with and without index.php)
+WAYBACK_PAGES = {
+    "information_liste_attente": ["www.dpm.tn/index.php/pharmacie/information-liste-attente",
+                                  "www.dpm.tn/pharmacie/information-liste-attente"],
+    "suivi_dossiers": ["www.dpm.tn/index.php/pharmacie/suivi-dossiers-des-officines",
+                       "www.dpm.tn/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+                       "www.dpm.tn/pharmacie/suivi-dossiers-des-officines"],
+}
+
+
+def _wayback_index(url: str, s: requests.Session) -> list[tuple[str, str, str]]:
+    """(timestamp, original url, digest) of the distinct 200 captures of exactly `url`."""
+    r = s.get(f"{WAYBACK}/cdx/search/cdx", params={"url": url, "output": "json", "filter": "statuscode:200",
+                                                   "collapse": "digest"}, timeout=90)
+    rows = r.json()[1:] if r.ok and r.text.strip() else []
+    return [(x[1], x[2], x[5]) for x in rows]
+
+
+def fetch_wayback_dpm(log=print) -> int:
+    """Archive every distinct capture of the DPM 'information' and 'suivi des dossiers' pages."""
+    s = _session()
+    WAYBACK_DIR.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for family, urls in WAYBACK_PAGES.items():
+        for url in urls:
+            try:
+                caps = _wayback_index(url, s)
+            except Exception as exc:  # noqa: BLE001
+                log(f"  ! index {url}: {exc}")
+                continue
+            for ts, orig, digest in caps:
+                path = WAYBACK_DIR / f"{family}_{ts}.html"
+                if path.exists():
+                    continue
+                try:
+                    r = s.get(f"{WAYBACK}/web/{ts}id_/{orig}", timeout=120)
+                    r.raise_for_status()
+                except Exception as exc:  # noqa: BLE001
+                    log(f"  ! {ts} {orig}: {exc}")
+                    continue
+                path.write_bytes(r.content)
+                register_source({"url": f"{WAYBACK}/web/{ts}/{orig}", "title": f"DPM – {family} (archive Internet du {ts[:8]})",
+                                 "local_path": str(path.relative_to(ROOT)).replace("\\", "/"), "retrieved": _today(),
+                                 "sha256": _sha256(r.content), "bytes": len(r.content),
+                                 "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"})
+                n += 1
+                time.sleep(1.0)
+    log(f"  {n} nouvelles copies archivées")
+    return n
+
+
+def _page_text(path: Path) -> str:
+    soup = BeautifulSoup(path.read_bytes(), "html.parser")
+    for x in soup(["script", "style"]):
+        x.decompose()
+    return " ".join(soup.get_text(" ", strip=True).split())
+
+
+def parse_list_updates() -> pd.DataFrame:
+    """Dates of the official list revisions and the population basis announced by the DPM."""
+    rows = []
+    files = sorted(WAYBACK_DIR.glob("information_liste_attente_*.html"))
+    current = DOCS / "raw_html" / "dpm_tn_pharmacie_information_liste_attente.html"
+    for p in files + ([current] if current.exists() else []):
+        t = _page_text(p)
+        m = re.search(r"arr[êe]t[ée]e?\s*s?\s*au\s*(\d{2}/\d{2}/\d{4})", t)
+        if not m:
+            continue
+        pm = re.search(r"Estimation de la population arr[êe]t[ée]e au (\d{2}/\d{2}/\d{4})", t)
+        cm = re.search(r"recen[cs]ement g[ée]n[ée]ral de la population et de l'Habitat (\d{4})", t, re.I)
+        basis = f"Estimation INS au {pm.group(1)}" if pm else (f"RGPH {cm.group(1)}" if cm else "")
+        ref_year = int(pm.group(1)[-4:]) if pm else (int(cm.group(1)) if cm else None)
+        seen = p.stem.split("_")[-1][:8] if p in files else "20261019"
+        rows.append({"list_date": dt.datetime.strptime(m.group(1), "%d/%m/%Y").date().isoformat(),
+                     "population_basis": basis, "population_kind": "estimation" if pm else ("recensement" if cm else ""),
+                     "population_ref_year": ref_year, "first_seen": f"{seen[:4]}-{seen[4:6]}-{seen[6:]}",
+                     "source": str(p.relative_to(ROOT)).replace("\\", "/")})
+    df = pd.DataFrame(rows)
+    if df.empty:
+        return df
+    df = df.sort_values("first_seen").drop_duplicates("list_date", keep="first").sort_values("list_date")
+    df.to_csv(DATA / "dpm_list_updates.csv", index=False, encoding="utf-8")
+    return df
+
+
+_DOSSIER_COLS = {"nom & prénom": "nom", "nom & prenom": "nom", "gouvernorat": "governorate", "délégation": "delegation",
+                 "commune": "commune", "objet de la demande": "objet", "date de la demande": "date_demande",
+                 "date cnop": "date_cnop", "avis cnop": "avis_cnop", "signature arrêté": "date_arrete",
+                 "retrait arrêté": "date_retrait"}
+
+
+def _ddmmyyyy(v: str) -> str:
+    m = re.search(r"(\d{2})/(\d{2})/(\d{4})", v or "")
+    return f"{m.group(3)}-{m.group(2)}-{m.group(1)}" if m else ""
+
+
+def parse_officine_dossiers() -> pd.DataFrame:
+    """Licence dossiers (creation, transfer, acquisition...) from every archived 'suivi des dossiers' table."""
+    files = sorted(WAYBACK_DIR.glob("suivi_dossiers_*.html"))
+    current = DOCS / "raw_html" / "dpm_tn_pharmacie_suivi_dossiers_des_officines.html"
+    rows = []
+    for p in files + ([current] if current.exists() else []):
+        soup = BeautifulSoup(p.read_bytes(), "html.parser")
+        snap = p.stem.split("_")[-1][:8] if p in files else "20240112"
+        for tab in soup.find_all("table"):
+            header = None
+            for tr in tab.find_all("tr"):
+                cells = [" ".join(c.get_text(" ", strip=True).split()) for c in tr.find_all(["td", "th"])]
+                low = [c.lower() for c in cells]
+                if any(c.startswith("nom & pr") for c in low):
+                    header = [_DOSSIER_COLS.get(c, c) for c in low]
+                    continue
+                if header is None or len(cells) != len(header):
+                    continue
+                rec = dict(zip(header, cells))
+                if not rec.get("nom") or not rec.get("objet"):
+                    continue
+                rows.append({"nom": rec["nom"].upper(), "governorate": rec.get("governorate", "").upper(),
+                             "delegation": rec.get("delegation", "").upper(), "commune": rec.get("commune", "").upper(),
+                             "objet": rec["objet"].upper(), "date_demande": _ddmmyyyy(rec.get("date_demande", "")),
+                             "date_cnop": _ddmmyyyy(rec.get("date_cnop", "")), "avis_cnop": _ddmmyyyy(rec.get("avis_cnop", "")),
+                             "date_arrete": _ddmmyyyy(rec.get("date_arrete", "")), "snapshot": f"{snap[:4]}-{snap[4:6]}-{snap[6:]}",
+                             "source": str(p.relative_to(ROOT)).replace("\\", "/")})
+    df = pd.DataFrame(rows)
+    if df.empty:
+        return df
+    # one row per dossier, keeping the most advanced (latest) observation
+    df = df.sort_values(["snapshot"]).drop_duplicates(["nom", "governorate", "objet", "date_demande"], keep="last")
+    df = df.sort_values(["date_demande", "nom"]).reset_index(drop=True)
+    df.to_csv(DATA / "officine_dossiers.csv", index=False, encoding="utf-8")
+    return df
+
+
+def refresh_history(log=print) -> None:
+    fetch_wayback_dpm(log)
+    log(f"  révisions des listes : {len(parse_list_updates())}")
+    log(f"  dossiers d'officines : {len(parse_officine_dossiers())}")
 
 
 def refresh_all(log=print) -> None:
@@ -849,5 +1117,7 @@ if __name__ == "__main__":
         build_datasets()
     elif cmd == "patch2020":
         patch_renewals_2020()
+    elif cmd == "history":
+        refresh_history()
     else:
         refresh_all()

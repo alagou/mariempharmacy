@@ -482,5 +482,1184 @@
     "sha256": "0716809d4b18161c226978b53c39445ae506448e26073b2dcd67d4ba10cdf83e",
     "bytes": 54847464,
     "publisher": ""
+  },
+  {
+    "url": "http://web.archive.org/web/20180427013929/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20180427)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20180427013929.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a874a2ad5f70a596cde9020fdadd29fb3fcac9d1dd80f064eecb3ada0a798c44",
+    "bytes": 401904,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180428052054/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20180428)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20180428052054.html",
+    "retrieved": "2026-10-19",
+    "sha256": "224de9c6aa61b85a0c9a8f45a31bf94b2d5a96107961b92aa41ccc90b68ea485",
+    "bytes": 370906,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180529192828/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20180529)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20180529192828.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3f0c6f5d18367147f85c24677505b8738408e01893df79102b69eb76b2682fec",
+    "bytes": 358290,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180604132836/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20180604)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20180604132836.html",
+    "retrieved": "2026-10-19",
+    "sha256": "8d08f86b85482f63232459261e9c2ab1f163bfcc7e9783c11c341b1a23c15738",
+    "bytes": 387107,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180707054219/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20180707)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20180707054219.html",
+    "retrieved": "2026-10-19",
+    "sha256": "9e391b444d0b79ab0d0646756d2457030294e8ef5cafc076139cb27fb23a5800",
+    "bytes": 387832,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180807115032/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20180807)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20180807115032.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3748979fe367617bf59d57a5f927735d382b1cf87fba2e517c0f450415fafadd",
+    "bytes": 37209,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180831170034/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20180831)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20180831170034.html",
+    "retrieved": "2026-10-19",
+    "sha256": "4219a00a64160485ea08388f96cdb3e489b780aff13de02166d058a031cf68a4",
+    "bytes": 37181,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20181002122148/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20181002)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20181002122148.html",
+    "retrieved": "2026-10-19",
+    "sha256": "780a1a5f924caef0517087653ea2c01d60590852e8eef1bebc2a3d0be34aec34",
+    "bytes": 37181,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20181102181350/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20181102)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20181102181350.html",
+    "retrieved": "2026-10-19",
+    "sha256": "139e2e6e0fa2196d624c236de4a1d8e851638bb388da7011fc14848d68f42614",
+    "bytes": 36995,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20181204051228/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20181204)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20181204051228.html",
+    "retrieved": "2026-10-19",
+    "sha256": "ed83035806d904a0c76a9aa6db75545f5664c2b778622886a3b3758da1763109",
+    "bytes": 36991,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20181205065255/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20181205)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20181205065255.html",
+    "retrieved": "2026-10-19",
+    "sha256": "1c0f031238e226624716dbf7e7907e831870ff3bec0eec7b0cd6400b1a60ece1",
+    "bytes": 36991,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190105084757/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190105)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190105084757.html",
+    "retrieved": "2026-10-19",
+    "sha256": "0f8c0ad80d8d6accf3f8891ef0d8d002d0f181b82e8f909fb7cb6e7123d7826d",
+    "bytes": 36991,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190207005547/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190207)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190207005547.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a664b8b0b6ab3c973d3bbad7f2b72e410e249c6aecc1b5b9a6780a8d840a1666",
+    "bytes": 36995,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190208035838/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190208)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190208035838.html",
+    "retrieved": "2026-10-19",
+    "sha256": "c9323b3217612912904feb2ee8ae20e7b1bc7b89c226597f14799d03c4b92acf",
+    "bytes": 36995,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190314055658/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190314)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190314055658.html",
+    "retrieved": "2026-10-19",
+    "sha256": "f3e0dcb914f219bec7a9db7c459d9161b97b24106b780f87af017efcddb69fa2",
+    "bytes": 37521,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190415032143/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190415)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190415032143.html",
+    "retrieved": "2026-10-19",
+    "sha256": "b8ad504a682ca9bfb3d4f59566c147daa3e79d2b67f0f30bf5507dbff7d48eff",
+    "bytes": 37521,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190416080237/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190416)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190416080237.html",
+    "retrieved": "2026-10-19",
+    "sha256": "dccd038480e031c7e3a3308d972b1d65162b257af3455501858c33fc4fce88fb",
+    "bytes": 37506,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190518153416/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190518)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190518153416.html",
+    "retrieved": "2026-10-19",
+    "sha256": "bcbacf6b5b50ab4048c8d4679f29aea7f0fe77241ddd7fca75098ce18b715f8a",
+    "bytes": 37498,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190619170516/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190619)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190619170516.html",
+    "retrieved": "2026-10-19",
+    "sha256": "1352124c4c28c813e0a0f874923e95815b15ab4d92272c6a182162b257334787",
+    "bytes": 36788,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190620173700/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190620)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190620173700.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3f7169846dd6258ed8059fc80a44969917afcd22c9f92b7a60ce27afc553cc6c",
+    "bytes": 36788,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190722112422/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190722)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190722112422.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3c6f93b26e04ff1447e40a128cc4e20526c04cf36ad8a0cdab6ba958706d955e",
+    "bytes": 36788,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190823151435/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190823)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190823151435.html",
+    "retrieved": "2026-10-19",
+    "sha256": "8f9debdfc236cac588b8f90efcb0d622574ff371d9a1208d265f7975aae1ce41",
+    "bytes": 36052,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190824210223/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190824)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190824210223.html",
+    "retrieved": "2026-10-19",
+    "sha256": "80d1cb79cbb506e810cec9f2f9f48d47472e9e027c2ba976d509c00817a4aa86",
+    "bytes": 36052,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190925035855/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20190925)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20190925035855.html",
+    "retrieved": "2026-10-19",
+    "sha256": "8f84f1fd7985dbfc4be2c9e3ab791f9b5ba5f249fed84e3412f855625ca45962",
+    "bytes": 36056,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191022033242/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20191022)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20191022033242.html",
+    "retrieved": "2026-10-19",
+    "sha256": "1839051c72b2542751b15cdcb383381efe5666cbd9f6a1793aa3f0a5cf8d19b2",
+    "bytes": 36181,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191121215750/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20191121)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20191121215750.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a59e4c0925de4e661edf82925527daca4b40e00818bb17326e4cc56e4d8c2c64",
+    "bytes": 36165,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191222110417/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20191222)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20191222110417.html",
+    "retrieved": "2026-10-19",
+    "sha256": "b625b9bb4cd5c61c0b0ee82f282512d21b28831f3a47041fd4047cb4d9252786",
+    "bytes": 37148,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200121200644/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200121)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200121200644.html",
+    "retrieved": "2026-10-19",
+    "sha256": "5706fa137ecf1208d02c7bda6d4eb12474ea8c0f791e958688befbd550b97043",
+    "bytes": 37148,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200221010354/http://www.dpm.tn:80/index.php/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200221)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200221010354.html",
+    "retrieved": "2026-10-19",
+    "sha256": "4dcfd2398067afc58ce4f7d60f4777680258a7a0bf6094cb8001a87a9dd0118d",
+    "bytes": 38270,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191204132251/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20191204)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20191204132251.html",
+    "retrieved": "2026-10-19",
+    "sha256": "03aebdeff188849c2917155545dd8acdd4d93c21c122658254b8becd479fd36a",
+    "bytes": 36155,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200202174242/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200202)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200202174242.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a4279aca68dcf30484191429f63843c1110a2e2ae841318892281f4fb658936f",
+    "bytes": 37046,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200226064224/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200226)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200226064224.html",
+    "retrieved": "2026-10-19",
+    "sha256": "467e29fbc4ed813074b71000191bbadf11a27ea81bdda79ab7fa8b98e2dea458",
+    "bytes": 38554,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200227132202/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200227)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200227132202.html",
+    "retrieved": "2026-10-19",
+    "sha256": "0c86b03a4383bdbae67b0fb797400a53dd2620f3b0de1ef9cf03a515579bba33",
+    "bytes": 38558,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200417083353/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200417)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200417083353.html",
+    "retrieved": "2026-10-19",
+    "sha256": "34dee6e134828f5e715b74a78d54e32dfd154362251f42012e5cc163ebb21dda",
+    "bytes": 38659,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200517225421/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200517)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200517225421.html",
+    "retrieved": "2026-10-19",
+    "sha256": "69907df041182a854ffe7e06b6b842ef3d8ac3559c22aff50800e5e823e0a81f",
+    "bytes": 38549,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200617051704/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200617)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200617051704.html",
+    "retrieved": "2026-10-19",
+    "sha256": "723c8b05b42a712f647879ca80c9bb702975d4808317e63cafd71398babf4d4c",
+    "bytes": 39747,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200717100323/http://www.dpm.tn:80/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20200717)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20200717100323.html",
+    "retrieved": "2026-10-19",
+    "sha256": "0a9b1c6ace111185975c35a1b7d618f33dbc88889056ddd087c54207442cca84",
+    "bytes": 39743,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20210621123755/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20210621)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20210621123755.html",
+    "retrieved": "2026-10-19",
+    "sha256": "0f2e1e7485e29b07c66cb922e3a1b6b064c8e98f14a5764865b0b44dc9f699bb",
+    "bytes": 40728,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20211206231658/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20211206)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20211206231658.html",
+    "retrieved": "2026-10-19",
+    "sha256": "57a3b7730a9c42ce58cba4caa0477b7ea97e6b1ff6f1cd110552883eef778f76",
+    "bytes": 41559,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20211227154739/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20211227)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20211227154739.html",
+    "retrieved": "2026-10-19",
+    "sha256": "903e8ae72e68245bce827243f0cd49ac3930ff4bb24e20043b31ccbf23d47066",
+    "bytes": 41559,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220615043212/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220615)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220615043212.html",
+    "retrieved": "2026-10-19",
+    "sha256": "2c384e1ac21c185d3f56098038e8a25f5b259ff1910dada9931c8959b0f9d87f",
+    "bytes": 42456,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220615054251/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220615)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220615054251.html",
+    "retrieved": "2026-10-19",
+    "sha256": "c6d02ab405444f51c92be40339dc97c1bc3fe2f35cbca65cd3da5671c8e34568",
+    "bytes": 42460,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220617160304/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220617)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220617160304.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a33af17d38b925864b49dbb0d30f5c23167faa0adfe19e059976d6f64233497c",
+    "bytes": 42456,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220619053035/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220619)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220619053035.html",
+    "retrieved": "2026-10-19",
+    "sha256": "9bebfc3cf15d87a945c754412145356581b870e0d6c6bc0105f0a38b2fbb9457",
+    "bytes": 42460,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220619155712/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220619)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220619155712.html",
+    "retrieved": "2026-10-19",
+    "sha256": "8e93203841b90e36cef1734c94836291a1b5a1bb45f58f099617117fb727ffb4",
+    "bytes": 42460,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220802110459/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220802)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220802110459.html",
+    "retrieved": "2026-10-19",
+    "sha256": "dac8fcef72bb520eb392f7b1d5c94324d36892a0a626f38516eee8462314c74c",
+    "bytes": 42490,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220803012355/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220803)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220803012355.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a36629ffc40dc6a14e655c2cbd1631d256a1276cc6610e47e159b7c40cb826a8",
+    "bytes": 42486,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220804044334/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220804)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220804044334.html",
+    "retrieved": "2026-10-19",
+    "sha256": "c95fbd6350515346c867c4c21a2fa1007eb1917d5ca5b373d8c7ca9c6dc15656",
+    "bytes": 42490,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220804185428/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220804)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220804185428.html",
+    "retrieved": "2026-10-19",
+    "sha256": "199dd4ca02fdff95f5e00db9dd8befb1314da141a6259ecdff507da9c648bfd9",
+    "bytes": 42486,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220808174457/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220808)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220808174457.html",
+    "retrieved": "2026-10-19",
+    "sha256": "243fb10a5db70dd6e5620a3fc94d1b7cf049c73fece5eb5b36f2b2cd7bfeaedb",
+    "bytes": 42486,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220815024733/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220815)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220815024733.html",
+    "retrieved": "2026-10-19",
+    "sha256": "ad7022873913f31e146a47220d52d1e60f9fa24cd5475cef21822f25761d758e",
+    "bytes": 42486,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220925103958/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20220925)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20220925103958.html",
+    "retrieved": "2026-10-19",
+    "sha256": "b4e8e516d1b4c54efd30e3f8fa930194334e723ea203e0b0b17dddff867435a7",
+    "bytes": 42486,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20230323232217/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20230323)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20230323232217.html",
+    "retrieved": "2026-10-19",
+    "sha256": "07084175ef0b18bdce9574a9cf06db595f34a318c8427657dba5c4d2f902fc1a",
+    "bytes": 42709,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20230923171028/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20230923)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20230923171028.html",
+    "retrieved": "2026-10-19",
+    "sha256": "84e20d4987c22af595278da863affab077ff872929db1c1f43a82d83ea9675a0",
+    "bytes": 42844,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20240417113852/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20240417)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20240417113852.html",
+    "retrieved": "2026-10-19",
+    "sha256": "715970254a39d262ea50790b74050b7858a7ef1f72a4a7dfaaf7a130db2e1908",
+    "bytes": 43375,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20240621164558/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20240621)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20240621164558.html",
+    "retrieved": "2026-10-19",
+    "sha256": "637caea08abd4d3767685ea023d2cd56da48d581afe8e1a9c54c52842c2dc23e",
+    "bytes": 43375,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20250113093525/http://www.dpm.tn/pharmacie/information-liste-attente",
+    "title": "DPM – information_liste_attente (archive Internet du 20250113)",
+    "local_path": "documents/raw_html/wayback/information_liste_attente_20250113093525.html",
+    "retrieved": "2026-10-19",
+    "sha256": "f2b7d907a9cd2c1d1ca05bad73be67cf57a0ae8636d90c6201317a7addd27bc7",
+    "bytes": 44119,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180429053603/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180429)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180429053603.html",
+    "retrieved": "2026-10-19",
+    "sha256": "be19343b0ac8e9eebec9a93f2c4b78f44fb2ed73260a34740bbb7442d698ed39",
+    "bytes": 542586,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180512010833/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180512)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180512010833.html",
+    "retrieved": "2026-10-19",
+    "sha256": "e064215d0a00b324821f59d89445feb022689d7fbffb0926dbb92cb56a6bca1b",
+    "bytes": 555924,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180612204707/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180612)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180612204707.html",
+    "retrieved": "2026-10-19",
+    "sha256": "6b266db0d3ccd081addc8e01d72903fd6c8ee8dd5350a90cf78261a0714ea5b6",
+    "bytes": 549991,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180715100059/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180715)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180715100059.html",
+    "retrieved": "2026-10-19",
+    "sha256": "22b93940f5346a7cee4f6191da13d6ab18998beafe3cbb0e394aa87dcad94015",
+    "bytes": 576665,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180716131559/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180716)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180716131559.html",
+    "retrieved": "2026-10-19",
+    "sha256": "c62a18d2ea62a8ffebf7ea248e79f5b4a6aca47f9e261b73db470222b6000c3b",
+    "bytes": 571492,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180812212951/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180812)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180812212951.html",
+    "retrieved": "2026-10-19",
+    "sha256": "0f9f6c2c7641abb8ad4829701ef296e416cfdf3526013e1a92dd756e50bd76ed",
+    "bytes": 249461,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180814001229/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180814)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180814001229.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3b62c7b57dc194c08a6b2f683071485d56412bdcc33cb0fe48d764bc1ffd2de2",
+    "bytes": 249457,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20180907161725/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20180907)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20180907161725.html",
+    "retrieved": "2026-10-19",
+    "sha256": "1bf04c7bef8e3543c4c75cf25552223a1dfa37dced408a0bbaf2783b86379443",
+    "bytes": 272113,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20181011051428/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20181011)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20181011051428.html",
+    "retrieved": "2026-10-19",
+    "sha256": "85ea9a9aab59d9a2e2ebdb88985fda1b0a3e56cdedd5c6bd73f962f1f0148610",
+    "bytes": 284784,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20181112135453/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20181112)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20181112135453.html",
+    "retrieved": "2026-10-19",
+    "sha256": "7422275b8ca09a08d9534c8d84d81eee247267afc1c337581c0f5e66e316cea0",
+    "bytes": 296749,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20181213232125/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20181213)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20181213232125.html",
+    "retrieved": "2026-10-19",
+    "sha256": "7387e97108976891b635338ce08ba0a96d80862f0a5cf9390aea59e7a845341f",
+    "bytes": 314463,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190118063955/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190118)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190118063955.html",
+    "retrieved": "2026-10-19",
+    "sha256": "ffb893edac82513576417354c50ee8d77af3770472b420297399e76ad4cc5079",
+    "bytes": 334464,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190215114424/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190215)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190215114424.html",
+    "retrieved": "2026-10-19",
+    "sha256": "5cffaa273f1730bd53a26b9a2f7326963b362af6c7c9449a3039050194e45c6f",
+    "bytes": 346618,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190304134039/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190304)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190304134039.html",
+    "retrieved": "2026-10-19",
+    "sha256": "258041e0320308d3584f8f9cb0ed65eda88db9ffa8b3ba42a801906774ebf66c",
+    "bytes": 355641,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190317003558/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190317)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190317003558.html",
+    "retrieved": "2026-10-19",
+    "sha256": "725b9219d6f16140ecbf51008effe7afa827a634fed65426fc4a6d4b75fb9872",
+    "bytes": 356115,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190331155513/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190331)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190331155513.html",
+    "retrieved": "2026-10-19",
+    "sha256": "03bf067daf5b573d004230ce0145d2c159830c5f3b2e8a3bc9ae8060220d743a",
+    "bytes": 143960,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190416084713/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190416)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190416084713.html",
+    "retrieved": "2026-10-19",
+    "sha256": "fde95a4a10ddd3129dabcac012faf81ea6c49e273f0ac4890daaa0e4a866e6de",
+    "bytes": 158046,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190429211119/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190429)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190429211119.html",
+    "retrieved": "2026-10-19",
+    "sha256": "762b9b7887008803035d2be4cfc54566f453bca76f5a1a6e16fffc86f01cafae",
+    "bytes": 162210,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190518153829/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190518)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190518153829.html",
+    "retrieved": "2026-10-19",
+    "sha256": "6b6997ec8fef06db800824372d94e9541140fb15189c263212dfd57c07e0774f",
+    "bytes": 166541,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190619144905/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190619)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190619144905.html",
+    "retrieved": "2026-10-19",
+    "sha256": "df7c8f7ce925624fd665138b61a55afbdc79432f3acb74edf9f9e05fb31bd79d",
+    "bytes": 163694,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190620172750/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190620)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190620172750.html",
+    "retrieved": "2026-10-19",
+    "sha256": "cbafa01960df29e3e553429109d09e7f5dce7646f3e35225df83ca6dbc45275f",
+    "bytes": 163694,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190715171031/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190715)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190715171031.html",
+    "retrieved": "2026-10-19",
+    "sha256": "910677101cb30d6036d2cffd37472e3349c5c9d97eca67fcb8a7157d5a545101",
+    "bytes": 155828,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190805110126/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190805)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190805110126.html",
+    "retrieved": "2026-10-19",
+    "sha256": "756e3b30194d5718830e6147d3f249aa34040c4cf3dd5383d7a507e97a99d95b",
+    "bytes": 154050,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190905180002/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190905)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190905180002.html",
+    "retrieved": "2026-10-19",
+    "sha256": "1f1c643119582869135111dbbd78b48b9f3be5cd4177c6475a3fd9165ddc0a29",
+    "bytes": 147574,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190329071408/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190329)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190329071408.html",
+    "retrieved": "2026-10-19",
+    "sha256": "10032a0836e04e28c683da15363a8256d9c6a3a27ef251016b745a77f03dc97e",
+    "bytes": 245781,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190429223841/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190429)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190429223841.html",
+    "retrieved": "2026-10-19",
+    "sha256": "9d935f909d3c39d8a0a78209d7bfbcfedab3ebb423a2a3748a4f585f7797a104",
+    "bytes": 250873,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190531181047/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190531)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190531181047.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3851eb931b8d77d873d2359cd284c2cf7647a67753c55887c9e6cd4d403d58c8",
+    "bytes": 259902,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190702204946/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190702)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190702204946.html",
+    "retrieved": "2026-10-19",
+    "sha256": "b7521d66006a30d3888ba329b3a14787329343435a86f3d66721c68d51d69eb7",
+    "bytes": 268875,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190802193359/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190802)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190802193359.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3db723c9fea16a06a59cb8c643e7bdbae7ee3754d887acb72120e60c3192cb70",
+    "bytes": 286068,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190902190634/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190902)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190902190634.html",
+    "retrieved": "2026-10-19",
+    "sha256": "451d56844019886c6a6c5c3cd96b420277efc7653f84063653b22cfe245895b3",
+    "bytes": 292647,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191031185556/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20191031)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20191031185556.html",
+    "retrieved": "2026-10-19",
+    "sha256": "bf1a93ff4e6b02e0a2c5538f15b918d99736ce5e2f1509cda8799afd8f43fcc4",
+    "bytes": 72445,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191201014324/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20191201)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20191201014324.html",
+    "retrieved": "2026-10-19",
+    "sha256": "b09ee10c1a85c65bd1e6ef6967b7ecedc0baab2afea9f2cb506881dd83d9a9fd",
+    "bytes": 71605,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191231144611/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20191231)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20191231144611.html",
+    "retrieved": "2026-10-19",
+    "sha256": "d4e00621a7519b68889771d28b20d79f28fd4f4db5b72ba2914ea6e847a305fc",
+    "bytes": 68929,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200130211809/http://www.dpm.tn:80/index.php/pharmacie/suivi-dossiers-des-officines/28-banner/213-suivi-dossiers-des-officines-2",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200130)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200130211809.html",
+    "retrieved": "2026-10-19",
+    "sha256": "507007842c345d23c00e9a1ecf36cd4d99a7e2e475e6cae81d9ac88255c8bccb",
+    "bytes": 67208,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190812113135/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190812)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190812113135.html",
+    "retrieved": "2026-10-19",
+    "sha256": "84c2c13991488f29f5b98de7de0aef5375d27aa09058cf0ecd60bd23f961b8e6",
+    "bytes": 154327,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20190913071810/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20190913)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20190913071810.html",
+    "retrieved": "2026-10-19",
+    "sha256": "080afa7b5a3f78af3c27efaa1107e1d12be169daa668c7319432d5dc6c2e4693",
+    "bytes": 150051,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191026201158/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20191026)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20191026201158.html",
+    "retrieved": "2026-10-19",
+    "sha256": "7f2f7de26d6d1210910b551be4faf4ba6402e92d0f1c83d70dd4221efff47467",
+    "bytes": 110764,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191029084106/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20191029)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20191029084106.html",
+    "retrieved": "2026-10-19",
+    "sha256": "9dd5d151644520ae2df079cd0540b10afa978dfdbbca1128e3221f1112ae9b1b",
+    "bytes": 110768,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191128185840/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20191128)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20191128185840.html",
+    "retrieved": "2026-10-19",
+    "sha256": "50756cb482bdaa15a93b1457e37b9252de366c16369df289afda1731fcd3f8e4",
+    "bytes": 110559,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20191228223202/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20191228)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20191228223202.html",
+    "retrieved": "2026-10-19",
+    "sha256": "0325fbd2c84ec81f2138ea698f24ab635faf6269a5307bd5d18939ff0a52788c",
+    "bytes": 118421,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200128043701/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200128)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200128043701.html",
+    "retrieved": "2026-10-19",
+    "sha256": "24c262a6a2bec65dd08eb58d8e87d606ab91b470a58b81f1117fc210260a2438",
+    "bytes": 119635,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200226064255/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200226)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200226064255.html",
+    "retrieved": "2026-10-19",
+    "sha256": "479f78da50f95b46bca385f6200bb3e1f80e9c303b86225d668e7472772abcad",
+    "bytes": 121022,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200227123644/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200227)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200227123644.html",
+    "retrieved": "2026-10-19",
+    "sha256": "2d8d431d07d43ae8833d138ade510f38171fc3a45e0bcdea54df0bf67edb321d",
+    "bytes": 121026,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200328153348/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200328)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200328153348.html",
+    "retrieved": "2026-10-19",
+    "sha256": "10414b3ca3900639ec9bb697e53874cb351b80dcf79ac919e9b5fbc776f8abf1",
+    "bytes": 121436,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200427184032/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200427)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200427184032.html",
+    "retrieved": "2026-10-19",
+    "sha256": "25b512bceb03581e505e6a204a13538cf9c87d9ea36ece6c07f7004b4d860dcd",
+    "bytes": 121427,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200528021522/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200528)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200528021522.html",
+    "retrieved": "2026-10-19",
+    "sha256": "3ce549e868b2f2950a3b5b8e44657bfcb5c45cff6cb869b962ab7cc9cb31af9f",
+    "bytes": 121077,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200627054815/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200627)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200627054815.html",
+    "retrieved": "2026-10-19",
+    "sha256": "15a97c027297338f4feedb3131c3e902c5e83a44076c26c06f5196b4278cd71d",
+    "bytes": 122949,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20200727115603/http://www.dpm.tn:80/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20200727)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20200727115603.html",
+    "retrieved": "2026-10-19",
+    "sha256": "89843d7e2aab937e3a5416c891d30ab0b8165562ca62939df2e4216cf7978b5b",
+    "bytes": 122883,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20210621140457/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20210621)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20210621140457.html",
+    "retrieved": "2026-10-19",
+    "sha256": "78931823f720053497e8fc5d9f5a3782ca6651a973667027e8f222d8a4826246",
+    "bytes": 123260,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20211207004209/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20211207)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20211207004209.html",
+    "retrieved": "2026-10-19",
+    "sha256": "2e6f925bdfa2f96dfd7d12d7a7327a0a155839484d8d360b90b5896e2d05ad5b",
+    "bytes": 123482,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20211227202619/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20211227)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20211227202619.html",
+    "retrieved": "2026-10-19",
+    "sha256": "68c685edf96792f3a7fe8be56c1acd800b60f15c830795339f61521762ceafb6",
+    "bytes": 123814,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220615043251/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220615)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220615043251.html",
+    "retrieved": "2026-10-19",
+    "sha256": "bfbc1bd9cdc4c8cfd379616a5108ba86859d082d8db7a603a6b34a396aa97342",
+    "bytes": 124727,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220615053902/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220615)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220615053902.html",
+    "retrieved": "2026-10-19",
+    "sha256": "6581703b826daec8a52135d9815d5b8e4cdf3aa3442fc81a48c67e6a7335359f",
+    "bytes": 124731,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220617160250/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220617)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220617160250.html",
+    "retrieved": "2026-10-19",
+    "sha256": "dad481c351eca2938bc3b2e4a31d5cbd88a0eacce97a4659ab6583740d633cbb",
+    "bytes": 123910,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220619044927/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220619)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220619044927.html",
+    "retrieved": "2026-10-19",
+    "sha256": "57aaec512f30bf7eded17e400289fbd3afc6cf3955cf8a8e9c0f87b13d4410c4",
+    "bytes": 123914,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220619155837/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220619)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220619155837.html",
+    "retrieved": "2026-10-19",
+    "sha256": "ea21f5271a465a1b3e06564b523f0017a03fbdd2bda43ec52159cc4762eca824",
+    "bytes": 123910,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220621025901/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220621)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220621025901.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a7483d218d76f5f7f544b58001ba0c4c39e3d0f74b5ce820430b9fbd5bca718c",
+    "bytes": 123910,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220802104936/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220802)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220802104936.html",
+    "retrieved": "2026-10-19",
+    "sha256": "046344c6473982cfc4c1901325661b7f7af30f80d570d69aeefb55871f6632b1",
+    "bytes": 111781,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220803172453/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220803)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220803172453.html",
+    "retrieved": "2026-10-19",
+    "sha256": "bc76e659b35ae7184e4d8fb9bcbaccbae4940f7b7a0ae627cebd5d441526aede",
+    "bytes": 111781,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220804215247/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220804)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220804215247.html",
+    "retrieved": "2026-10-19",
+    "sha256": "829d5fdb50654c9da49afcd48815a52278a5775b94d5f4516d1318196b37c782",
+    "bytes": 111785,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220804234532/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220804)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220804234532.html",
+    "retrieved": "2026-10-19",
+    "sha256": "a03859be876cf8c31643a374fb118f00f0ec5a1520f21d5607e7fdf82f00ab5a",
+    "bytes": 111781,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220806163115/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220806)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220806163115.html",
+    "retrieved": "2026-10-19",
+    "sha256": "4fb5ca298f80c3ef4f5717ef1e5c7bf0cdd3543363a80004565c2a1c3bc4aff0",
+    "bytes": 108632,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220808130650/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220808)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220808130650.html",
+    "retrieved": "2026-10-19",
+    "sha256": "930e726bdad5ee80fe00dedd4cb5915dcc92229c3df33a00a611f5867f040c37",
+    "bytes": 108632,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220808220017/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220808)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220808220017.html",
+    "retrieved": "2026-10-19",
+    "sha256": "aac2b8129e0f097e8f5aa6af2c76bbd59eb059c68acbc041a6348fa5dcbeee21",
+    "bytes": 108636,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220812174445/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220812)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220812174445.html",
+    "retrieved": "2026-10-19",
+    "sha256": "668d72ca656afef7c45ae907a3f4797df670575782e8d07cc510eaec460db850",
+    "bytes": 108632,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220815005857/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220815)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220815005857.html",
+    "retrieved": "2026-10-19",
+    "sha256": "b01ec16dd6128c188d8d05a19c7dd63b2ed2393d55cb4d1bd6bad946dd3f5116",
+    "bytes": 108636,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220815024738/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220815)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220815024738.html",
+    "retrieved": "2026-10-19",
+    "sha256": "215d99b8b69542a626b54a59792b72aac3ad3dd1fb8fde5c071c65702487b0c5",
+    "bytes": 108636,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20220925120516/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20220925)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20220925120516.html",
+    "retrieved": "2026-10-19",
+    "sha256": "c8eeb099619b7f180e2bf69c7460ec0da3463752152ca1d848a5b4c8fd6a1969",
+    "bytes": 112923,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20230324004144/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20230324)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20230324004144.html",
+    "retrieved": "2026-10-19",
+    "sha256": "04084d29e73cf4b0f34c03d64d660fd879046a70e3222cc9e36b75491ff82fef",
+    "bytes": 88415,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/publication/pdf/Flash_Projection_de%20la%20Population.pdf",
+    "title": "INS – Flash : projections de la population 2025-2054 (base RGPH 2024)",
+    "local_path": "documents/statistics/Flash_Projection_de_la_Population.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "eca044f0c01c88454214a3c179888a303c25af7e6d334aaba0be92879099bdb6",
+    "bytes": 1475427,
+    "publisher": ""
+  },
+  {
+    "url": "http://web.archive.org/web/20230923183646/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20230923)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20230923183646.html",
+    "retrieved": "2026-10-19",
+    "sha256": "93640bd1794f143197093325281023decac5571c31c46d43868f7206beb4fd98",
+    "bytes": 101645,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20240302011050/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20240302)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20240302011050.html",
+    "retrieved": "2026-10-19",
+    "sha256": "006b8fabde3f6dd299143c4eecd9d0355bad32b729ee21a98c3a6f42975e1da7",
+    "bytes": 101974,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20240621182138/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20240621)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20240621182138.html",
+    "retrieved": "2026-10-19",
+    "sha256": "e21a1a5545962dc12a38a59f84347671a6dfdb15c9cd838168a14ef2ec1eeeab",
+    "bytes": 102176,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
+  },
+  {
+    "url": "http://web.archive.org/web/20241207091801/http://www.dpm.tn/pharmacie/suivi-dossiers-des-officines",
+    "title": "DPM – suivi_dossiers (archive Internet du 20241207)",
+    "local_path": "documents/raw_html/wayback/suivi_dossiers_20241207091801.html",
+    "retrieved": "2026-10-19",
+    "sha256": "b0792b7fde65be92efb2579d0c903f30b15e8c3d529c374a2bdfb3263e566471",
+    "bytes": 102916,
+    "publisher": "DPM / ANMPS – Ministère de la Santé (copie Internet Archive)"
   }
 ]
