@@ -1,0 +1,364 @@
+governorate,commune_name,commune,pop_2004,pop_2014,pop_2024,population_note,waiting_B,first_B_date,night_zone,lat,lon,distance_km,located_on_delegation
+ARIANA,Ariana,ARIANA,97687.0,114486.0,109693.0,citypopulation.de (compilation INS) – à confirmer,9,2003-03-10,2 (présumée),36.86586672,10.16997844,61.5,COMMUNE ARIANA
+ARIANA,Ettadhamen,CITE ETTADHAMEN,78311.0,84312.0,79133.0,citypopulation.de (compilation INS) – à confirmer,2,2017-07-13,2 (présumée),36.83337754,10.10609275,58.7,CITE ETTADHAMEN
+ARIANA,Kalâat El Andalous,KALAAT ANDALOUS,23045.0,26796.0,32520.0,citypopulation.de (compilation INS) – à confirmer,5,2004-06-17,2 (présumée),36.99723355,10.12430142,76.5,KALAAT ANDALOUS
+ARIANA,La Soukra,SOUKRA,89151.0,129693.0,159862.0,citypopulation.de (compilation INS) – à confirmer,6,2004-12-11,2 (présumée),36.8808589,10.23093966,63.0,SOUKRA
+ARIANA,Mnihla,MNIHLA,53752.0,89884.0,116327.0,citypopulation.de (compilation INS) – à confirmer,5,2014-08-06,2 (présumée),36.86373541,10.10901203,62.0,EL MNIHLA
+ARIANA,Raoued,RAOUED,60896.0,106414.0,141471.0,citypopulation.de (compilation INS) – à confirmer,6,2009-03-31,2 (présumée),36.92915685,10.15014915,68.7,RAOUED
+ARIANA,Sidi Thabet,SIDI THABET,19404.0,24503.0,29546.0,citypopulation.de (compilation INS) – à confirmer,2,2021-03-05,2 (présumée),36.91152057,10.05613783,68.1,SIDI THABET
+BEJA,Amdoun [Zahret Medien],,22484.0,21187.0,21403.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.77729656,9.028602,118.5,AMDOUN
+BEJA,Béja,BEJA,79969.0,83780.0,86890.0,citypopulation.de (compilation INS) – à confirmer,4,2010-08-26,2 (présumée),36.63597585,9.17643322,100.2,BEJA SUD
+BEJA,El Maâgoula,MAAGOULA,,15554.0,16477.0,citypopulation.de (compilation INS) – à confirmer,1,2020-06-23,2 (présumée),,,,
+BEJA,Goubellat,GOUBELLAT,16383.0,15762.0,16767.0,citypopulation.de (compilation INS) – à confirmer,1,2022-01-24,2 (présumée),36.52830567,9.68761683,53.5,GOUBELLAT
+BEJA,Medjez El Bab,MEJEZ EL BAB,38964.0,41749.0,44879.0,citypopulation.de (compilation INS) – à confirmer,3,2009-01-10,2 (présumée),36.7089281,9.63854093,68.2,MEJEZ EL BAB
+BEJA,Nefza,NEFZA,28026.0,26159.0,25815.0,citypopulation.de (compilation INS) – à confirmer,1,2018-07-26,2 (présumée),36.98823737,9.06923051,127.3,NEFZA
+BEJA,Ouchtata - Jmila,,25169.0,21942.0,21758.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+BEJA,Sidi Ismaïl,,,9965.0,9975.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+BEJA,Slouguia,,6241.0,7348.0,8048.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+BEJA,Téboursouk,TEBOURSOUK,24327.0,22115.0,21414.0,citypopulation.de (compilation INS) – à confirmer,1,2024-10-16,2 (présumée),36.45975879,9.23495187,89.9,TEBOURSOUK
+BEJA,Testour,TESTOUR,26531.0,26265.0,27453.0,citypopulation.de (compilation INS) – à confirmer,1,2014-07-10,2 (présumée),36.5932285,9.41087402,79.0,TESTOUR
+BEJA,Thibar,,10509.0,11206.0,10538.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.51865164,9.10885056,102.3,THIBAR
+BEN AROUS,Ben Arous,BEN AROUS,74932.0,88322.0,89571.0,citypopulation.de (compilation INS) – à confirmer,4,2009-11-20,2 (présumée),36.74884674,10.22458655,48.3,BEN AROUS
+BEN AROUS,Bou Mhel El Bassatine,BOUMHEL BASSATINE,27977.0,40101.0,50817.0,citypopulation.de (compilation INS) – à confirmer,3,2007-02-23,2 (présumée),36.71551902,10.2963154,45.1,BOUMHEL BASSATINE
+BEN AROUS,El Mourouj,EL MOUROUJ,81986.0,104538.0,121712.0,citypopulation.de (compilation INS) – à confirmer,6,2006-04-08,2 (présumée),36.71982547,10.21923666,45.1,EL MOUROUJ
+BEN AROUS,Ezzahra,EZZAHRA,31792.0,34962.0,35241.0,citypopulation.de (compilation INS) – à confirmer,2,2004-01-26,2 (présumée),36.74737277,10.29866945,48.6,EZZAHRA
+BEN AROUS,Fouchana,FOUCHANA,36215.0,46717.0,66483.0,citypopulation.de (compilation INS) – à confirmer,3,2015-11-19,2 (présumée),36.69370937,10.17962846,42.4,FOUCHANA
+BEN AROUS,Hammam Chott,HAMMAM CHATT,24847.0,31858.0,34341.0,citypopulation.de (compilation INS) – à confirmer,1,2020-01-29,2 (présumée),36.68351027,10.38056869,43.4,HAMMAM CHATT
+BEN AROUS,Hammam Lif,HAMMAM LIF,38401.0,42518.0,41738.0,citypopulation.de (compilation INS) – à confirmer,3,2000-11-30,2 (présumée),36.71880141,10.33778717,46.2,HAMMAM LIF
+BEN AROUS,Khalidia,KHELIDIA,16552.0,19156.0,22894.0,citypopulation.de (compilation INS) – à confirmer,2,2010-06-04,2 (présumée),,,,
+BEN AROUS,Mégrine,MEGRINE,24031.0,26720.0,25863.0,citypopulation.de (compilation INS) – à confirmer,1,2006-02-03,2 (présumée),36.77165002,10.23867873,50.9,MEGRINE
+BEN AROUS,Mohamedia,,46613.0,66439.0,84465.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.64530811,10.11454557,38.1,M'HAMDIA
+BEN AROUS,Mornag,MORNAG,37157.0,42362.0,52276.0,citypopulation.de (compilation INS) – à confirmer,3,2007-02-07,2 (présumée),36.58568423,10.24428338,30.3,MORNAG
+BEN AROUS,Naassen,NAASSEN,20413.0,28151.0,34385.0,citypopulation.de (compilation INS) – à confirmer,3,2018-02-09,2 (présumée),,,,
+BEN AROUS,Radès,RADES,44857.0,59998.0,63042.0,citypopulation.de (compilation INS) – à confirmer,3,2006-11-08,2 (présumée),36.77614073,10.28021496,51.6,RADES
+BIZERTE,Aousja,,9748.0,10235.0,11637.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+BIZERTE,Bizerte,BIZERTE,144889.0,167759.0,186033.0,citypopulation.de (compilation INS) – à confirmer,4,2017-07-06,2 (présumée),37.25837604,9.66796043,116.0,BIZERTE SUD
+BIZERTE,El Alia,EL ALIA,24539.0,27075.0,29322.0,citypopulation.de (compilation INS) – à confirmer,1,2009-06-22,2 (présumée),37.15822259,9.9992804,96.0,EL ALIA
+BIZERTE,El Hachachna,EL HACHECHNA,19972.0,18797.0,19145.0,citypopulation.de (compilation INS) – à confirmer,1,2024-09-13,2 (présumée),,,,
+BIZERTE,Ghar El Melh,GHAR EL MELH,8777.0,9242.0,10630.0,citypopulation.de (compilation INS) – à confirmer,1,2011-04-25,2 (présumée),37.14481391,10.09282519,93.1,GHAR EL MELH
+BIZERTE,Ghezala,,27799.0,26977.0,25366.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),37.07913556,9.48563124,107.5,GHEZALA
+BIZERTE,Joumine,,35213.0,29029.0,27896.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.87807766,9.44760978,93.4,JOUMINE
+BIZERTE,Mateur,MATEUR,47562.0,46975.0,49316.0,citypopulation.de (compilation INS) – à confirmer,2,2014-06-27,2 (présumée),36.98609659,9.67091596,89.5,MATEUR
+BIZERTE,Menzel Abderrahmane,,16824.0,19085.0,24092.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+BIZERTE,Menzel Bourguiba,MENZEL BOURGUIBA,54804.0,61919.0,60356.0,citypopulation.de (compilation INS) – à confirmer,2,2015-08-20,2 (présumée),37.10670497,9.85806737,93.9,MENZEL BOURGUIBA
+BIZERTE,Menzel Jemil,MENZEL JEMIL,22867.0,28139.0,32918.0,citypopulation.de (compilation INS) – à confirmer,3,2021-01-05,2 (présumée),37.203524,9.98220405,101.2,MENZEL JEMIL
+BIZERTE,Metline,,11714.0,14146.0,13093.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+BIZERTE,Raf Raf,,12855.0,14118.0,14193.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+BIZERTE,Ras Jebel,RAS JEBEL,26671.0,29977.0,36645.0,citypopulation.de (compilation INS) – à confirmer,2,2009-02-07,2 (présumée),37.2225953,10.08563187,101.8,RAS JEBEL
+BIZERTE,Sejnane,SEJNANE,22184.0,21369.0,21974.0,citypopulation.de (compilation INS) – à confirmer,1,2024-12-10,2 (présumée),37.13705026,9.23608518,126.9,SEJNANE
+BIZERTE,Tinja,,19444.0,23455.0,21995.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),37.12975971,9.66529718,103.4,TINJA
+BIZERTE,Utique,UTIQUE,18266.0,19922.0,22777.0,citypopulation.de (compilation INS) – à confirmer,4,2018-03-26,2 (présumée),37.03454052,9.95989981,83.5,UTIQUE
+GABES,Bouchemma,BOUCHEMMA,10103.0,12182.0,14795.0,citypopulation.de (compilation INS) – à confirmer,1,2024-03-25,2 (présumée),,,,
+GABES,Chenini Nahal,,18286.0,19586.0,22625.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+GABES,Dkhilet Toujane,,9544.0,10277.0,9690.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.55876581,10.25460717,306.4,DKHILET TOUJANE
+GABES,El Hamma,EL HAMMA,45564.0,54192.0,57856.0,citypopulation.de (compilation INS) – à confirmer,1,2022-12-12,2 (présumée),33.86020252,9.59308365,278.8,EL HAMMA
+GABES,Gabès,GABES,90681.0,99426.0,101042.0,citypopulation.de (compilation INS) – à confirmer,5,2007-06-25,2 (présumée),33.77953621,10.0525453,282.3,GABES SUD
+GABES,Ghannouch,GHANNOUCH,22681.0,28051.0,35329.0,citypopulation.de (compilation INS) – à confirmer,1,2021-02-10,2 (présumée),33.94781641,10.05442872,263.6,GHANNOUCH
+GABES,Habib Thameur Bouatouch,,16826.0,19320.0,21352.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+GABES,Kettana,,12965.0,13310.0,14131.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+GABES,Mareth,MARETH,29805.0,30410.0,33489.0,citypopulation.de (compilation INS) – à confirmer,1,2025-04-14,2 (présumée),33.55876581,10.25460717,306.4,MARETH
+GABES,Matmata,,5766.0,4444.0,3926.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.46631229,9.80770432,318.9,MATMATA
+GABES,Menzel El Habib,,11477.0,10148.0,10200.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.15372612,9.58828403,247.0,MENZEL HABIB
+GABES,Métouia,,12115.0,12507.0,13613.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.06137965,9.95185115,251.7,METOUIA
+GABES,Nouvelle Matmata,,15969.0,14224.0,16779.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+GABES,Oudhref,OUEDHREF,13747.0,15371.0,17931.0,citypopulation.de (compilation INS) – à confirmer,1,2022-02-16,2 (présumée),34.06137965,9.95185115,251.7,OUEDHREF
+GABES,Teboulbou,TEBOLBOU,18075.0,21727.0,28351.0,citypopulation.de (compilation INS) – à confirmer,2,2008-03-31,2 (présumée),,,,
+GABES,Zarat,,9026.0,9125.0,9738.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+GAFSA,Belkhir,,15159.0,14784.0,15923.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.33522583,9.41814542,231.8,BEL KHIR
+GAFSA,El Guettar,EL GUETAR,19942.0,20137.0,20784.0,citypopulation.de (compilation INS) – à confirmer,1,2011-07-11,2 (présumée),34.27165863,8.965877,254.2,EL GUETAR
+GAFSA,El Ksar,EL KSAR,22343.0,25607.0,23806.0,citypopulation.de (compilation INS) – à confirmer,1,2006-11-17,2 (présumée),34.41212051,8.91860157,242.3,EL KSAR
+GAFSA,Gafsa,GAFSA,100149.0,111170.0,129931.0,citypopulation.de (compilation INS) – à confirmer,2,2021-12-09,2 (présumée),34.44377161,8.67669942,250.8,GAFSA SUD
+GAFSA,Lalla,,9843.0,10875.0,16125.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+GAFSA,Mdhila,M'DHILLA,14841.0,15306.0,16883.0,citypopulation.de (compilation INS) – à confirmer,1,2023-12-05,2 (présumée),34.20099882,8.69715667,272.8,M'DHILLA
+GAFSA,Métlaoui,METLAOUI,38938.0,38634.0,44547.0,citypopulation.de (compilation INS) – à confirmer,2,2022-01-03,2 (présumée),34.23497726,8.31197228,289.0,METLAOUI
+GAFSA,Moularès [Oum El Araies],OUM LARAIES,27393.0,22798.0,31767.0,citypopulation.de (compilation INS) – à confirmer,1,2021-01-06,2 (présumée),34.56678158,8.344887,258.3,OUM LARAIES
+GAFSA,Redeyef,,27940.0,26976.0,31421.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.35324686,8.13309149,288.9,REDEYEF
+GAFSA,Sened,,20138.0,21487.0,23633.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.54331736,9.16763564,218.9,SENED
+GAFSA,Sidi Aïch,,8297.0,10084.0,12029.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.6940748,8.82109051,220.3,SIDI YAICH
+GAFSA,Sidi Boubaker,,4340.0,4214.0,5402.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.44377161,8.67669942,250.8,SIDI BOUBAKER
+GAFSA,Zannouch,,14386.0,15259.0,16525.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.44377161,8.67669942,250.8,ZANOUCH
+JENDOUBA,Aïn Draham,,25490.0,23227.0,20938.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.79361203,8.77474646,139.9,AIN DRAHEM
+JENDOUBA,Aïn Sobh - Nadhour,,17186.0,15051.0,13836.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+JENDOUBA,Balta - Bou Aouane,,34782.0,30268.0,27606.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.69214744,8.91535547,124.2,BALTA BOUAOUAN
+JENDOUBA,Beni M'Tir,,6901.0,5553.0,5239.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+JENDOUBA,Bou Salem,BOU SALEM,43508.0,43997.0,45959.0,citypopulation.de (compilation INS) – à confirmer,1,2020-06-16,2 (présumée),36.55837835,8.9843135,114.1,BOUSALEM
+JENDOUBA,Fernana,FERNANA,26980.0,25398.0,28202.0,citypopulation.de (compilation INS) – à confirmer,2,2021-02-09,2 (présumée),36.65266441,8.62153808,148.0,FERNANA
+JENDOUBA,Ghardimaou,GHARDIMAOU,52295.0,50793.0,49612.0,citypopulation.de (compilation INS) – à confirmer,3,2009-07-06,2 (présumée),36.48459855,8.33952213,169.6,GHARDIMAOU
+JENDOUBA,Jendouba,JENDOUBA,98318.0,100085.0,109173.0,citypopulation.de (compilation INS) – à confirmer,2,2010-01-05,2 (présumée),36.48449651,8.83024459,126.1,JENDOUBA
+JENDOUBA,Jouaouda,,18809.0,16739.0,14476.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+JENDOUBA,Kalaa - Maaden - Farksan,,15660.0,13377.0,12701.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+JENDOUBA,Khmairia,,14882.0,12173.0,11368.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+JENDOUBA,Oued Meliz,,19015.0,17843.0,17334.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.48525515,8.62310544,144.4,OUED MELIZ
+JENDOUBA,Souk Sebt,,14474.0,13031.0,12856.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+JENDOUBA,Tabarka,TABARKA,28308.0,33942.0,35052.0,citypopulation.de (compilation INS) – à confirmer,2,2008-01-10,2 (présumée),36.90686981,8.82277942,141.3,TABARKA
+KAIROUAN,Abida,,14196.0,15033.0,15394.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Aïn Djeloula,,7179.0,6780.0,6441.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.89336582,9.63111328,70.8,AIN JLOULA
+KAIROUAN,Aïn El Beïdha,,14386.0,12956.0,15285.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Bou Hajla,,65239.0,66523.0,71836.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Chaouachi,,11681.0,11440.0,14200.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Chebika,CHEBIKA,19693.0,20275.0,21799.0,citypopulation.de (compilation INS) – à confirmer,1,2022-06-06,2 (présumée),35.65887244,9.92764933,77.6,CHEBIKA
+KAIROUAN,Chraitia - Ksour,,10702.0,10412.0,11215.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Echrarda,CHERARDA,11865.0,13692.0,14361.0,citypopulation.de (compilation INS) – à confirmer,1,2018-07-03,2 (présumée),35.15057191,10.1051927,129.8,CHERARDA
+KAIROUAN,El Alâa,EL ALA,31773.0,28991.0,28897.0,citypopulation.de (compilation INS) – à confirmer,1,2024-11-28,2 (présumée),35.62919793,9.48259407,101.2,EL ALA
+KAIROUAN,Haffouz,HAFFOUZ,29406.0,27110.0,29207.0,citypopulation.de (compilation INS) – à confirmer,1,2015-10-13,2 (présumée),35.61649856,9.73591571,89.1,HAFFOUZ
+KAIROUAN,Hajeb El Ayoun,HAJEB EL AYOUN,23722.0,24697.0,26455.0,citypopulation.de (compilation INS) – à confirmer,1,2025-10-13,2 (présumée),35.41660296,9.59947577,114.5,HAJEB ELAYOUN
+KAIROUAN,Jehina,,8686.0,9262.0,10090.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Kairouan,KAIROUAN,141609.0,165761.0,172788.0,citypopulation.de (compilation INS) – à confirmer,5,2008-01-22,2 (présumée),35.57633803,10.15938702,82.2,KAIROUAN SUD
+KAIROUAN,Menzel Mehiri,MENZEL MEHIRI,12454.0,12660.0,12680.0,citypopulation.de (compilation INS) – à confirmer,1,2023-01-16,2 (présumée),35.57633803,10.15938702,82.2,MENZEL MHIRI
+KAIROUAN,Nasrallah,,24658.0,21129.0,20310.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Oueslatia,,29016.0,27672.0,26454.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.89336582,9.63111328,70.8,OUESLATIA
+KAIROUAN,Raqqada,,22629.0,24244.0,25741.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KAIROUAN,Sbikha,SBIKHA,39073.0,40206.0,42533.0,citypopulation.de (compilation INS) – à confirmer,1,2021-01-07,2 (présumée),35.95098906,10.02598148,44.1,SBIKHA
+KAIROUAN,Sisseb - Driaat,,28242.0,31716.0,35117.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KASSERINE,Aïn Khmaissia,,13691.0,13346.0,15344.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KASSERINE,Bouzguem,,13522.0,14579.0,18771.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KASSERINE,Chrayaa - Machrek Chams,CHARAI- MACHREK SHAMS,24557.0,23899.0,25574.0,citypopulation.de (compilation INS) – à confirmer,1,2025-02-03,2 (présumée),,,,
+KASSERINE,El Ayoun,,18634.0,19211.0,20115.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.48989943,8.90936122,149.7,EL AYOUN
+KASSERINE,Ennour,ENNOUR,35984.0,40573.0,44984.0,citypopulation.de (compilation INS) – à confirmer,1,2017-04-18,2 (présumée),,,,
+KASSERINE,Ezzouhour,,20277.0,21819.0,24484.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.15881205,8.83077981,179.7,EZZOUHOUR
+KASSERINE,Fériana,FERIANA,29451.0,34354.0,40410.0,citypopulation.de (compilation INS) – à confirmer,1,2012-01-19,2 (présumée),35.03021087,8.44992289,214.5,FERIANA
+KASSERINE,Foussana,,29365.0,28558.0,37142.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.34079749,8.56584108,184.5,FOUSSANA
+KASSERINE,Haïdra,,8716.0,9762.0,8160.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.54079882,8.46685708,180.0,HAIDRA
+KASSERINE,Hassi El Ferid,,16890.0,19400.0,22886.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.96267984,8.91025045,191.5,HASSI FERID
+KASSERINE,Jedelienne,,13205.0,12297.0,12066.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.65703618,8.8863631,140.7,JEDLIANE
+KASSERINE,Kasserine,KASSERINE,29976.0,31823.0,38218.0,citypopulation.de (compilation INS) – à confirmer,1,2016-06-27,2 (présumée),35.09786841,8.79065127,187.1,KASSERINE SUD
+KASSERINE,Khmouda,KHMOUDA,11875.0,12889.0,13521.0,citypopulation.de (compilation INS) – à confirmer,1,2025-01-16,2 (présumée),,,,
+KASSERINE,Majel Bel Abbès,MAJEL BEL ABBES,21909.0,23315.0,28015.0,citypopulation.de (compilation INS) – à confirmer,1,2025-02-11,2 (présumée),34.76401021,8.55077207,229.3,MAJEL BEL ABBES
+KASSERINE,Rakhmat,,12770.0,14958.0,16562.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KASSERINE,Sbeïtla,SBEITLA,32212.0,36388.0,42359.0,citypopulation.de (compilation INS) – à confirmer,1,2016-06-15,2 (présumée),35.24214293,9.05779248,158.9,SBEITLA
+KASSERINE,Sbiba,SBIBA,28400.0,27843.0,33276.0,citypopulation.de (compilation INS) – à confirmer,1,2022-01-17,2 (présumée),35.49605282,9.16933877,131.5,SBIBA
+KASSERINE,Thala,,34508.0,37128.0,31680.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.57671385,8.66070548,162.8,THALA
+KASSERINE,Thélepte,,16336.0,17101.0,19174.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KEBILI,Bechli - Blidet - Jerssin,,10717.0,11803.0,14787.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KEBILI,Bechri - Fatnassa,,7995.0,8763.0,9760.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KEBILI,Douz,DOUZ,35684.0,39270.0,46135.0,citypopulation.de (compilation INS) – à confirmer,1,2013-05-15,2 (présumée),,,,
+KEBILI,El Golâa,EL GOLAA,7037.0,7912.0,9095.0,citypopulation.de (compilation INS) – à confirmer,1,2023-02-14,2 (présumée),,,,
+KEBILI,Faouar,,13407.0,15376.0,19875.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.14507346,8.41668431,389.1,FAOUAR
+KEBILI,Jemna,,6128.0,7209.0,7815.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+KEBILI,Kébili,,41928.0,44548.0,50016.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.61797056,9.21173126,313.6,KEBILI SUD
+KEBILI,Rjim Maatoug,,2889.0,4237.0,4649.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.14507346,8.41668431,389.1,RJIM MAATOUG
+KEBILI,Souk Lahad [Souk El Ahed],,17433.0,17843.0,21069.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.90598889,8.80244863,297.3,SOUK LAHAD
+LE KEF,Bahra,BOHRA,7023.0,6168.0,5664.0,citypopulation.de (compilation INS) – à confirmer,1,2025-12-16,2 (présumée),,,,
+LE KEF,Dahmani,,30749.0,27907.0,25285.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.93529065,8.79479725,135.0,DAHMANI
+LE KEF,El Ksour,KSOUR,17100.0,15215.0,14686.0,citypopulation.de (compilation INS) – à confirmer,1,2021-01-08,2 (présumée),35.83013578,8.94159024,127.1,KSOUR
+LE KEF,El Marja,,6579.0,5472.0,5294.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+LE KEF,Jérissa,,11298.0,9807.0,8613.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.81677081,8.64351944,152.4,JERISSA
+LE KEF,Kalâat Khasba,,7353.0,6652.0,5663.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.72742577,8.51853062,166.6,KALAAT KHASBA
+LE KEF,Kalaat Senan,,16454.0,15621.0,13517.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.79732089,8.40778806,173.0,KALAAT SENANE
+LE KEF,Kef,LE KEF,57423.0,60876.0,67039.0,citypopulation.de (compilation INS) – à confirmer,2,2021-01-07,2 (présumée),,,,
+LE KEF,Menzel Salem,,2211.0,1824.0,1370.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+LE KEF,Nebeur,,14206.0,13545.0,12987.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.3293719,8.7421409,132.7,NEBEUR
+LE KEF,Sakiet Sidi Youssef,,20527.0,17500.0,16173.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.1686435,8.42624578,161.9,SAKIET SIDI YOUSSEF
+LE KEF,Sers,,19336.0,17787.0,17730.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.06278794,9.04856927,109.0,SERS
+LE KEF,Tajerouine,,28448.0,25768.0,25742.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.96573229,8.54661801,155.4,TAJEROUINE
+LE KEF,Touiref,,7099.0,6184.0,5863.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.3293719,8.7421409,132.7,TOUIREF
+LE KEF,Zaafrane - Dir Kef,ZAAFRANE-DIR KEF,12984.0,12830.0,12060.0,citypopulation.de (compilation INS) – à confirmer,1,2023-09-19,2 (présumée),,,,
+MAHDIA,Bou Merdes,,14832.0,16726.0,17530.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.42431899,10.69654898,107.8,BOUMERDAS
+MAHDIA,Chebba,CHEBBA,27433.0,29282.0,31137.0,citypopulation.de (compilation INS) – à confirmer,1,2014-03-04,2 (présumée),35.224897,11.06111603,142.8,CHEBBA
+MAHDIA,Chorbane,CHORBANE,28577.0,25935.0,29059.0,citypopulation.de (compilation INS) – à confirmer,1,2021-07-17,2 (présumée),35.22691807,10.43534304,122.4,CHORBANE
+MAHDIA,El Bradâa,BRADAA,13693.0,15639.0,13659.0,citypopulation.de (compilation INS) – à confirmer,1,2022-05-14,2 (présumée),35.35635043,10.99511969,127.2,BRADAA
+MAHDIA,El Hekaima,,13232.0,13776.0,14152.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MAHDIA,El Jem,EL JEM,27545.0,32458.0,38413.0,citypopulation.de (compilation INS) – à confirmer,2,2016-09-07,2 (présumée),35.31584753,10.72427929,119.9,EL JEM
+MAHDIA,Essouassi,SOUASSI,27305.0,29324.0,34619.0,citypopulation.de (compilation INS) – à confirmer,1,2021-04-20,2 (présumée),35.34081133,10.50319365,111.1,SOUASSI
+MAHDIA,Hebira,,11057.0,10654.0,11617.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.2775832,10.22640718,115.3,HBIRA
+MAHDIA,Kerker,,14727.0,17164.0,19559.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MAHDIA,Ksour Essef,KSOUR ESSAF,31007.0,33960.0,38567.0,citypopulation.de (compilation INS) – à confirmer,2,2019-04-25,2 (présumée),35.35635043,10.99511969,127.2,KSOUR ESSAF
+MAHDIA,Mahdia,MAHDIA,49553.0,55458.0,60352.0,citypopulation.de (compilation INS) – à confirmer,3,2021-01-05,2 (présumée),35.48768806,10.96268589,113.5,MAHDIA
+MAHDIA,Melloulèche,MELLOULECHE,19464.0,22085.0,23890.0,citypopulation.de (compilation INS) – à confirmer,2,2021-02-12,2 (présumée),35.18003874,10.98821703,143.8,MELLOULECHE
+MAHDIA,Ouled Chamekh,,22732.0,23020.0,23893.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.47809665,10.33924434,93.6,OULED CHAMEKH
+MAHDIA,Rejiche,REJICHE,8934.0,10311.0,11603.0,citypopulation.de (compilation INS) – à confirmer,2,2012-03-22,2 (présumée),35.48768806,10.96268589,113.5,REJICHE
+MAHDIA,Sidi Alouane,SIDI ALOUANE,23737.0,25746.0,27654.0,citypopulation.de (compilation INS) – à confirmer,1,2021-02-02,2 (présumée),35.28774526,10.89055667,129.0,SIDI ALOUANE
+MAHDIA,Sidi Zid - Awled Moulahem,,18971.0,21100.0,24064.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MAHDIA,Tlelsa,,13519.0,16153.0,17563.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MAHDIA,Zelba,,11535.0,12021.0,12654.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MANOUBA,Borj El Amri,BORJ EL AMRI,16184.0,17408.0,21465.0,citypopulation.de (compilation INS) – à confirmer,2,2019-10-03,2 (présumée),36.67676519,9.84484015,52.6,BORJ EL AMRI
+MANOUBA,Den Den,DEN DEN,24732.0,26787.0,25658.0,citypopulation.de (compilation INS) – à confirmer,2,2003-12-11,2 (présumée),,,,
+MANOUBA,Djedeida,,40327.0,44748.0,52713.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.85413432,9.92761596,65.6,JEDEIDA
+MANOUBA,Douar Hicher,DOUAR HICHER,75959.0,84090.0,88335.0,citypopulation.de (compilation INS) – à confirmer,3,2007-12-17,2 (présumée),36.83626606,10.08003051,59.4,DOUAR HICHER
+MANOUBA,El Bassatine,EL BASSATINE,12932.0,13701.0,13468.0,citypopulation.de (compilation INS) – à confirmer,3,2017-11-13,2 (présumée),,,,
+MANOUBA,El Batan,EL BATAN,17321.0,18977.0,21018.0,citypopulation.de (compilation INS) – à confirmer,1,2018-11-12,2 (présumée),36.77059057,9.73668832,66.8,EL BATTAN
+MANOUBA,Manouba,MANOUBA,26666.0,32005.0,37287.0,citypopulation.de (compilation INS) – à confirmer,4,2004-03-25,2 (présumée),36.81171581,10.08612267,56.7,MANOUBA
+MANOUBA,Mornaguia,MORNAGUIA,,28986.0,31296.0,citypopulation.de (compilation INS) – à confirmer,3,2010-01-02,2 (présumée),36.67651945,9.99855715,45.0,MORNAGUIA
+MANOUBA,Oued Ellil,OUED ELLIL,58544.0,69317.0,81040.0,citypopulation.de (compilation INS) – à confirmer,4,2010-05-26,2 (présumée),36.82980222,10.01340073,60.3,OUED ELLIL
+MANOUBA,Tebourba,TEBOURBA,41050.0,43499.0,46074.0,citypopulation.de (compilation INS) – à confirmer,2,2006-11-28,2 (présumée),36.87532976,9.76209748,74.7,TEBOURBA
+MEDENINE,Ben Gardane,BEN GUERDANE,70907.0,79912.0,90504.0,citypopulation.de (compilation INS) – à confirmer,2,2008-01-30,2 (présumée),32.82211509,11.30293377,400.7,BEN GUERDANE
+MEDENINE,Beni Khedache,,28586.0,25885.0,26847.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.24049565,10.09646008,342.0,BENI KHEDACHE
+MEDENINE,Boughrara,,6744.0,6709.0,7209.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MEDENINE,Djerba Ajim,JERBA AJIM,24166.0,24294.0,24166.0,citypopulation.de (compilation INS) – à confirmer,1,2023-01-20,2 (présumée),33.73946699,10.80130431,291.1,JERBA AJIM
+MEDENINE,Djerba Houmt Souk,,64919.0,75904.0,89228.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.85030144,10.86718616,280.2,HOUMT SOUK
+MEDENINE,Djerba Midoun,JERBA MIDOUN,50459.0,63528.0,74437.0,citypopulation.de (compilation INS) – à confirmer,2,2013-07-09,2 (présumée),33.76462773,10.9513388,291.1,JERBA MIDOUN
+MEDENINE,Médenine,MEDENINE,89445.0,102700.0,120712.0,citypopulation.de (compilation INS) – à confirmer,3,2021-02-11,2 (présumée),33.41907932,10.65401647,324.3,MEDENINE SUD
+MEDENINE,Sidi Makhlouf,,23728.0,25206.0,28444.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.54086346,10.47963487,309.3,SIDI MAKHLOUF
+MEDENINE,Zarzis,ZARZIS,45120.0,45223.0,45021.0,citypopulation.de (compilation INS) – à confirmer,2,2017-08-28,2 (présumée),33.46437018,10.93521386,323.5,ZARZIS
+MEDENINE,Zarzis Nord,ZARZIS NORD,28429.0,30159.0,30687.0,citypopulation.de (compilation INS) – à confirmer,3,2016-02-29,2 (présumée),33.46437018,10.93521386,323.5,ZARZIS
+MONASTIR,Amiret El Fhoul,,4525.0,5255.0,6074.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Amiret Hajjaj,AMIRET EL HAJJAJ,6770.0,8121.0,9893.0,citypopulation.de (compilation INS) – à confirmer,1,2024-02-12,2 (présumée),,,,
+MONASTIR,Amiret Touazra,,4996.0,6261.0,7468.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Bekalta,BEKALTA,,17850.0,19091.0,citypopulation.de (compilation INS) – à confirmer,1,2020-11-18,2 (présumée),35.5966003,11.00993816,106.7,BEKALTA
+MONASTIR,Bembla et Mnara,BEMBLA MENARA,13400.0,16078.0,16664.0,citypopulation.de (compilation INS) – à confirmer,1,2020-02-18,2 (présumée),35.68150803,10.7585481,85.3,BEMBLA
+MONASTIR,Beni Hassen,BENI HASSEN,8053.0,8801.0,9117.0,citypopulation.de (compilation INS) – à confirmer,1,2023-01-03,2 (présumée),35.53502935,10.77838073,100.0,BENI HASSEN
+MONASTIR,Bennane Bodheur,BENNANE BOUDHER,12168.0,14258.0,17935.0,citypopulation.de (compilation INS) – à confirmer,1,2017-05-23,2 (présumée),,,,
+MONASTIR,Bouhjar,,4831.0,6137.0,7481.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Cherahil,,4173.0,4406.0,4483.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,El Masdour,,3876.0,4705.0,5696.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Ghnada,,4597.0,5068.0,6113.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Jemmal,JEMMAL,41786.0,50275.0,54469.0,citypopulation.de (compilation INS) – à confirmer,3,2011-12-08,2 (présumée),35.60671711,10.77325531,93.0,JEMMAL
+MONASTIR,Khniss,KHENIS,,11229.0,12627.0,citypopulation.de (compilation INS) – à confirmer,3,2016-02-01,2 (présumée),,,,
+MONASTIR,Ksar Hellal,KSAR HELLAL,39991.0,49376.0,55505.0,citypopulation.de (compilation INS) – à confirmer,5,2007-04-16,2 (présumée),35.6374095,10.86979348,95.1,KSAR HELLAL
+MONASTIR,Ksibet El Médiouni,KSIBET MEDIOUNI,10529.0,13082.0,13867.0,citypopulation.de (compilation INS) – à confirmer,1,2014-03-28,2 (présumée),35.64458546,10.81614473,91.6,KSIBET MEDIOUNI
+MONASTIR,Lamta,,5408.0,5790.0,6104.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Menzel Ennour,,10106.0,11772.0,13716.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Menzel Fersi,MENZEL FARSI,3048.0,3603.0,3879.0,citypopulation.de (compilation INS) – à confirmer,1,2023-12-06,2 (présumée),,,,
+MONASTIR,Menzel Hayet,MENZEL HAYET,9978.0,12952.0,13603.0,citypopulation.de (compilation INS) – à confirmer,1,2025-12-05,2 (présumée),,,,
+MONASTIR,Menzel Kamel,,7882.0,8432.0,8639.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Moknine,MOKNINE,48389.0,57111.0,61295.0,citypopulation.de (compilation INS) – à confirmer,4,2019-02-22,2 (présumée),35.53680325,10.87785753,104.6,MOKNINE
+MONASTIR,Monastir,MONASTIR,71546.0,93306.0,97457.0,citypopulation.de (compilation INS) – à confirmer,6,2021-03-31,2 (présumée),35.73950189,10.79882403,82.2,MONASTIR
+MONASTIR,Ouerdanine,OUERDANINE,18852.0,21814.0,22690.0,citypopulation.de (compilation INS) – à confirmer,1,2009-04-04,2 (présumée),35.70105815,10.6771591,79.5,OUERDANINE
+MONASTIR,Sahline Moôtmar,,15073.0,18996.0,23088.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Sayada,,12708.0,12962.0,13354.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Sidi Ameur,SIDI AMEUR,6726.0,8453.0,9397.0,citypopulation.de (compilation INS) – à confirmer,1,2021-11-09,2 (présumée),,,,
+MONASTIR,Sidi Bennour,,3984.0,4520.0,4563.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Téboulba,TEBOULBA,31154.0,37485.0,41049.0,citypopulation.de (compilation INS) – à confirmer,2,2004-12-10,2 (présumée),35.63980231,10.96125119,100.2,TEBOULBA
+MONASTIR,Touza,,6025.0,7236.0,9273.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Zaouiet Kontoch,,5604.0,6713.0,8050.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+MONASTIR,Zéramdine,ZERAMDINE,15969.0,16781.0,17129.0,citypopulation.de (compilation INS) – à confirmer,1,2024-02-08,2 (présumée),35.56441494,10.69497274,93.6,ZERAMDINE
+NABEUL,Azmour,AZMOUR,7336.0,7499.0,7604.0,citypopulation.de (compilation INS) – à confirmer,1,2010-06-04,2 (présumée),,,,
+NABEUL,Béni Khalled,BENI KHALLED,22856.0,26135.0,29917.0,citypopulation.de (compilation INS) – à confirmer,1,2021-01-05,2 (présumée),36.62490183,10.63492693,50.5,BENI KHALLED
+NABEUL,Béni Khiar,BENI KHIAR,20673.0,26494.0,28749.0,citypopulation.de (compilation INS) – à confirmer,2,2018-09-06,2 (présumée),36.52323326,10.77420178,54.5,BENI KHIAR
+NABEUL,Bou Argoub,BOUARGOUB,27846.0,30942.0,35243.0,citypopulation.de (compilation INS) – à confirmer,2,2025-02-06,2 (présumée),36.52836071,10.57017213,39.1,BOUARGOUB
+NABEUL,Chrifet - Boucharray,,9235.0,12210.0,16530.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+NABEUL,Dar Allouch,,5982.0,6182.0,6829.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+NABEUL,Dar Châabane El Fehri,DAR CHAABANE FEHRI,39477.0,46781.0,51174.0,citypopulation.de (compilation INS) – à confirmer,2,2005-09-20,2 (présumée),36.51808715,10.71547098,49.6,DAR CHAABANE FEHRI
+NABEUL,El Haouaria,EL HAOUARIA,25267.0,25995.0,28813.0,citypopulation.de (compilation INS) – à confirmer,2,2012-08-06,2 (présumée),36.9545203,10.91316317,94.1,EL HAOUARIA
+NABEUL,El Maâmoura,MAAMOURA,6948.0,8140.0,9224.0,citypopulation.de (compilation INS) – à confirmer,1,2014-04-04,2 (présumée),,,,
+NABEUL,El Mida,EL MIDA,23667.0,26995.0,29179.0,citypopulation.de (compilation INS) – à confirmer,1,2013-06-17,2 (présumée),36.72063068,10.8584158,72.6,EL MIDA
+NABEUL,Fondouk Jedid - Seltene,FOUNDEK JDID SALTEN,18330.0,23471.0,27273.0,citypopulation.de (compilation INS) – à confirmer,1,2017-11-10,2 (présumée),,,,
+NABEUL,Grombalia,GROMBALIA,37159.0,44004.0,48582.0,citypopulation.de (compilation INS) – à confirmer,3,2014-12-04,2 (présumée),36.5933146,10.46316342,37.8,GROMBALIA
+NABEUL,Hammamet,HAMMAMET,72686.0,83633.0,83369.0,citypopulation.de (compilation INS) – à confirmer,3,2007-06-29,2 (présumée),36.40855103,10.50852043,27.6,HAMMAMET
+NABEUL,Hammam Ghezèze,HAMMAM LAGHZEZ,8342.0,9545.0,10449.0,citypopulation.de (compilation INS) – à confirmer,2,2025-09-09,2 (présumée),36.93326404,11.06813832,102.1,HAMMAM GHEZAZ
+NABEUL,Kélibia,KELIBIA,46312.0,50992.0,59315.0,citypopulation.de (compilation INS) – à confirmer,5,2004-03-09,2 (présumée),36.87935765,11.00535266,94.0,KELIBIA
+NABEUL,Korba,KORBA,52951.0,59578.0,63769.0,citypopulation.de (compilation INS) – à confirmer,3,2016-01-04,2 (présumée),36.60597286,10.79840676,60.8,KORBA
+NABEUL,Korbous,,3551.0,3532.0,4116.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.60597286,10.79840676,60.8,KORBA
+NABEUL,Menzel Bouzelfa,MENZEL BOUZELFA,33599.0,37860.0,39839.0,citypopulation.de (compilation INS) – à confirmer,2,2014-02-26,2 (présumée),36.70450814,10.60013568,55.0,MENZEL BOUZELFA
+NABEUL,Menzel Horr,MENZEL HORR,7991.0,8930.0,9613.0,citypopulation.de (compilation INS) – à confirmer,1,2015-06-04,2 (présumée),,,,
+NABEUL,Menzel Temime,MENZEL TEMIME,51472.0,56715.0,62491.0,citypopulation.de (compilation INS) – à confirmer,2,2015-07-27,2 (présumée),36.8075042,10.88955083,81.0,MENZEL TEMIME
+NABEUL,Nabeul,NABEUL,59490.0,73128.0,72776.0,citypopulation.de (compilation INS) – à confirmer,5,2003-07-18,2 (présumée),36.48243457,10.67070376,44.2,NABEUL
+NABEUL,Sidi Djedidi,,22782.0,14222.0,12812.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+NABEUL,Soliman,SLIMENE,29060.0,37749.0,51574.0,citypopulation.de (compilation INS) – à confirmer,3,2009-05-12,2 (présumée),36.74959488,10.55682039,56.9,SLIMENE
+NABEUL,Somâa,SOMAA,7944.0,8498.0,9548.0,citypopulation.de (compilation INS) – à confirmer,1,2021-07-16,2 (présumée),,,,
+NABEUL,Takelsa,TAKELSA,20169.0,22151.0,24805.0,citypopulation.de (compilation INS) – à confirmer,1,2015-01-15,2 (présumée),36.79357242,10.67518744,66.9,TAKELSA
+NABEUL,Tazarka,,7613.0,9388.0,10294.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+NABEUL,Tazougrane - Boukrim - Zaouiet El Mgaies,TAZAGHRAN ZAOUIET MGAIEZ,14111.0,15322.0,17267.0,citypopulation.de (compilation INS) – à confirmer,1,2024-06-26,2 (présumée),,,,
+NABEUL,Zaouiet Djedidi,ZAOUIET JEDIDI,11041.0,11829.0,12018.0,citypopulation.de (compilation INS) – à confirmer,1,2021-06-03,2 (présumée),,,,
+SFAX,Agareb,AGAREB,35841.0,40943.0,46652.0,citypopulation.de (compilation INS) – à confirmer,3,2020-05-19,2 (présumée),34.74480888,10.46034943,175.8,AGAREB
+SFAX,Bir Ali Ben Khalifa,BIR ALI BEN KHALIFA,30097.0,31823.0,32383.0,citypopulation.de (compilation INS) – à confirmer,1,2018-05-31,2 (présumée),34.76329638,10.11976176,172.7,BIR ALI BEN KHALIFA
+SFAX,Chihia,CHIHIA,23625.0,27268.0,30014.0,citypopulation.de (compilation INS) – à confirmer,2,2006-03-18,2 (présumée),,,,
+SFAX,El Achech,,15309.0,17804.0,20542.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SFAX,El Aïn,EL AIN,38250.0,43333.0,44258.0,citypopulation.de (compilation INS) – à confirmer,2,2020-08-31,2 (présumée),,,,
+SFAX,El Amra,EL AMRA,,30599.0,35808.0,citypopulation.de (compilation INS) – à confirmer,2,2021-09-27,2 (présumée),34.93615941,10.86073695,163.7,EL AMRA
+SFAX,El Hencha,EL HANCHA,,32247.0,37041.0,citypopulation.de (compilation INS) – à confirmer,2,2021-01-05,2 (présumée),35.08732284,10.71489345,143.5,EL HANCHA
+SFAX,El Nasr,,,16976.0,18393.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SFAX,Graïba,,14647.0,15776.0,16678.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.48491901,10.20076365,203.4,GHRIBA
+SFAX,Gremda,GREMDA,36405.0,40862.0,49140.0,citypopulation.de (compilation INS) – à confirmer,7,2004-03-16,2 (présumée),,,,
+SFAX,Hadjeb,HAJEB,11578.0,19455.0,26412.0,citypopulation.de (compilation INS) – à confirmer,2,2021-01-07,2 (présumée),,,,
+SFAX,Hazeg - Ellouza,,,18914.0,21957.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SFAX,Jebiniana,JEBENIANA,,30764.0,36407.0,citypopulation.de (compilation INS) – à confirmer,1,2019-03-15,2 (présumée),35.09400799,10.88963308,148.4,JEBENIANA
+SFAX,Kerkennah,KERKENNAH,14400.0,15501.0,15382.0,citypopulation.de (compilation INS) – à confirmer,1,2023-01-04,2 (présumée),34.643407,11.03777065,199.9,KERKENNAH
+SFAX,Mahrès,MAHRES,30676.0,34257.0,35698.0,citypopulation.de (compilation INS) – à confirmer,1,2012-09-18,2 (présumée),34.52832744,10.46421443,199.8,MAHRES
+SFAX,Menzel Chaker,MENZEL CHAKER,18810.0,19564.0,22004.0,citypopulation.de (compilation INS) – à confirmer,1,2014-03-03,2 (présumée),35.02909922,10.38337903,143.6,MENZEL CHAKER
+SFAX,Nadhour - Sidi Ali Ben Abed,,19962.0,20855.0,22956.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SFAX,Ouabed - Khazanet,EL AOUEBED EL KHAZANET,27249.0,34944.0,49318.0,citypopulation.de (compilation INS) – à confirmer,1,2025-04-22,2 (présumée),,,,
+SFAX,Sakiet Eddaïer,SAKIET EDDAIER,39027.0,44511.0,52901.0,citypopulation.de (compilation INS) – à confirmer,4,2002-08-31,2 (présumée),34.83648386,10.82974727,173.2,COMMUNE SAKIET EDDAYER
+SFAX,Sakiet Ezzit,SAKIET EZZIT,48856.0,60244.0,66634.0,citypopulation.de (compilation INS) – à confirmer,4,1999-03-09,2 (présumée),34.86032463,10.73997151,168.3,SAKIET EZZIT
+SFAX,Sfax,SFAX,270917.0,280566.0,273506.0,citypopulation.de (compilation INS) – à confirmer,7,1998-11-27,2 (présumée),34.73417553,10.742599535,181.9,COMMUNE SFAX
+SFAX,Skhira,SKHIRA,29616.0,34673.0,40035.0,citypopulation.de (compilation INS) – à confirmer,2,2014-05-29,2 (présumée),34.34530262,9.97053351,220.1,SKHIRA
+SFAX,Thyna,THYNA,34069.0,43542.0,53349.0,citypopulation.de (compilation INS) – à confirmer,3,2014-05-26,2 (présumée),34.6817095,10.68336588,186.2,THYNA
+SIDI BOUZID,Baten Ghzal,,14098.0,15507.0,16578.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SIDI BOUZID,Bir El Hafey,BIR EL HFAY,27078.0,29889.0,36467.0,citypopulation.de (compilation INS) – à confirmer,1,2018-04-02,2 (présumée),34.87419259,9.28437663,181.2,BIR EL HFAY
+SIDI BOUZID,Cebbala Ouled Asker [Cebalet],CEBALET OULED ASKER,18618.0,20382.0,21833.0,citypopulation.de (compilation INS) – à confirmer,2,2023-10-25,2 (présumée),35.22836674,9.31273826,146.0,CEBALET OULED ASKER
+SIDI BOUZID,El Assouad,EL ASSOUDA,18550.0,19451.0,23436.0,citypopulation.de (compilation INS) – à confirmer,3,2021-11-30,2 (présumée),,,,
+SIDI BOUZID,Essaïda,,21305.0,23175.0,27940.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.98576128,9.41296118,164.8,ESSAIDA
+SIDI BOUZID,Faiedh Bennour,,23992.0,22221.0,26147.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SIDI BOUZID,Jilma,JELMA,22763.0,24732.0,28941.0,citypopulation.de (compilation INS) – à confirmer,1,2023-01-03,2 (présumée),35.32942675,9.39451025,132.5,JELMA
+SIDI BOUZID,Mansoura,,8719.0,9658.0,10301.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SIDI BOUZID,Meknassy,MEKNASSY,22617.0,23789.0,21659.0,citypopulation.de (compilation INS) – à confirmer,1,2023-02-28,2 (présumée),34.63557401,9.66263792,193.4,MEKNASSY
+SIDI BOUZID,Menzel Bouzaiane,,23668.0,25321.0,31048.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.6285044,9.38720972,202.1,MENZEL BOUZAIANE
+SIDI BOUZID,Mezzouna,,22839.0,24766.0,27748.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.46276272,9.68983465,211.5,MEZZOUNA
+SIDI BOUZID,Ouled Haffouz,OULED HAFFOUZ,19910.0,19579.0,20127.0,citypopulation.de (compilation INS) – à confirmer,1,2025-09-23,2 (présumée),35.09971112,9.86073322,138.9,OULED HAFFOUZ
+SIDI BOUZID,Rahal,,6901.0,8399.0,8741.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SIDI BOUZID,Regueb,REGUEB,37471.0,41823.0,48925.0,citypopulation.de (compilation INS) – à confirmer,2,2021-02-25,2 (présumée),34.85419178,9.80156282,166.8,REGUEB
+SIDI BOUZID,Sidi Ali Ben Aoun,,16177.0,18556.0,21123.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.82336654,9.09979232,194.4,SIDI ALI BEN AOUN
+SIDI BOUZID,Sidi Bouzid,SIDI BOUZID,71590.0,81004.0,96003.0,citypopulation.de (compilation INS) – à confirmer,3,2016-08-23,2 (présumée),35.07232939,9.60452269,149.0,SIDI BOUZID EST
+SIDI BOUZID,Souk Jedid,SOUK JDID,19210.0,21660.0,22593.0,citypopulation.de (compilation INS) – à confirmer,1,2018-10-10,2 (présumée),34.86709245,9.54903339,172.1,SOUK JEDID
+SILIANA,Bargou,,13823.0,12482.0,11505.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.1002164,9.62313788,58.8,BARGOU
+SILIANA,Bou Arada,,20877.0,20444.0,19373.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.31348704,9.63153076,53.0,BOUARADA
+SILIANA,El Aroussa,,9783.0,9907.0,8839.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.35383202,9.44913357,69.5,EL AROUSSA
+SILIANA,El Hababsa,,9772.0,7564.0,6706.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SILIANA,El Krib,KRIB,21546.0,20155.0,20000.0,citypopulation.de (compilation INS) – à confirmer,1,2022-03-18,2 (présumée),36.34814834,9.12632324,98.3,KRIB
+SILIANA,Gaâfour,GAAFOUR,17963.0,16934.0,15801.0,citypopulation.de (compilation INS) – à confirmer,1,2022-09-22,2 (présumée),36.25215736,9.33247916,80.1,GAAFOUR
+SILIANA,Kesra,KESRA,17763.0,16404.0,15031.0,citypopulation.de (compilation INS) – à confirmer,1,2019-01-31,2 (présumée),35.80336615,9.39187393,93.8,KESRA
+SILIANA,Makthar,,31139.0,29052.0,28321.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.87022672,9.16367859,107.2,MAKTHAR
+SILIANA,Rouhia,,20219.0,18387.0,20357.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.65717545,9.1480848,121.2,ROUHIA
+SILIANA,Sidi Bou Rouis,,15712.0,12618.0,11555.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.1884572,9.13198962,98.8,BOUROUIS
+SILIANA,Sidi Morched,,15903.0,14404.0,12550.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SILIANA,Siliana,SILIANA,39485.0,44736.0,46204.0,citypopulation.de (compilation INS) – à confirmer,1,2020-06-30,2 (présumée),35.96968988,9.42981161,80.9,SILIANA SUD
+SOUSSE,Akouda,AKOUDA,21237.0,27200.0,30568.0,citypopulation.de (compilation INS) – à confirmer,3,2014-03-31,2 (présumée),35.90522496,10.56218201,54.7,AKOUDA
+SOUSSE,Bouficha,BOUFICHA,23581.0,26763.0,36094.0,citypopulation.de (compilation INS) – à confirmer,2,2011-03-31,2 (présumée),36.27436497,10.42620837,18.7,BOUFICHA
+SOUSSE,Chott Meriem,CHATT MARIEM,4480.0,7294.0,8606.0,citypopulation.de (compilation INS) – à confirmer,2,2018-01-12,2 (présumée),,,,
+SOUSSE,Enfida,ENFIDHA,27061.0,30350.0,35246.0,citypopulation.de (compilation INS) – à confirmer,1,2007-07-03,2 (présumée),36.12779542,10.33587033,23.1,ENFIDHA
+SOUSSE,Ezzouhour,EZ-ZOUHOUR,11669.0,17409.0,18589.0,citypopulation.de (compilation INS) – à confirmer,2,2008-01-16,2 (présumée),35.80479345,10.59675987,65.9,COMMUNE EZZOUHOUR
+SOUSSE,Grimet - Hicher,GRIMET HICHER,16365.0,18985.0,23367.0,citypopulation.de (compilation INS) – à confirmer,1,2025-02-06,2 (présumée),,,,
+SOUSSE,Hammam Sousse,HAMMAM SOUSSE,34685.0,42691.0,48899.0,citypopulation.de (compilation INS) – à confirmer,5,2004-09-29,2 (présumée),35.874696,10.59389321,59.1,HAMMAM SOUSSE
+SOUSSE,Hergla,,7913.0,9343.0,10652.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.02827808,10.44593077,37.6,HERGLA
+SOUSSE,Kalâa Kebira,KALAA KEBIRA,51196.0,59132.0,67108.0,citypopulation.de (compilation INS) – à confirmer,3,2013-04-30,2 (présumée),35.86843854,10.45277894,53.7,KALAA KEBIRA
+SOUSSE,Kalâa Seghira,KALAA SGHIRA,27726.0,37797.0,45743.0,citypopulation.de (compilation INS) – à confirmer,3,2005-11-19,2 (présumée),35.79798875,10.47091273,61.6,KALAA SGHIRA
+SOUSSE,Kondar,,11636.0,13565.0,15491.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.90446809,10.24502975,45.6,KONDAR
+SOUSSE,Ksibet Thrayet,KSIBA THRAYET,8762.0,11312.0,15497.0,citypopulation.de (compilation INS) – à confirmer,3,2008-02-14,2 (présumée),35.76801713,10.63817848,71.3,COMMUNE KSIBA THRAYET
+SOUSSE,Messaadine,,8444.0,12930.0,14883.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+SOUSSE,M'saken,M'SAKEN,76936.0,84295.0,82429.0,citypopulation.de (compilation INS) – à confirmer,4,2003-10-08,2 (présumée),35.67310176,10.53876788,76.7,M'SAKEN
+SOUSSE,Sidi Bou Ali,SIDI BOU ALI,17606.0,19693.0,20647.0,citypopulation.de (compilation INS) – à confirmer,1,2025-08-19,2 (présumée),35.96929495,10.42554516,42.4,SIDI BOU ALI
+SOUSSE,Sidi El Hani,,11614.0,13505.0,14508.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),35.69931118,10.31891555,68.9,SIDI EL HANI
+SOUSSE,Sousse,SOUSSE,173047.0,221715.0,240321.0,citypopulation.de (compilation INS) – à confirmer,11,2007-01-12,2 (présumée),35.816546,10.625392775,66.1,COMMUNE SOUSSE
+SOUSSE,Zaouiet Sousse,ZAOUIET SOUSSE,10455.0,20992.0,33633.0,citypopulation.de (compilation INS) – à confirmer,2,2021-05-24,2 (présumée),35.76801713,10.63817848,71.3,COMMUNE ZAOUIET SOUSSE
+TATAOUINE,Bir Lahmar,,9270.0,8460.0,10772.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.14441082,10.43927359,353.0,BIR LAHMAR
+TATAOUINE,Dehiba,,3971.0,4295.0,5920.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),31.97009,10.47039035,483.6,DHEHIBA
+TATAOUINE,Ghomrassen,,18335.0,15957.0,16351.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.04624207,10.20875685,363.4,GHOMRASSEN
+TATAOUINE,Remada,,9977.0,10173.0,9964.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),31.54837644,9.65261911,532.5,REMADA
+TATAOUINE,Smâr,,13826.0,14793.0,16270.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),32.70343721,10.97329387,407.3,SMAR
+TATAOUINE,Tataouine,TATAOUINE,80176.0,88232.0,95892.0,citypopulation.de (compilation INS) – à confirmer,2,2013-08-22,2 (présumée),32.77869378,10.18712275,393.1,TATAOUINE SUD
+TATAOUINE,Tataouine Sud,,7969.0,7543.0,7485.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),32.77869378,10.18712275,393.1,TATAOUINE SUD
+TOZEUR,Degache,DEGUECHE,19714.0,21590.0,24426.0,citypopulation.de (compilation INS) – à confirmer,2,2021-05-22,2 (présumée),34.03386544,8.36671028,304.5,DEGUECHE
+TOZEUR,El Hamma du Jérid,,6882.0,6953.0,7895.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),,,,
+TOZEUR,Hazoua,HEZOUA,4162.0,4700.0,6186.0,citypopulation.de (compilation INS) – à confirmer,1,2025-03-25,2 (présumée),33.76641627,7.64937208,367.6,HAZOUA
+TOZEUR,Nefta,,20544.0,21731.0,24263.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),33.82049163,7.87245171,350.2,NEFTA
+TOZEUR,Tamerza,,6362.0,6516.0,6904.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),34.29030034,7.89113982,308.9,TAMAGHZA
+TOZEUR,Tozeur,TOZEUR,39862.0,46422.0,50362.0,citypopulation.de (compilation INS) – à confirmer,2,2007-07-24,2 (présumée),33.91348287,8.11182516,328.8,TOZEUR
+TUNIS,Carthage,CARTHAGE,15922.0,17010.0,17215.0,citypopulation.de (compilation INS) – à confirmer,3,2005-06-22,2 (présumée),36.85703155,10.32781661,61.1,CARTHAGE
+TUNIS,La Goulette,LA GOULETTE,28407.0,45711.0,48382.0,citypopulation.de (compilation INS) – à confirmer,6,2006-06-05,2 (présumée),36.83441533,10.2828029,58.1,LA GOULETTE
+TUNIS,La Marsa,LA MARSA,77890.0,92987.0,113133.0,citypopulation.de (compilation INS) – à confirmer,5,2003-03-11,2 (présumée),36.90089921,10.30135705,65.6,LA MARSA
+TUNIS,Le Bardo,LE BARDO,70244.0,71961.0,68799.0,citypopulation.de (compilation INS) – à confirmer,3,2007-05-11,2 (présumée),36.8135025,10.13206574,56.1,LE BARDO
+TUNIS,Le Kram,LE KRAM,58152.0,74132.0,88302.0,citypopulation.de (compilation INS) – à confirmer,6,2000-11-30,2 (présumée),36.84790264,10.29409379,59.7,LE KRAM (ANCIEN EL BHIRA)
+TUNIS,Sidi Bou Saïd,SIDI BOUSAID,4793.0,7206.0,4988.0,citypopulation.de (compilation INS) – à confirmer,2,2008-04-30,2 (présumée),,,,
+TUNIS,Sidi Hassine,SIDI HASSINE,79381.0,109672.0,129888.0,citypopulation.de (compilation INS) – à confirmer,3,2013-11-25,2 (présumée),36.73976979,10.08416629,48.9,COMMUNE SIDI HESSINE
+TUNIS,Tunis,TUNIS,649072.0,637568.0,604599.0,citypopulation.de (compilation INS) – à confirmer,11,2004-03-17,2 (présumée),36.799258380666664,10.162614699333334,54.2,COMMUNE TUNIS
+ZAGHOUAN,Bir Mcherga,BIR MCHARGUA,13352.0,14604.0,16284.0,citypopulation.de (compilation INS) – à confirmer,2,2014-09-10,2 (présumée),36.52811289,9.99805805,31.2,BIR MCHARGUA
+ZAGHOUAN,Djebel Oust,JEBEL EL WAST,8156.0,9783.0,10999.0,citypopulation.de (compilation INS) – à confirmer,1,2021-11-10,2 (présumée),36.52811289,9.99805805,31.2,BIR MCHARGUA
+ZAGHOUAN,El Amaiem,,13534.0,11993.0,13562.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.27018181,9.83275369,35.3,EL FAHS
+ZAGHOUAN,El Fahs,FAHS,30144.0,34456.0,37652.0,citypopulation.de (compilation INS) – à confirmer,2,2009-02-12,2 (présumée),36.27018181,9.83275369,35.3,EL FAHS
+ZAGHOUAN,Nadhour,NADHOUR,28550.0,30366.0,37130.0,citypopulation.de (compilation INS) – à confirmer,1,2025-02-06,2 (présumée),36.11174591,9.98726581,30.9,NADHOUR
+ZAGHOUAN,Saouaf,,12095.0,12681.0,13776.0,citypopulation.de (compilation INS) – à confirmer,0,,2 (présumée),36.21554523,10.15004468,12.8,SAOUAF
+ZAGHOUAN,Zaghouan,ZAGHOUAN,34367.0,38445.0,43813.0,citypopulation.de (compilation INS) – à confirmer,2,2012-07-10,2 (présumée),36.41433327,10.2027051,11.3,ZAGHOUAN
+ZAGHOUAN,Zriba,ZRIBA,20765.0,24617.0,27849.0,citypopulation.de (compilation INS) – à confirmer,1,2014-07-22,2 (présumée),36.31414904,10.22297504,0.0,ZRIBA
+BEN AROUS,Mhamdia,MHAMDIA,,,,Population communale non disponible (nom non apparié) – données manquantes,4,2018-10-11,2 (présumée),36.64530811,10.11454557,38.1,M'HAMDIA
+GABES,El Hamma Ouest,EL HAMMA OUEST,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2025-02-17,2 (présumée),33.86020252,9.59308365,278.8,EL HAMMA OUEST
+GAFSA,Lela,LELA,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2023-06-30,2 (présumée),,,,
+JENDOUBA,Tabarka Jadida,TABARKA JADIDA,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2023-01-09,2 (présumée),36.90686981,8.82277942,141.3,TABARKA
+KAIROUAN,Ragueda,RAGUEDA,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2023-12-13,2 (présumée),,,,
+KAIROUAN,Sidi Ali Ben Nasrallah,SIDI ALI BEN NASRALLAH,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2025-01-20,2 (présumée),35.33767325,9.81266761,114.7,SIDI ALI BEN NASRALLAH
+KAIROUAN,Sidi Amor Bouhajla,SIDI AMOR BOUHAJLA,,,,Population communale non disponible (nom non apparié) – données manquantes,2,2021-03-13,2 (présumée),35.38307695,10.04219578,104.8,SIDI AMOR BOUHAJLA
+MAHDIA,Bou Merdas,BOU MERDAS,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2008-03-27,2 (présumée),35.42431899,10.69654898,107.8,BOUMERDAS
+MANOUBA,Jedaida,JEDAIDA,,,,Population communale non disponible (nom non apparié) – données manquantes,3,2011-07-18,2 (présumée),36.85413432,9.92761596,65.6,JEDEIDA
+MEDENINE,Jerba Houmet Souk,JERBA HOUMET SOUK,,,,Population communale non disponible (nom non apparié) – données manquantes,3,2009-01-10,2 (présumée),33.85030144,10.86718616,280.2,HOUMT SOUK
+MONASTIR,Sahline,SAHLINE,,,,Population communale non disponible (nom non apparié) – données manquantes,3,2007-11-08,2 (présumée),35.74194675,10.7225846,77.9,SAHLINE
+SFAX,Bir Ali Nord,BIR ALI NORD,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2024-02-21,2 (présumée),,,,
+SFAX,Ennour,ENNOUR,,,,Population communale non disponible (nom non apparié) – données manquantes,1,2024-02-16,2 (présumée),,,,

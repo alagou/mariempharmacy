@@ -1,0 +1,148 @@
+{
+  "_meta": {
+    "description": "Cadre juridique des autorisations d'officines de détail en Tunisie (catégories A et B), structuré pour l'application. Les résumés ne remplacent pas le texte officiel publié au JORT.",
+    "compiled": "2026-10-19",
+    "status_legend": {
+      "texte": "Établi directement par un texte en vigueur",
+      "interpretation": "Interprétation raisonnable du texte – à faire confirmer",
+      "a_confirmer": "Information incertaine ou non trouvée – confirmation officielle requise (DPM / CNOPT)"
+    }
+  },
+  "texts": [
+    {"id": "loi_73_55", "title": "Loi n° 73-55 du 3 août 1973 organisant les professions pharmaceutiques (modifiée, notamment par la loi n° 2010-30 du 7 juin 2010)", "date": "1973-08-03", "jort": "JORT n° 30 du 10/08/1973", "status": "en vigueur", "url": "https://lois.tn/doc/49495", "local_path": "documents/regulations/web/loi_73-55_lois_tn_2026-10-19.txt"},
+    {"id": "decret_76_253", "title": "Décret n° 76-253 du 16 mars 1976 (catégories A jour / B nuit)", "date": "1976-03-16", "status": "abrogé (décret 92-1206)", "url": "https://cnopt.tn/presentation-et-histoire-de-lordre/", "local_path": "documents/regulations/web/cnopt_presentation_histoire_ordre_2026-10-19.txt"},
+    {"id": "decret_92_1206", "title": "Décret n° 92-1206 du 22 juin 1992 portant organisation de l'exploitation des officines de détail (modifié par les décrets 93-1448, 2004-1058, 2007-4139)", "date": "1992-06-22", "status": "abrogé par le décret gouvernemental 2019-1013", "url": "https://cnopt.tn/secteurs-pharma/pharmacie-dofficine/", "local_path": "documents/regulations/web/cnopt_historique_numerus_clausus_2026-10-19.txt"},
+    {"id": "arrete_1993", "title": "Arrêté du 26 août 1993 fixant les conditions d'établissement des listes d'attente (modifié en 1994, 1996, 2000 et par l'arrêté du 23 avril 2004)", "date": "1993-08-26", "status": "remplacé par l'arrêté du 19 décembre 2019", "url": "https://cnopt.tn/pharmacie-dofficine-2/", "local_path": ""},
+    {"id": "decret_2019_1013", "title": "Décret gouvernemental n° 2019-1013 du 11 novembre 2019 portant organisation de l'exploitation des officines de détail", "date": "2019-11-11", "jort": "JORT n° 2019-091", "status": "en vigueur", "url": "https://9anoun.tn/fr/kb/jorts/jort-2019-091-93841/decret-gouvernemental-ndeg-2019-1013-du-11-novembre-2019-portant-organisation-de-lexploitation-des-officines-de-detail-92", "local_path": "documents/regulations/web/decret_2019-1013_extraits.md"},
+    {"id": "arrete_2019_12_19", "title": "Arrêté de la ministre de la santé du 19 décembre 2019 fixant les conditions d'établissement des listes d'attente pour la création des officines de détail", "date": "2019-12-19", "jort": "JORT n° 2019-105", "status": "en vigueur (modifié par l'arrêté du 8 octobre 2021)", "url": "https://juridoc.tn/fr/document/arrete-de-la-ministre-de-la-sante-par-interim-du-19-decembre-2019-fixant-les-conditions-d-etablissement-des-listes-d-attente-pour-la-creation-des-officines-de-details/", "local_path": "documents/regulations/web/arrete_2019-12-19_juridoc.txt"},
+    {"id": "arrete_2021_10_08", "title": "Arrêté du 8 octobre 2021 modifiant l'arrêté du 19 décembre 2019 (article 10)", "date": "2021-10-08", "jort": "JORT n° 2021-092", "status": "en vigueur", "url": "", "local_path": ""},
+    {"id": "dpm_reglementation", "title": "DPM – liste de la réglementation pharmaceutique (document de synthèse)", "status": "référence", "url": "https://dpm.tn/images/pdf/pharmacie/reglementation_fr.pdf", "local_path": "documents/regulations/reglementation_fr.pdf"},
+    {"id": "dpm_pieces_liste", "title": "DPM – pièces à fournir pour l'inscription sur une liste d'attente (FR/AR)", "status": "référence", "url": "https://dpm.tn/images/pdf/pharmacie/lpf_lst_att.pdf", "local_path": "documents/regulations/lpf_lst_att.pdf"},
+    {"id": "dpm_guide_officine", "title": "Guide de l'officine (ministère de la santé, version 21/09/2026, AR)", "status": "référence", "url": "https://dpm.tn/images/pdf/pharmacie/t-op1-03-001-ar-000-guide-officine-21092026.pdf", "local_path": "documents/regulations/t-op1-03-001-ar-000-guide-officine-21092026.pdf"}
+  ],
+  "categories": {
+    "A": {"label": "Catégorie A – officine exclusivement de jour", "basis": "Population de la délégation (sauf 9 communes listées à l'art. 3, comptées par commune)", "ref": "Décret 2019-1013, art. 1, 3", "status": "texte"},
+    "B": {"label": "Catégorie B – officine exclusivement de nuit", "basis": "Population de la commune", "ref": "Décret 2019-1013, art. 1, 10, 11", "status": "texte"},
+    "garde": {"label": "Garde (permanence)", "basis": "Pas une catégorie de licence : dans les communes sans officine B, les officines A assurent la garde de nuit ; elle cesse dès qu'une officine B est autorisée dans la commune.", "ref": "Décret 2019-1013, art. 15, 17", "status": "texte"}
+  },
+  "rules_current": {
+    "A": {
+      "formula": "autorisations = floor(population / N + 0,5)  (tranche semi-entière : une nouvelle officine dès que l'augmentation atteint 50 % de N)",
+      "zone_thresholds": {"1": 3300, "2": 3600, "3": 4000, "4": 5000, "5": 6000, "6": 7000, "7": 8000, "8": 9000, "9": 10000, "10": 11000, "11": 12000, "12": 14000, "13": 16000},
+      "special_communes": {"COMMUNE TUNIS": 3300, "COMMUNE ARIANA": 3300, "COMMUNE SFAX": 3300, "COMMUNE SOUSSE": 3600, "COMMUNE SAKIET EDDAYER": 3600, "COMMUNE ZAOUIET SOUSSE": 5000, "COMMUNE EZZOUHOUR": 6000, "COMMUNE KSIBA THRAYET": 7000, "COMMUNE SIDI HESSINE": 8000},
+      "exceptions": [
+        {"text": "Délégation sans aucune officine A : création possible hors numerus clausus.", "ref": "art. 6", "status": "texte"},
+        {"text": "Délégation à plusieurs communes : une officine A par commune même au-delà du numerus clausus, selon l'ordre de la liste de la délégation.", "ref": "art. 6", "status": "texte"},
+        {"text": "Première officine A possible dans une imada dont l'officine de jour a fermé définitivement, ou disposant d'une agence de la caisse d'assurance maladie.", "ref": "art. 6 – détail à confirmer", "status": "a_confirmer"},
+        {"text": "Ces créations exceptionnelles sont comptées dans le numerus clausus de la délégation.", "ref": "art. 7", "status": "texte"}
+      ],
+      "distance_min_m": 200,
+      "distance_min_imada_m": 4000,
+      "transfer": "Pas de transfert d'une officine A d'une commune à une autre de la même délégation (art. 8).",
+      "population_reference": "Population officiellement communiquée par l'INS (art. 18). La DPM applique actuellement le RGPH 2024 (listes arrêtées au 31/12/2025).",
+      "zone_source": "Annexe 1 du décret ; zones et seuils relevés sur les listes d'attente en ligne de la DPM (dpm.tn)."
+    },
+    "B": {
+      "formula": "autorisations = ceil(population communale / N)  (tranche non entière)",
+      "zone_thresholds": {"1": 50000, "2": 60000},
+      "zone_note": "L'annexe 2 (classement des communes) n'a pas pu être archivée. Zone 2 (60 000) est utilisée par défaut et la valeur est réglable. Pour les communes de moins de 50 000 habitants le résultat est identique (1 officine B).",
+      "exceptions": [
+        {"text": "Commune sans officine B : création prioritaire possible.", "ref": "art. 6, 12", "status": "texte"}
+      ],
+      "distance_min_m": 500,
+      "distance_A_B": "Aucune distance exigée entre une officine A et une officine B (art. 13).",
+      "night_activity": "Dès qu'une officine B est autorisée dans une commune, l'activité de nuit des officines A y cesse (art. 17)."
+    },
+    "category_change": {"text": "Le changement de catégorie (A → B ou B → A) ne peut se faire que par l'obtention d'une nouvelle licence.", "ref": "Décret 2019-1013, art. 14", "status": "texte"},
+    "allocation_order": {"text": "Les licences sont octroyées selon l'ordre de priorité des listes d'attente.", "ref": "Décret 2019-1013, art. 20", "status": "texte"}
+  },
+  "waiting_list_rules": [
+    {"article": "2", "text": "Une liste d'attente par délégation (catégorie A) ou par commune (catégorie B / communes de l'art. 3).", "status": "texte"},
+    {"article": "3", "text": "Dossier d'inscription : demande et pièces fixées par l'arrêté (voir pièces DPM).", "status": "texte"},
+    {"article": "5", "text": "Un pharmacien ne peut être inscrit que sur une seule liste d'attente.", "status": "texte"},
+    {"article": "6", "text": "Classement chronologique selon la date du cachet de la poste. À date égale : situation professionnelle (sans activité, assistant, fonctionnaire, salarié, officinal), puis année du diplôme, puis âge, puis tirage au sort.", "status": "texte"},
+    {"article": "7", "text": "Renouvellement de l'inscription tous les 2 ans, avant fin janvier des années paires, par lettre recommandée. À défaut : mise en demeure de 30 jours puis radiation d'office ; une réinscription exige une nouvelle demande (nouvelle date).", "status": "texte"},
+    {"article": "8", "text": "Mise à jour des listes la première semaine de chaque trimestre et publication en ligne.", "status": "texte"},
+    {"article": "9", "text": "Lorsque la population (INS) permet une création, le pharmacien prioritaire est convoqué et dispose de 30 jours (+30) pour compléter son dossier.", "status": "texte"},
+    {"article": "10", "text": "Radiation en cas de non-respect des délais ; réinscription par nouvelle demande. Modifié le 08/10/2021 : pour les imadas (fermeture/agence) et les communes sans officine de jour, le pharmacien suivant est appelé et le défaillant garde sa place en tête de liste.", "status": "texte"},
+    {"article": "11", "text": "Un officinal qui obtient une nouvelle licence perd la précédente.", "status": "texte"},
+    {"article": "12", "text": "L'officinal qui cède son officine est radié de la liste.", "status": "texte"},
+    {"article": "13", "text": "Disposition transitoire : 60 jours pour les inscrits sur plusieurs listes pour choisir une seule liste ; à défaut, maintien sur la première.", "status": "texte"},
+    {"article": "14", "text": "Disposition transitoire : les inscrits existants passent automatiquement dans les nouvelles listes en conservant leur priorité.", "status": "texte"},
+    {"article": "15", "text": "Création/fusion/scission de délégations ou communes : les listes sont fusionnées ou réparties, les inscrits choisissant leur liste en conservant leur date.", "status": "interpretation"},
+    {"article": "—", "text": "L'ancien arrêté (1993, modifié en 2004) prévoyait une condition d'âge (60 ans au plus) ; cette condition n'a pas été retrouvée dans l'arrêté de 2019.", "status": "a_confirmer"}
+  ],
+  "history_numerus_clausus": [
+    {"from": 1973, "to": 1976, "A": "1 officine par tranche de 5 000 habitants (communes) ; pas de catégories", "B": "—", "source": "CNOPT – historique"},
+    {"from": 1976, "to": 1992, "A": "Catégorie A : 1 par fraction entière de 5 000 habitants ; 200 m entre officines", "B": "Catégorie B : 1 par fraction entière de 100 000 habitants dans les grandes villes ; 500 m entre officines B", "source": "CNOPT – historique ; décret 76-253"},
+    {"from": 1992, "to": 2004, "A": "Par délégation, 5 zones : 4 000 / 8 000 / 16 000 / 32 000 / 64 000 habitants (tranche semi-entière depuis le décret 93-1448)", "B": "Par commune : 1 par tranche non entière de 70 000 habitants", "source": "CNOPT ; décrets 92-1206 et 93-1448"},
+    {"from": 2004, "to": 2007, "A": "Par commune pour les grandes villes (3 600 Tunis/Sousse, 4 000 autres) ; ailleurs par délégation avec zones 6 000 / 12 000 / 24 000 (suppression des zones 32 000 et 64 000)", "B": "Par commune : tranche semi-entière de 60 000 habitants", "source": "CNOPT ; décret 2004-1058"},
+    {"from": 2007, "to": 2019, "A": "Sfax et Ariana à 3 600 ; suppression de la zone 24 000 ; créations possibles dans les imadas non communales de plus de 4 000 habitants (non transférables)", "B": "Inchangé (60 000)", "source": "CNOPT ; décret 2007-4139"},
+    {"from": 2019, "to": null, "A": "13 zones de 3 300 à 16 000 habitants par délégation ; 9 communes comptées à part", "B": "2 zones : 50 000 / 60 000 habitants par commune (tranche non entière)", "source": "Décret gouvernemental 2019-1013"}
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "question": "La date d'inscription de 2017 est-elle perdue en cas de changement de délégation ?",
+      "answer": "Très probablement oui. Le classement se fait selon la date de dépôt de la demande sur une liste donnée (art. 6) et un pharmacien ne peut figurer que sur une seule liste (art. 5). Une inscription sur une autre liste est une nouvelle demande, classée à sa propre date. Aucune disposition générale ne permet de transporter la date de 2017.",
+      "status": "interpretation",
+      "refs": ["Arrêté 19/12/2019 art. 5, 6, 7, 10"],
+      "confirm_with": "DPM – service des officines (demande écrite)"
+    },
+    {
+      "id": "q2",
+      "question": "L'ancienneté peut-elle être transférée ?",
+      "answer": "Aucun article ne prévoit le transfert volontaire de l'ancienneté vers une autre liste. Les seules conservations de priorité prévues sont transitoires ou administratives : passage automatique dans les nouvelles listes en 2019 (art. 14) et répartition des inscrits lors de la création/fusion de délégations ou communes (art. 15).",
+      "status": "interpretation",
+      "refs": ["Arrêté 19/12/2019 art. 14, 15"],
+      "confirm_with": "DPM / CNOPT"
+    },
+    {
+      "id": "q3",
+      "question": "Peut-elle changer sans se retirer d'abord ?",
+      "answer": "Non, pas simultanément : l'inscription sur une seule liste est obligatoire (art. 5). La procédure exacte (retrait puis nouvelle demande, ou demande de changement traitée par la DPM avec radiation de la première liste) n'est pas décrite dans les textes consultés. Il faut obtenir une réponse écrite de la DPM avant toute démarche.",
+      "status": "a_confirmer",
+      "refs": ["Arrêté 19/12/2019 art. 5"],
+      "confirm_with": "DPM"
+    },
+    {
+      "id": "q4",
+      "question": "Peut-elle passer de la catégorie A à la catégorie B ?",
+      "answer": "Oui en droit, mais uniquement par une inscription sur la liste B d'une commune (nouvelle demande, nouvelle date) : il n'existe pas de conversion d'une inscription A en inscription B, et le changement de catégorie d'une officine exige une nouvelle licence (décret art. 14). Comme une seule liste est permise, l'inscription B remplacerait l'inscription A de Zriba.",
+      "status": "interpretation",
+      "refs": ["Décret 2019-1013 art. 14", "Arrêté 19/12/2019 art. 2, 5"],
+      "confirm_with": "DPM"
+    },
+    {
+      "id": "q5",
+      "question": "Peut-elle conserver son inscription actuelle pendant qu'elle se renseigne ?",
+      "answer": "Oui. S'informer, consulter les listes publiques ou écrire à la DPM n'affecte pas l'inscription. La seule obligation est de renouveler l'inscription tous les deux ans avant fin janvier des années paires (prochaine échéance : janvier 2028), faute de quoi il y a radiation.",
+      "status": "texte",
+      "refs": ["Arrêté 19/12/2019 art. 7"],
+      "confirm_with": ""
+    },
+    {
+      "id": "q6",
+      "question": "Existe-t-il des dispositions transitoires protégeant les anciennes inscriptions ?",
+      "answer": "Oui, mais seulement pour le passage à la réglementation de 2019 : les inscrits existants ont été transférés automatiquement dans les nouvelles listes avec leur priorité (art. 14), et les inscrits sur plusieurs listes avaient 60 jours pour choisir (art. 13). C'est ce qui a préservé la date du 26/07/2017. Ces dispositions ne permettent pas un changement volontaire ultérieur.",
+      "status": "texte",
+      "refs": ["Arrêté 19/12/2019 art. 13, 14"],
+      "confirm_with": ""
+    },
+    {
+      "id": "q7",
+      "question": "Quelle est la procédure la plus sûre ?",
+      "answer": "1) Ne rien retirer et continuer à renouveler l'inscription de Zriba (prochaine échéance : janvier 2028). 2) Adresser à la DPM une demande écrite (avec accusé de réception) posant les questions 1 à 4, en citant l'arrêté du 19/12/2019. 3) Vérifier à chaque mise à jour trimestrielle la position sur la liste et la population retenue. 4) Ne déposer une demande sur une autre liste qu'après réponse écrite et seulement si le gain estimé reste important après perte de la date de 2017. 5) Conserver toutes les preuves d'envoi.",
+      "status": "interpretation",
+      "refs": ["Arrêté 19/12/2019 art. 5, 7, 8"],
+      "confirm_with": "DPM / CNOPT / avocat"
+    }
+  ],
+  "withdrawal_consequences": [
+    "Perte définitive du rang sur la liste de Zriba (catégorie A) et de la date d'inscription du 26/07/2017.",
+    "Toute réinscription, y compris sur la même liste, exige une nouvelle demande classée à sa nouvelle date (art. 7 et 10).",
+    "La nouvelle inscription se place derrière tous les inscrits déjà présents sur la liste choisie.",
+    "Les règles (zones, seuils, population de référence) peuvent changer ; une liste aujourd'hui favorable peut cesser de l'être.",
+    "Le retrait est irréversible en pratique : aucune disposition ne prévoit sa révocation."
+  ]
+}

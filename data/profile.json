@@ -1,0 +1,19 @@
+{
+  "_note": "Données personnelles conservées uniquement en local. Ne pas partager ni téléverser.",
+  "name": "CHKIRBENE EP CHKIRBENE Mariem",
+  "short_name": "Mariem Chkirbene",
+  "governorate": "ZAGHOUAN",
+  "delegation": "ZRIBA",
+  "del_code": "502",
+  "category": "A",
+  "date_inscription": "2017-07-26",
+  "renewals": [
+    {"date": "2020-01-21", "source": "DPM – recherche renouvellement 2020 (documents/waiting_lists/renouvellement_2020_recherche_CHKIRBENE.html)"},
+    {"date": "2024-01-16", "source": "DPM – tableau des renouvellements 2024 (liste_ph_ren_12062024.pdf)", "note": "Date dite de « régularisation » : il s'agit d'un renouvellement, la date d'inscription reste le 26/07/2017"},
+    {"date": "2026", "source": "DPM – tableau des renouvellements 2026 publié le 03/07/2026 (list-pharm-ren-2026.pdf)"}
+  ],
+  "current_rank": 5,
+  "list_size": 5,
+  "rank_source": "DPM – liste d'attente en ligne de Zriba (jour), arrêtée au 31/12/2025, consultée le 2026-10-19",
+  "next_renewal_deadline": "2028-01-31"
+}

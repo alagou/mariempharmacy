@@ -1,0 +1,85 @@
+level,name,year,category,count,source,verified,note
+national,Tunisie,1990,A,963,DPM – graphique statistique hist0 (documents/statistics/hist0.2.jpg),True,Valeur lue sur un graphique officiel
+national,Tunisie,1993,A,1032,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,1996,A,1183,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,1999,A,1241,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2000,A,1248,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2001,A,1270,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2002,A,1282,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2003,A,1295,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2004,A,1346,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2005,A,1427,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2006,A,1443,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2007,A,1477,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2008,A,1519,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2009,A,1574,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2010,A,1600,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2011,A,1620,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2012,A,1647,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2013,A,1660,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,1990,B,75,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,1993,B,84,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,1996,B,101,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,1999,B,119,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2000,B,133,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2001,B,151,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2002,B,158,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2003,B,172,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2004,B,185,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2005,B,208,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2006,B,214,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2007,B,239,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2008,B,256,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2009,B,277,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2010,B,282,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2011,B,282,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2012,B,288,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+national,Tunisie,2013,B,286,DPM – graphique statistique hist0,True,Valeur lue sur un graphique officiel
+governorate,TUNIS,2013,A,259,DPM – graphique statistique hist3 (documents/statistics/hist3.6.jpg),True,Valeur lue sur un graphique officiel
+governorate,SFAX,2013,A,176,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,NABEUL,2013,A,137,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,BEN AROUS,2013,A,116,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,SOUSSE,2013,A,111,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,MONASTIR,2013,A,91,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,ARIANA,2013,A,84,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,BIZERTE,2013,A,81,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,MEDENINE,2013,A,81,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,KAIROUAN,2013,A,57,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,MANOUBA,2013,A,54,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,GABES,2013,A,53,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,MAHDIA,2013,A,46,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,JENDOUBA,2013,A,45,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,KASSERINE,2013,A,41,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,GAFSA,2013,A,39,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,SIDI BOUZID,2013,A,36,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,BEJA,2013,A,33,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,LE KEF,2013,A,30,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,SILIANA,2013,A,21,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,ZAGHOUAN,2013,A,21,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,TATAOUINE,2013,A,20,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,KEBILI,2013,A,15,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,TOZEUR,2013,A,13,DPM – graphique statistique hist3,True,Valeur lue sur un graphique officiel
+governorate,MONASTIR,2013,B,30,DPM – graphique statistique hist4 (documents/statistics/hist4.7.jpg),True,Valeur lue sur un graphique officiel
+governorate,NABEUL,2013,B,24,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,TUNIS,2013,B,22,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,SFAX,2013,B,19,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,SOUSSE,2013,B,18,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,BEN AROUS,2013,B,15,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,BIZERTE,2013,B,15,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,KAIROUAN,2013,B,13,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,MAHDIA,2013,B,13,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,ARIANA,2013,B,11,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,MEDENINE,2013,B,11,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,GABES,2013,B,11,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,KASSERINE,2013,B,11,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,MANOUBA,2013,B,10,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,GAFSA,2013,B,9,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,SIDI BOUZID,2013,B,9,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,LE KEF,2013,B,8,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,BEJA,2013,B,8,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,SILIANA,2013,B,8,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,JENDOUBA,2013,B,6,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,ZAGHOUAN,2013,B,5,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,TATAOUINE,2013,B,4,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,KEBILI,2013,B,4,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel
+governorate,TOZEUR,2013,B,3,DPM – graphique statistique hist4,True,Valeur lue sur un graphique officiel

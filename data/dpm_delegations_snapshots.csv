@@ -1,0 +1,264 @@
+snapshot_date,gov_code,governorate,del_code,delegation,zone,zone_threshold,population_dpm,officines_dpm,officines_registry,waiting_count,source_url
+2026-10-19,02,ARIANA,0210,CITE ETTADHAMEN,7.0,8000.0,79133.0,11.0,11,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,02,ARIANA,0201,COMMUNE ARIANA,nan,nan,109693.0,37.0,37,64,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,02,ARIANA,0212,EL MNIHLA,9.0,10000.0,116327.0,12.0,12,75,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,02,ARIANA,0203,KALAAT ANDALOUS,6.0,7000.0,32520.0,4.0,4,33,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,02,ARIANA,0202,RAOUED,5.0,6000.0,141471.0,23.0,23,87,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,02,ARIANA,0204,SIDI THABET,7.0,8000.0,29546.0,4.0,4,33,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,02,ARIANA,0205,SOUKRA,5.0,6000.0,159862.0,24.0,24,73,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0704,AMDOUN,13.0,16000.0,21403.0,1.0,1,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0701,BEJA NORD,7.0,8000.0,74642.0,9.0,9,11,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0702,BEJA SUD,6.0,7000.0,38700.0,6.0,6,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0709,GOUBELLAT,13.0,16000.0,16767.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0705,MEJEZ EL BAB,7.0,8000.0,44879.0,6.0,6,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0703,NEFZA,11.0,12000.0,47573.0,4.0,4,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0707,TEBOURSOUK,13.0,16000.0,21414.0,2.0,2,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0706,TESTOUR,9.0,10000.0,35501.0,4.0,4,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,07,BEJA,0708,THIBAR,12.0,14000.0,10538.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0301,BEN AROUS,2.0,3600.0,29170.0,10.0,10,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0309,BOUMHEL BASSATINE,5.0,6000.0,50817.0,9.0,9,32,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0303,EL MOUROUJ,4.0,5000.0,121712.0,24.0,24,49,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0308,EZZAHRA,2.0,3600.0,35241.0,10.0,10,29,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0312,FOUCHANA,5.0,6000.0,100868.0,15.0,15,40,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0307,HAMMAM CHATT,7.0,8000.0,34341.0,5.0,5,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0306,HAMMAM LIF,2.0,3600.0,41738.0,13.0,13,22,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0311,M'HAMDIA,7.0,8000.0,84465.0,10.0,10,32,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0302,MEDINA JEDIDA,4.0,5000.0,60401.0,14.0,14,32,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0305,MEGRINE,1.0,3300.0,25863.0,9.0,9,21,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0310,MORNAG,6.0,7000.0,75170.0,9.0,9,37,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,03,BEN AROUS,0304,RADES,2.0,3600.0,63042.0,20.0,20,41,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0601,BIZERTE NORD,3.0,4000.0,85205.0,24.0,24,31,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0602,BIZERTE SUD,11.0,12000.0,75669.0,5.0,5,16,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0611,EL ALIA,5.0,6000.0,29322.0,5.0,5,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0614,GHAR EL MELH,6.0,7000.0,22267.0,3.0,3,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0606,GHEZALA,13.0,16000.0,25366.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0612,JARZOUNA,12.0,14000.0,25159.0,2.0,2,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0610,JOUMINE,12.0,14000.0,27896.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0609,MATEUR,5.0,6000.0,49316.0,8.0,8,12,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0605,MENZEL BOURGUIBA,3.0,4000.0,60356.0,17.0,17,17,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0603,MENZEL JEMIL,6.0,7000.0,57010.0,7.0,7,13,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0604,RAS JEBEL,6.0,7000.0,63931.0,9.0,9,13,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0607,SEJNANE,12.0,14000.0,41119.0,5.0,5,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0613,TINJA,7.0,8000.0,21995.0,3.0,3,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,06,BIZERTE,0608,UTIQUE,12.0,14000.0,22777.0,1.0,1,18,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2111,DKHILET TOUJANE,13.0,16000.0,9690.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2104,EL HAMMA,10.0,11000.0,57856.0,6.0,6,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2113,EL HAMMA OUEST,10.0,11000.0,21352.0,2.0,2,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2101,GABES MEDINA (EST),2.0,3600.0,46380.0,20.0,20,18,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2102,GABES OUEST,5.0,6000.0,37420.0,6.0,6,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2110,GABES SUD,9.0,10000.0,83013.0,9.0,9,32,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2109,GHANNOUCH,7.0,8000.0,35329.0,4.0,4,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2107,MARETH,7.0,8000.0,57358.0,7.0,7,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2106,MATMATA,13.0,16000.0,3926.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2108,MATMATA JADIDA,13.0,16000.0,16779.0,1.0,1,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2105,MENZEL HABIB,13.0,16000.0,10200.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2103,METOUIA,7.0,8000.0,13613.0,2.0,2,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,21,GABES,2112,OUEDHREF,7.0,8000.0,17931.0,2.0,2,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1804,BEL KHIR,13.0,16000.0,15923.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1809,EL GUETAR,13.0,16000.0,20784.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1811,EL KSAR,13.0,16000.0,39931.0,2.0,2,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1801,GAFSA NORD,13.0,16000.0,11657.0,1.0,1,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1807,GAFSA SUD,5.0,6000.0,118274.0,19.0,19,14,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1810,M'DHILLA,11.0,12000.0,16883.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1806,METLAOUI,7.0,8000.0,44547.0,5.0,5,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1808,OUM LARAIES,9.0,10000.0,31767.0,3.0,3,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1805,REDEYEF,11.0,12000.0,31421.0,3.0,3,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1803,SENED,9.0,10000.0,23633.0,3.0,3,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1812,SIDI BOUBAKER,nan,nan,nan,nan,1,0,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1802,SIDI YAICH,13.0,16000.0,12029.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,18,GAFSA,1813,ZANOUCH,13.0,16000.0,16525.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0807,AIN DRAHEM,13.0,16000.0,32306.0,2.0,2,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0809,BALTA BOUAOUAN,13.0,16000.0,36465.0,3.0,3,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0803,BOUSALEM,6.0,7000.0,37100.0,6.0,6,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0808,FERNANA,13.0,16000.0,47917.0,3.0,3,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0804,GHARDIMAOU,11.0,12000.0,62313.0,5.0,5,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0801,JENDOUBA,5.0,6000.0,77342.0,13.0,13,14,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0802,JENDOUBA NORD,12.0,14000.0,44687.0,4.0,4,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0805,OUED MELIZ,13.0,16000.0,17334.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,08,JENDOUBA,0806,TABARKA,5.0,6000.0,48888.0,9.0,9,13,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1112,AIN JLOULA,13.0,16000.0,6441.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1105,CHEBIKA,10.0,11000.0,37193.0,3.0,3,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1111,CHERARDA,8.0,9000.0,28868.0,3.0,3,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1107,EL ALA,13.0,16000.0,28897.0,2.0,2,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1106,HAFFOUZ,12.0,14000.0,44492.0,4.0,4,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1110,HAJEB ELAYOUN,13.0,16000.0,40655.0,2.0,2,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1101,KAIROUAN NORD,4.0,5000.0,103461.0,21.0,21,27,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1102,KAIROUAN SUD,7.0,8000.0,95068.0,13.0,13,18,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1113,MENZEL MHIRI,13.0,16000.0,12680.0,1.0,1,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1104,OUESLATIA,13.0,16000.0,26454.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1103,SBIKHA,12.0,14000.0,77650.0,5.0,5,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1109,SIDI ALI BEN NASRALLAH,11.0,12000.0,20310.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,11,KAIROUAN,1108,SIDI AMOR BOUHAJLA,11.0,12000.0,78634.0,6.0,6,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1206,EL AYOUN,13.0,16000.0,20115.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1213,EZZOUHOUR,6.0,7000.0,24484.0,3.0,3,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1210,FERIANA,11.0,12000.0,59584.0,5.0,5,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1209,FOUSSANA,11.0,12000.0,50663.0,4.0,4,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1208,HAIDRA,13.0,16000.0,8160.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1212,HASSI FERID,13.0,16000.0,22886.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1205,JEDLIANE,13.0,16000.0,12066.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1201,KASSERINE NORD,4.0,5000.0,74925.0,14.0,14,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1202,KASSERINE SUD,13.0,16000.0,27048.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1211,MAJEL BEL ABBES,13.0,16000.0,28015.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1203,SBEITLA,11.0,12000.0,84495.0,8.0,8,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1204,SBIBA,13.0,16000.0,48620.0,3.0,3,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,12,KASSERINE,1207,THALA,13.0,16000.0,31680.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,20,KEBILI,2003,DOUZ NORD,8.0,9000.0,33951.0,4.0,4,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,20,KEBILI,2006,DOUZ SUD,11.0,12000.0,21279.0,2.0,2,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,20,KEBILI,2005,FAOUAR,12.0,14000.0,19875.0,2.0,2,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,20,KEBILI,2001,KEBILI NORD,7.0,8000.0,36132.0,4.0,4,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,20,KEBILI,2002,KEBILI SUD,13.0,16000.0,35847.0,4.0,4,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,20,KEBILI,2007,RJIM MAATOUG,nan,nan,nan,nan,1,0,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,20,KEBILI,2004,SOUK LAHAD,13.0,16000.0,31468.0,2.0,2,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0909,DAHMANI,11.0,12000.0,25285.0,3.0,3,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0908,JERISSA,11.0,12000.0,8613.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0907,KALAAT KHASBA,13.0,16000.0,5663.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0906,KALAAT SENANE,11.0,12000.0,13517.0,2.0,2,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0910,KSOUR,13.0,16000.0,14686.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0901,LE KEF EST,4.0,5000.0,41561.0,9.0,9,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0902,LE KEF OUEST,11.0,12000.0,37538.0,3.0,3,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0903,NEBEUR,13.0,16000.0,18651.0,3.0,3,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0904,SAKIET SIDI YOUSSEF,12.0,14000.0,16173.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0911,SERS,12.0,14000.0,23024.0,3.0,3,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0905,TAJEROUINE,11.0,12000.0,27112.0,4.0,4,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,09,LE KEF,0912,TOUIREF,13.0,16000.0,5863.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1606,BOUMERDAS,11.0,12000.0,37089.0,3.0,3,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1613,BRADAA,9.0,10000.0,13659.0,2.0,2,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1603,CHEBBA,6.0,7000.0,31137.0,4.0,4,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1608,CHORBANE,9.0,10000.0,29059.0,3.0,3,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1607,EL JEM,7.0,8000.0,55976.0,7.0,7,13,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1611,HBIRA,13.0,16000.0,11617.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1602,KSOUR ESSAF,9.0,10000.0,38567.0,4.0,4,11,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1601,MAHDIA,5.0,6000.0,74504.0,13.0,13,20,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1604,MELLOULECHE,12.0,14000.0,23890.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1610,OULED CHAMEKH,10.0,11000.0,23893.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1612,REJICHE,5.0,6000.0,11603.0,2.0,2,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1605,SIDI ALOUANE,12.0,14000.0,40308.0,4.0,4,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,16,MAHDIA,1609,SOUASSI,8.0,9000.0,58683.0,6.0,6,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2414,BORJ EL AMRI,7.0,8000.0,21465.0,3.0,3,12,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2411,DOUAR HICHER,7.0,8000.0,88335.0,12.0,12,23,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2413,EL BATTAN,11.0,12000.0,21018.0,2.0,2,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2408,JEDEIDA,7.0,8000.0,52713.0,6.0,6,17,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2407,MANOUBA,2.0,3600.0,62945.0,18.0,18,50,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2406,MORNAGUIA,7.0,8000.0,44764.0,6.0,6,27,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2409,OUED ELLIL,7.0,8000.0,81040.0,10.0,10,31,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,24,MANOUBA,2405,TEBOURBA,6.0,7000.0,46074.0,7.0,7,15,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2208,BEN GUERDANE,5.0,6000.0,90504.0,15.0,15,14,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2209,BENI KHEDACHE,13.0,16000.0,26847.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2205,HOUMT SOUK,3.0,4000.0,89228.0,21.0,21,39,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2204,JERBA AJIM,11.0,12000.0,24166.0,2.0,2,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2206,JERBA MIDOUN,3.0,4000.0,74437.0,18.0,18,30,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2201,MEDENINE NORD,3.0,4000.0,64010.0,15.0,15,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2202,MEDENINE SUD,12.0,14000.0,63911.0,5.0,5,15,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2203,SIDI MAKHLOUF,13.0,16000.0,28444.0,2.0,2,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,22,MEDENINE,2207,ZARZIS,4.0,5000.0,75708.0,17.0,17,21,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1511,BEKALTA,7.0,8000.0,19091.0,3.0,3,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1513,BEMBLA,9.0,10000.0,36076.0,4.0,4,7,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1505,BENI HASSEN,12.0,14000.0,15230.0,2.0,2,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1503,JEMMAL,5.0,6000.0,71158.0,12.0,12,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1508,KSAR HELLAL,4.0,5000.0,55505.0,11.0,11,22,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1506,KSIBET MEDIOUNI,7.0,8000.0,41075.0,5.0,5,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1509,MOKNINE,6.0,7000.0,97655.0,14.0,14,24,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1501,MONASTIR,3.0,4000.0,110084.0,30.0,30,61,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1502,OUERDANINE,8.0,9000.0,22690.0,3.0,3,8,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1512,SAHLINE,3.0,4000.0,32485.0,8.0,8,31,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1507,SAYADA LAMTA BOUHJAR,7.0,8000.0,26939.0,3.0,3,12,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1510,TEBOULBA,5.0,6000.0,41049.0,7.0,7,17,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,15,MONASTIR,1504,ZERAMDINE,11.0,12000.0,30732.0,3.0,3,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0414,BENI KHALLED,4.0,5000.0,41935.0,8.0,8,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0402,BENI KHIAR,5.0,6000.0,47521.0,8.0,8,18,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0410,BOUARGOUB,6.0,7000.0,35243.0,5.0,5,15,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0413,DAR CHAABANE FEHRI,4.0,5000.0,51174.0,11.0,11,21,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0406,EL HAOUARIA,8.0,9000.0,46080.0,5.0,5,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0415,EL MIDA,6.0,7000.0,29179.0,5.0,5,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0409,GROMBALIA,4.0,5000.0,75855.0,15.0,15,27,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0412,HAMMAM GHEZAZ,7.0,8000.0,17278.0,2.0,2,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0411,HAMMAMET,2.0,3600.0,96181.0,32.0,32,56,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0405,KELIBIA,4.0,5000.0,66919.0,13.0,13,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0403,KORBA,6.0,7000.0,74063.0,11.0,11,21,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0408,MENZEL BOUZELFA,5.0,6000.0,39839.0,7.0,7,12,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0404,MENZEL TEMIME,5.0,6000.0,72104.0,12.0,12,22,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0401,NABEUL,1.0,3300.0,72776.0,26.0,26,60,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0407,SLIMENE,5.0,6000.0,72220.0,11.0,11,40,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,04,NABEUL,0416,TAKELSA,7.0,8000.0,24805.0,3.0,3,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1709,AGAREB,9.0,10000.0,46652.0,4.0,4,8,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1711,BIR ALI BEN KHALIFA,11.0,12000.0,55339.0,5.0,5,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1702,COMMUNE SAKIET EDDAYER,nan,nan,52901.0,14.0,14,42,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1701,COMMUNE SFAX,nan,nan,273506.0,82.0,82,62,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1715,EL AMRA,11.0,12000.0,35808.0,3.0,3,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1707,EL HANCHA,11.0,12000.0,55434.0,4.0,4,8,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1714,GHRIBA,13.0,16000.0,16678.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1706,JEBENIANA,8.0,9000.0,58364.0,6.0,6,9,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1710,KERKENNAH,11.0,12000.0,15382.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1712,MAHRES,7.0,8000.0,35698.0,5.0,5,13,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1708,MENZEL CHAKER,12.0,14000.0,42546.0,3.0,3,8,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1704,SAKIET EZZIT,3.0,4000.0,96648.0,25.0,25,57,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1705,SFAX SUD,3.0,4000.0,142716.0,33.0,33,65,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1713,SKHIRA,9.0,10000.0,40035.0,4.0,4,8,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,17,SFAX,1716,THYNA,7.0,8000.0,79761.0,10.0,10,32,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1307,BIR EL HFAY,11.0,12000.0,45208.0,4.0,4,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1303,CEBALET OULED ASKER,11.0,12000.0,21833.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1313,ESSAIDA,11.0,12000.0,27940.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1314,HICHRIA,11.0,12000.0,15114.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1304,JELMA,9.0,10000.0,45519.0,4.0,4,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1309,MEKNASSY,11.0,12000.0,21659.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1311,MENZEL BOUZAIANE,13.0,16000.0,31048.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1312,MEZZOUNA,12.0,14000.0,27748.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1305,OULED HAFFOUZ,11.0,12000.0,20127.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1306,REGUEB,11.0,12000.0,48925.0,4.0,4,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1308,SIDI ALI BEN AOUN,12.0,14000.0,31424.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1302,SIDI BOUZID EST,11.0,12000.0,57961.0,4.0,4,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1301,SIDI BOUZID OUEST,5.0,6000.0,72511.0,12.0,12,14,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,13,SIDI BOUZID,1310,SOUK JEDID,13.0,16000.0,22974.0,1.0,1,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1006,BARGOU,9.0,10000.0,11505.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1003,BOUARADA,13.0,16000.0,19373.0,2.0,2,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1011,BOUROUIS,13.0,16000.0,11555.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1012,EL AROUSSA,13.0,16000.0,8839.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1004,GAAFOUR,7.0,8000.0,15801.0,2.0,2,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1008,KESRA,13.0,16000.0,15031.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1005,KRIB,12.0,14000.0,20000.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1009,MAKTHAR,8.0,9000.0,28321.0,3.0,3,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1010,ROUHIA,13.0,16000.0,27063.0,2.0,2,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1001,SILIANA NORD,6.0,7000.0,28801.0,5.0,5,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,10,SILIANA,1002,SILIANA SUD,11.0,12000.0,29953.0,3.0,3,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1408,AKOUDA,4.0,5000.0,39174.0,8.0,8,41,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1414,BOUFICHA,8.0,9000.0,36094.0,3.0,3,13,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1415,COMMUNE EZZOUHOUR,nan,nan,18589.0,5.0,5,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1403,COMMUNE KSIBA THRAYET,nan,nan,15497.0,4.0,4,12,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1401,COMMUNE SOUSSE,nan,nan,240321.0,64.0,64,104,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1402,COMMUNE ZAOUIET SOUSSE,nan,nan,33633.0,7.0,7,20,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1413,ENFIDHA,7.0,8000.0,58613.0,7.0,7,22,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1406,HAMMAM SOUSSE,1.0,3300.0,48899.0,14.0,14,58,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1410,HERGLA,7.0,8000.0,10652.0,1.0,1,17,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1409,KALAA KEBIRA,7.0,8000.0,67108.0,8.0,8,23,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1407,KALAA SGHIRA,7.0,8000.0,45743.0,6.0,6,19,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1412,KONDAR,7.0,8000.0,15491.0,2.0,2,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1404,M'SAKEN,6.0,7000.0,97312.0,16.0,16,27,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1411,SIDI BOU ALI,11.0,12000.0,20647.0,2.0,2,10,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,14,SOUSSE,1405,SIDI EL HANI,13.0,16000.0,14508.0,1.0,1,4,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2308,BENI MHIRA,13.0,16000.0,8190.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2306,BIR LAHMAR,9.0,10000.0,10772.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2305,DHEHIBA,nan,nan,nan,nan,1,0,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2303,GHOMRASSEN,7.0,8000.0,16351.0,3.0,3,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2304,REMADA,nan,nan,nan,nan,1,0,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2307,SMAR,9.0,10000.0,8080.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2302,TATAOUINE NORD,13.0,16000.0,66986.0,4.0,4,11,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,23,TATAOUINE,2301,TATAOUINE SUD,3.0,4000.0,36391.0,9.0,9,11,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,19,TOZEUR,1902,DEGUECHE,13.0,16000.0,24426.0,2.0,2,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,19,TOZEUR,1906,HAMET JRID,13.0,16000.0,7895.0,1.0,1,2,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,19,TOZEUR,1905,HAZOUA,11.0,12000.0,6186.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,19,TOZEUR,1904,NEFTA,9.0,10000.0,24263.0,3.0,3,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,19,TOZEUR,1903,TAMAGHZA,13.0,16000.0,6904.0,1.0,1,1,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,19,TOZEUR,1901,TOZEUR,7.0,8000.0,50362.0,6.0,6,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,01,TUNIS,0121,CARTHAGE,2.0,3600.0,22203.0,7.0,7,20,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,01,TUNIS,0103,COMMUNE SIDI HESSINE,nan,nan,129888.0,17.0,17,33,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,01,TUNIS,0102,COMMUNE TUNIS,nan,nan,604599.0,181.0,181,78,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,01,TUNIS,0101,LA GOULETTE,1.0,3300.0,48382.0,18.0,18,58,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,01,TUNIS,0120,LA MARSA,1.0,3300.0,113133.0,29.0,29,43,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,01,TUNIS,0117,LE BARDO,2.0,3600.0,68799.0,20.0,20,28,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,01,TUNIS,0119,LE KRAM (ANCIEN EL BHIRA),1.0,3300.0,88302.0,27.0,27,74,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,05,ZAGHOUAN,0503,BIR MCHARGUA,11.0,12000.0,27283.0,2.0,2,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,05,ZAGHOUAN,0504,EL FAHS,7.0,8000.0,51214.0,7.0,7,12,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,05,ZAGHOUAN,0505,NADHOUR,8.0,9000.0,37130.0,4.0,4,6,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,05,ZAGHOUAN,0506,SAOUAF,11.0,12000.0,13776.0,1.0,1,3,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,05,ZAGHOUAN,0501,ZAGHOUAN,4.0,5000.0,43813.0,8.0,8,18,https://dpm.tn/dpm_pharm/asppharm/listeatt.php
+2026-10-19,05,ZAGHOUAN,0502,ZRIBA,9.0,10000.0,27849.0,3.0,3,5,https://dpm.tn/dpm_pharm/asppharm/listeatt.php

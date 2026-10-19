@@ -1,0 +1,486 @@
+[
+  {
+    "url": "https://dpm.tn/images/pdf/reglementation_fr.pdf",
+    "title": "DPM – Références des textes juridiques (pharmacie privée)",
+    "local_path": "documents/regulations/reglementation_fr.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "fd39c8d2175b7575c100e87ab2dd1e01003089b9737be9bd99bab383cec1674a",
+    "bytes": 261334,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/lpf_lst_att.pdf",
+    "title": "DPM – Pièces à fournir : inscription sur la liste d'attente (FR)",
+    "local_path": "documents/regulations/lpf_lst_att.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "58b8d5be45b0e85f95030a940c8c0ae7a4b4711ae576e1c66886be26e410dcf2",
+    "bytes": 79502,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/lpf_lst_att_ar.pdf",
+    "title": "DPM – Pièces à fournir : inscription sur la liste d'attente (AR)",
+    "local_path": "documents/regulations/lpf_lst_att_ar.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "9ccb7dd6f01e8e2a5b1dc6d4b280aaf348dff8ecb35fa6cbce78e0611b60ff5a",
+    "bytes": 24916,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/declaration_honneur.pdf",
+    "title": "DPM – Déclaration sur l'honneur (liste d'attente)",
+    "local_path": "documents/regulations/declaration_honneur.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "a3b5ca0a720baa4117432bd2d181989660bdca87f8dd9ddc4eaa98e2d196cc95",
+    "bytes": 69557,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/lpf_cre_off.pdf",
+    "title": "DPM – Pièces à fournir : création d'une officine (FR)",
+    "local_path": "documents/regulations/lpf_cre_off.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "2a995221b99e72818ee8c851197cc199cdea914c762cf1b63881762c58295c61",
+    "bytes": 60695,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/lpf_cre_off_ar.pdf",
+    "title": "DPM – Pièces à fournir : création d'une officine (AR)",
+    "local_path": "documents/regulations/lpf_cre_off_ar.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "7986541ce0eebe1f4e8c7a1b7d7acc2910c9df8b5bedec45e33b3d5adae4f54b",
+    "bytes": 108511,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/lpf_tra_off.pdf",
+    "title": "DPM – Pièces à fournir : transfert d'une officine (FR)",
+    "local_path": "documents/regulations/lpf_tra_off.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "8ecd9d763bb419d9c374be0d0ae453b6747e2aae976703e1224d15e073dc298a",
+    "bytes": 50127,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/lpf_tra_off_ar.pdf",
+    "title": "DPM – Pièces à fournir : transfert d'une officine (AR)",
+    "local_path": "documents/regulations/lpf_tra_off_ar.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "589cd0648334c0c80042cb525a7c23172f6333c182776a9e8d03b7ec9271c3f7",
+    "bytes": 105912,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/formulaire.pdf",
+    "title": "DPM – Formulaire de demande (création/transfert/cession)",
+    "local_path": "documents/regulations/formulaire.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "b1d740c4b707f32a7832567f9105b724deaff5abeedf08691b7960e0a704a6fb",
+    "bytes": 72874,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/t-op1-03-001-ar-000-guide-officine-21092026.pdf",
+    "title": "ANMPS – Guide des procédures des services de la sous-direction de la pharmacie (AR, 21/09/2026)",
+    "local_path": "documents/regulations/t-op1-03-001-ar-000-guide-officine-21092026.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "f9b8a2f3c4a4eecb7325495afc0d235ec815d3682a381c530cea844d55edabd9",
+    "bytes": 650040,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique-renouvellement-2026.pdf",
+    "title": "Communiqué renouvellement des inscriptions 2026 (31/12/2025)",
+    "local_path": "documents/waiting_lists/communique-renouvellement-2026.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "4c8ea09d6f8c9cd0136ef5e44d8c6bf542dd31baac96e0a99b650dbf9a86c472",
+    "bytes": 666993,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique-ren-inscription-03072026.pdf",
+    "title": "Communiqué renouvellement des inscriptions 2026 (03/07/2026)",
+    "local_path": "documents/waiting_lists/communique-ren-inscription-03072026.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "139e848c15a75ffad8648cb7a30499b7256264e538ca57ac86987cbb23554a81",
+    "bytes": 531610,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/list-pharm-ren-2026.pdf",
+    "title": "Tableau 1 – Pharmaciens ayant régularisé leur inscription pour 2026 (03/07/2026)",
+    "local_path": "documents/waiting_lists/list-pharm-ren-2026.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "c8212311dea86bf05666e0193f02b2a5e523e29110f15a6ec009e98270b3637f",
+    "bytes": 732494,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/list-pharm-sans-ren-2026.pdf",
+    "title": "Tableau 2 – Pharmaciens n'ayant pas régularisé leur inscription pour 2026 (03/07/2026)",
+    "local_path": "documents/waiting_lists/list-pharm-sans-ren-2026.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "7ffc8712c70b2403da2f1fde9825da9d0d1d7ff97c602b972e34a5b0d858d6d4",
+    "bytes": 246253,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique-renouvellement-2024.pdf",
+    "title": "Communiqué renouvellement des inscriptions 2024 (02/01/2024)",
+    "local_path": "documents/waiting_lists/communique-renouvellement-2024.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "903489f2dafe8881c9fd5d895b319523918b39818b1b1d9a263549d0aa70623a",
+    "bytes": 1132426,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique-ren-12062024.pdf",
+    "title": "Communiqué renouvellement des inscriptions 2024 (12/06/2024)",
+    "local_path": "documents/waiting_lists/communique-ren-12062024.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "e63481ddbbeedfd3a396648956e761b981906a78ab868d379c466d725200b051",
+    "bytes": 1577926,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/liste_ph_ren_12062024.pdf",
+    "title": "Tableau 1 – Pharmaciens ayant régularisé leur inscription pour 2024 (12/06/2024)",
+    "local_path": "documents/waiting_lists/liste_ph_ren_12062024.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "3ee6193625597a890e100b2e09d8644d2949995a4d7232549b5a41fa571d8ce5",
+    "bytes": 481774,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/liste_ph_ren_sans_attest_12062024.pdf",
+    "title": "Tableau 2 – Renouvellement sans attestation CNOPT (12/06/2024)",
+    "local_path": "documents/waiting_lists/liste_ph_ren_sans_attest_12062024.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "9ce155f751b0544752578107dba1826a60214924ca65c338aef13502c6678694",
+    "bytes": 50981,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/liste_phnren_12062024.pdf",
+    "title": "Tableau 3 – Pharmaciens n'ayant pas régularisé leur inscription pour 2024 (12/06/2024)",
+    "local_path": "documents/waiting_lists/liste_phnren_12062024.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "0bdaa0afa304fd9afd9fe18f359e9fbcae14ee1ecbe198f7937eda1eebaf6385",
+    "bytes": 96651,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique_la_02012023.pdf",
+    "title": "Communiqué mise à jour et publication des listes d'attente (02/01/2023)",
+    "local_path": "documents/waiting_lists/communique_la_02012023.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "bec559d41b8565502b278b9707731c83e41c9b14dc9e808591f7404ba7392561",
+    "bytes": 205091,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique-02082022.pdf",
+    "title": "Communiqué renouvellement 2022 (02/08/2022)",
+    "local_path": "documents/waiting_lists/communique-02082022.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "f6cdeb183f712b24290e72530c6329564a7db813f7f6bb404e9a7cd9de297810",
+    "bytes": 559857,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/liste_ph_nren-02082022.pdf",
+    "title": "Pharmaciens n'ayant pas renouvelé leur inscription (02/08/2022)",
+    "local_path": "documents/waiting_lists/liste_ph_nren-02082022.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "4c46c5c8b1576d0230673b2dfeff34e094c82151f633cedf6f8bcbf23a07629f",
+    "bytes": 98454,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique-13042022.pdf",
+    "title": "Communiqué renouvellement 2022 (13/04/2022)",
+    "local_path": "documents/waiting_lists/communique-13042022.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "4a9945f7decc00db5e653d424660baeef99d94e465858890446f14305a11954d",
+    "bytes": 519974,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/liste_ph_nren-13042022.pdf",
+    "title": "Pharmaciens n'ayant pas renouvelé leur inscription (13/04/2022)",
+    "local_path": "documents/waiting_lists/liste_ph_nren-13042022.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "65c10cc59b8e8543524513a400e01a6b0ceece0101784d7fe7115c8b00c6852f",
+    "bytes": 115985,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique_renouvellement_incription_2022.pdf",
+    "title": "Communiqué renouvellement 2022 (03/01/2022)",
+    "local_path": "documents/waiting_lists/communique_renouvellement_incription_2022.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "59114c636f6636df560ac33ca16e0ca190c4243c88af98b003b6db5ca7c98193",
+    "bytes": 1429437,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique_22092020.pdf",
+    "title": "Communiqué régularisation des inscriptions (22/09/2020)",
+    "local_path": "documents/waiting_lists/communique_22092020.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "f16857f79522523d59c45bea87d757573e5acce867468ee7912698bceabb228b",
+    "bytes": 256963,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pdf/communique-la-05-10-2021.pdf",
+    "title": "Communiqué choix d'inscription – nouvelles délégations (05/10/2021)",
+    "local_path": "documents/waiting_lists/communique-la-05-10-2021.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "91627a487adbb48adc93cd13f92acb859bcfe9b35b609b2f6f461395bca6c7db",
+    "bytes": 2009523,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "http://193.95.84.4/webdpm1/PDF/communique-09-02-2017.pdf",
+    "title": "Communiqué listes d'attente nouvelles communes (09/02/2017)",
+    "local_path": "documents/waiting_lists/communique-09-02-2017.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "2b8cb0466360f2370fff413a3b98180a513353d484b7034fc08b0fd77c6e6575",
+    "bytes": 493832,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "http://193.95.84.4/webdpm1/PDF/communique-2868-2017.pdf",
+    "title": "Communiqué n°2868 du 06/09/2017 – nouvelles communes non issues d'anciennes",
+    "local_path": "documents/waiting_lists/communique-2868-2017.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "37d17ccf65b57c195fcec0472fa4e9ce25ade60617946863b5bf7c2b6b45ed75",
+    "bytes": 369340,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "http://193.95.84.4/webdpm1/PDF/communique-2866-2017.pdf",
+    "title": "Communiqué n°2866 du 06/09/2017 – nouvelles délégations/communes issues d'anciennes",
+    "local_path": "documents/waiting_lists/communique-2866-2017.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "0082a2b9cf0aa13b75c581b642c69b5f811ecf96f066edbebc88d550f163ea6e",
+    "bytes": 516402,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "http://193.95.84.4/webdpm1/PDF/communes2015-2016.pdf",
+    "title": "Liste des communes créées en 2015-2016",
+    "local_path": "documents/waiting_lists/communes2015-2016.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "f51c5dd4680b38e8b0b219dc8ba08a789709f76e6c2924cb30b728944a330f2e",
+    "bytes": 1819622,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "http://193.95.84.4/webdpm1/PDF/nouvelles_communes.pdf",
+    "title": "Nouvelles communes",
+    "local_path": "documents/waiting_lists/nouvelles_communes.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "f4f2fe9e15d7e510fdbcb67e9c95603edb4b5d38d0d86dbe5ec3557e9a65830d",
+    "bytes": 1819614,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "http://193.95.84.4/webdpm1/PDF/Liste_nouvelle_commune_del.pdf",
+    "title": "Calendrier choix d'inscription – nouvelles délégations et communes",
+    "local_path": "documents/waiting_lists/Liste_nouvelle_commune_del.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "2ff67b1dce7859f0911a51058a1fe3c4a864e588638233fe46047186512a7774",
+    "bytes": 654214,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist0.html",
+    "title": "DPM – Évolution du nombre de pharmacies par catégorie (Jour/Nuit)",
+    "local_path": "documents/statistics/hist0.html",
+    "retrieved": "2026-10-19",
+    "sha256": "14733a6a5b54e593e011f4c0ba2346b42682892a4bdffb21f67a217f62821b99",
+    "bytes": 712,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist3.html",
+    "title": "DPM – Répartition des officines de jour par gouvernorat",
+    "local_path": "documents/statistics/hist3.html",
+    "retrieved": "2026-10-19",
+    "sha256": "2973e3c406d431f2a104b76c423a921c3725ed58d9bbf8ff2c77215aed9e00f8",
+    "bytes": 707,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist4.html",
+    "title": "DPM – Répartition des officines de nuit par gouvernorat",
+    "local_path": "documents/statistics/hist4.html",
+    "retrieved": "2026-10-19",
+    "sha256": "8ca49bc714c2d3abc4ced8972d718126b70857a2c0778d3b714fe901f5d3db04",
+    "bytes": 708,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist5.html",
+    "title": "DPM – Inscriptions sur les listes d'attente par fonction",
+    "local_path": "documents/statistics/hist5.html",
+    "retrieved": "2026-10-19",
+    "sha256": "c39ef24be0ec6919120548af6b07e5ea950cc8d8124cd5d082424cb51c25b670",
+    "bytes": 703,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/dpm_pharm/asppharm/listgouv_att.php",
+    "title": "DPM – Listes d'attente en ligne (jour), instantané 2026-10-19",
+    "local_path": "documents/waiting_lists/snapshots/2026-10-19/",
+    "retrieved": "2026-10-19",
+    "sha256": "snapshot-2026-10-19",
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist0.2.jpg",
+    "title": "DPM – Evolution du nombre de pharmacie par catégorie (Jour / Nuit) (graphique)",
+    "local_path": "documents/statistics/hist0.2.jpg",
+    "retrieved": "2026-10-19",
+    "sha256": "3d814d937351a4e29bb5bb7f8e34dcee7ce29085c53d5c3217a24c1361b49154",
+    "bytes": 58857,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist3.6.jpg",
+    "title": "DPM – Répartition des officines de jour par gouvernorat (2013) (graphique)",
+    "local_path": "documents/statistics/hist3.6.jpg",
+    "retrieved": "2026-10-19",
+    "sha256": "7271063132fb9d745d8b9fbe59b1d00debb8ef9f100ddbdb81e00a07efaaf8f0",
+    "bytes": 61434,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist4.7.jpg",
+    "title": "DPM – Répartition des officines de nuit par gouvernorat  (2013) (graphique)",
+    "local_path": "documents/statistics/hist4.7.jpg",
+    "retrieved": "2026-10-19",
+    "sha256": "6a596ed83494ea07b4b3669be0a76b42e9ee34ca26d4d4094b816b552510bf9e",
+    "bytes": 63452,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/images/pharmacies/hist5.5.jpg",
+    "title": "DPM – Inscriptions sur les listes d'attente par fonction (2014) (graphique)",
+    "local_path": "documents/statistics/hist5.5.jpg",
+    "retrieved": "2026-10-19",
+    "sha256": "d7b6d7c01094464dc3c3870fc8995a8b7b2c0fae4055aefef1747a59cb3e3e9a",
+    "bytes": 40606,
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://dpm.tn/dpm_pharm/asppharm/listpharmnom.php",
+    "title": "DPM – Pharmaciens ayant renouvelé leur inscription en 2020 (publié le 05/06/2020)",
+    "local_path": "documents/waiting_lists/renouvellement_2020_liste_complete.html",
+    "retrieved": "2026-10-19",
+    "sha256": "8a6d8219700bbe08f763f5641ba3b033f97b16fff09bf86ccacabf8d06ecf3c4",
+    "publisher": "DPM / ANMPS – Ministère de la Santé"
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/2021-03/resultat_rgph2014_pop_log_menag_com_arron_0.xls",
+    "title": "INS – RGPH 2014 : population par commune et arrondissement",
+    "local_path": "documents/statistics/resultat_rgph2014_pop_log_menag_com_arron_0.xls",
+    "retrieved": "2026-10-19",
+    "sha256": "da13f05271af6106e0438780ca69a7eeef74f0905705533c6e52d67d284ae620",
+    "bytes": 136704,
+    "publisher": ""
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/2025-05/Population_Secteur_Age_Sexe_Dynamique.xlsx",
+    "title": "INS – RGPH 2024 : population par secteur, âge et sexe",
+    "local_path": "documents/statistics/Population_Secteur_Age_Sexe_Dynamique.xlsx",
+    "retrieved": "2026-10-19",
+    "sha256": "70f8f9f872862d6947d08fc1b2775c66cf6b4d114a55f68092e7a4ce70d5d9ae",
+    "bytes": 9247324,
+    "publisher": ""
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/2025-05/Zaghouane.pdf",
+    "title": "INS – RGPH 2024 : gouvernorat de Zaghouan (population par secteur)",
+    "local_path": "documents/statistics/Zaghouane.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "c6ed55c48e2b7898eb5e6cfb53ff85d745f4e14d7566d0f65b2fcfb569067a1d",
+    "bytes": 273396,
+    "publisher": ""
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/2021-03/pop_log_menages_par_gouv_deleg%20%281%29.xlsx",
+    "title": "INS – RGPH 2014 : population, logements et ménages par délégation (2004-2014)",
+    "local_path": "documents/statistics/pop_log_menages_par_gouv_deleg_1_.xlsx",
+    "retrieved": "2026-10-19",
+    "sha256": "d7879e26ed44c1524185facf0671321576db94a17b47e5c0981b05fdb16f1234",
+    "bytes": 72042,
+    "publisher": ""
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/2021-03/pop_log_menages_par_gouv_deleg%20%282%29.xls",
+    "title": "INS – RGPH 2014 : population par gouvernorat et milieu (2004-2014)",
+    "local_path": "documents/statistics/pop_log_menages_par_gouv_deleg_2_.xls",
+    "retrieved": "2026-10-19",
+    "sha256": "0d26bb91cf4fdc60623276affafe61de8bf107e03989f5f48be948031a4e443d",
+    "bytes": 148992,
+    "publisher": ""
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/2021-03/Excel%20Projection%20de%20la%20population%20par%20gouvernorat%20final%20%20%20%20%20%20%202016-2020.docx%20%281%29-4.xlsx",
+    "title": "INS – Projection de la population par gouvernorat 2014-2044",
+    "local_path": "documents/statistics/Excel_Projection_de_la_population_par_gouvernorat_final_2016-2020.docx_1_-4.xlsx",
+    "retrieved": "2026-10-19",
+    "sha256": "eed0d55c0efa5a8667c0f03fb76b06d4ad09aa92fa5f885b4c4d3603d56d0f3d",
+    "bytes": 142770,
+    "publisher": ""
+  },
+  {
+    "url": "https://ins.tn/sites/default/files-ftp3/files/publication/pdf/Bilan_D%C3%A9mographique.pdf",
+    "title": "INS – RGPH 2024 : bilan démographique (premiers résultats)",
+    "local_path": "documents/statistics/Bilan_Démographique.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "cdf909230194c9faeb6ae98a5ae930e68a1ececf2cf2ae129d396628968c3e8f",
+    "bytes": 7055395,
+    "publisher": ""
+  },
+  {
+    "url": "https://www.ins.tn/sites/default/files-ftp3/files/publication/pdf/Estimation%20de%20la%20population%202024_0.pdf",
+    "title": "INS – Estimations de la population par délégation et commune au 1er janvier 2024",
+    "local_path": "documents/statistics/Estimation_de_la_population_2024_0.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "20b3b0c3df0828603d05766dc25bb96a30f9e89256423911c6183952cb25e729",
+    "bytes": 1651863,
+    "publisher": ""
+  },
+  {
+    "url": "https://www.cgdr.nat.tn/upload/files/gouvchiffres/gech2016/Zaghouan%202016.pdf",
+    "title": "CGDR/ODNE – Gouvernorat de Zaghouan en chiffres 2016 (données INS)",
+    "local_path": "documents/statistics/Zaghouan_2016.pdf",
+    "retrieved": "2026-10-19",
+    "sha256": "053699c39e0edd6820f2feb76f2d7c136f8cb9e73570017013966567c5d9b42b",
+    "bytes": 3283589,
+    "publisher": ""
+  },
+  {
+    "url": "https://data.humdata.org/dataset/e47eda48-8f83-4858-b739-dbffb8a50c47/resource/93e66864-46d9-4b3c-bbc7-ba11cabc977f/download/tun_admin_boundaries.xlsx",
+    "title": "OCHA/HDX COD-AB Tunisie – tableau des unités administratives (centroïdes, codes)",
+    "local_path": "documents/statistics/tun_admin_boundaries.xlsx",
+    "retrieved": "2026-10-19",
+    "sha256": "6c5e27c8be2181ded9e24746a37e41f99a87792ca0b41a6f8622291f6d9617e5",
+    "bytes": 848163,
+    "publisher": ""
+  },
+  {
+    "url": "https://data.humdata.org/dataset/e47eda48-8f83-4858-b739-dbffb8a50c47/resource/ebe19593-9438-4d14-8291-e65f811e2671/download/tun_admin_boundaries.geojson.zip",
+    "title": "OCHA/HDX COD-AB Tunisie – limites administratives (GeoJSON, niveaux 0-4)",
+    "local_path": "documents/statistics/tun_admin_boundaries.geojson.zip",
+    "retrieved": "2026-10-19",
+    "sha256": "0716809d4b18161c226978b53c39445ae506448e26073b2dcd67d4ba10cdf83e",
+    "bytes": 54847464,
+    "publisher": ""
+  }
+]

@@ -1,0 +1,27 @@
+import sys, time
+sys.path.insert(0, ".")
+sys.stdout.reconfigure(encoding="utf-8")
+import pandas as pd
+import analysis as an, forecasting as fc
+pd.set_option("display.width", 250); pd.set_option("display.max_columns", 30)
+t = time.time()
+d = an.load_data()
+print("load", round(time.time() - t, 1))
+att = fc.attrition_estimates(d["renewals"], "A"); print(att)
+print(fc.attrition_estimates(d["renewals"], "B"))
+print(fc.backtest_attrition(d["renewals"]))
+print(fc.backtest_capacity(d["delegations"]))
+s = an.SimSettings(h_mean=att["h_central"], h_sd=(att["h_high"] - att["h_low"]) / 3.3)
+cap = an.capacity_A(d["delegations"])
+print(cap[cap.governorate == "ZAGHOUAN"][["delegation", "allowed_A", "free_A", "next_pop_A", "growth_central", "year_next_A_central", "year_next_A_high", "year_next_A_low"]])
+t = time.time()
+saouaf = cap[cap.delegation == "SAOUAF"].del_code.iloc[0]
+sc = an.build_scenarios(d, s, saouaf, ("ZAGHOUAN", "Saouaf"), None, 1)
+print("scen", round(time.time() - t, 1))
+print(an.scenario_table(sc).to_string())
+print(an.recommendation(sc))
+t = time.time()
+cmp = an.compare_delegations(d, 40, s)
+print("cmp", round(time.time() - t, 1))
+print(cmp[["delegation", "distance_km", "waiting_A", "free_A", "position_used", "sim_q10", "sim_median", "period", "band10", "seniority_position_hyp"]].to_string())
+print(an.list_history(d["renewals"], d["waiting"], "A", "ZAGHOUAN", "ZRIBA").to_string())
