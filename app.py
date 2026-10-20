@@ -16,6 +16,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 import analysis as an
+import economics as ec
 import forecasting as fc
 
 ROOT = Path(__file__).resolve().parent
@@ -30,7 +31,8 @@ T = {
     "fr": {
         "title": "Prévision d'autorisation d'officine", "lang": "Langue",
         "nav": ["Vue d'ensemble", "Carte", "Comparer les délégations", "Catégorie A vs B", "Population",
-                "Historique des listes", "Simulateur rester / changer", "Réglementation", "Rapport", "Données & sources", "Vérification / Fiabilité", "Explorer toutes les options"],
+                "Historique des listes", "Simulateur rester / changer", "Réglementation", "Rapport", "Données & sources", "Vérification / Fiabilité", "Explorer toutes les options",
+                "Économie et revenu"],
         "settings": "Hypothèses", "radius": "Rayon autour de Zriba (km)", "pop_mode": "Mise à jour de la population officielle",
         "estimates": "Estimations INS à chaque révision des listes (pratique DPM 2017-2025)", "census": "Recensements seulement (hypothèse pessimiste)", "annual": "Estimations annuelles INS avec délai réglable", "gmodel": "Modèle de croissance", "official": "Projection INS 2026 + écart local (calibré)", "trend": "Tendance 2014-2024 constante",
         "growth": "Scénario de croissance", "low": "Faible", "central": "Central", "high": "Élevé",
@@ -41,7 +43,8 @@ T = {
     "en": {
         "title": "Pharmacy licence forecast", "lang": "Language",
         "nav": ["Overview", "Map", "Compare delegations", "Category A vs B", "Population",
-                "Waiting-list history", "Stay / switch simulator", "Regulations", "Report", "Data & sources", "Verification / reliability", "Explore all options"],
+                "Waiting-list history", "Stay / switch simulator", "Regulations", "Report", "Data & sources", "Verification / reliability", "Explore all options",
+                "Economics and income"],
         "settings": "Assumptions", "radius": "Radius around Zriba (km)", "pop_mode": "Official population updates",
         "estimates": "INS estimates at each list revision (DPM practice 2017-2025)", "census": "Censuses only (pessimistic)", "annual": "Annual INS estimates with adjustable lag", "gmodel": "Growth model", "official": "INS 2026 projection + local gap (calibrated)", "trend": "Constant 2014-2024 trend",
         "growth": "Growth scenario", "low": "Low", "central": "Central", "high": "High",
@@ -52,7 +55,8 @@ T = {
     "ar": {
         "title": "توقع الحصول على رخصة صيدلية", "lang": "اللغة",
         "nav": ["نظرة عامة", "الخريطة", "مقارنة المعتمديات", "الصنف أ مقابل ب", "السكان",
-                "تاريخ قائمات الانتظار", "محاكي البقاء / التغيير", "التشريع", "التقرير", "البيانات والمصادر", "التحقق / الموثوقية", "استكشاف كل الخيارات"],
+                "تاريخ قائمات الانتظار", "محاكي البقاء / التغيير", "التشريع", "التقرير", "البيانات والمصادر", "التحقق / الموثوقية", "استكشاف كل الخيارات",
+                "الاقتصاد والدخل"],
         "settings": "الفرضيات", "radius": "الشعاع حول الزريبة (كم)", "pop_mode": "تحيين عدد السكان الرسمي",
         "estimates": "تقديرات المعهد عند كل مراجعة للقائمات (ممارسة 2017-2025)", "census": "التعدادات فقط (فرضية متشائمة)", "annual": "تقديرات سنوية مع أجل قابل للتعديل", "gmodel": "نموذج النمو", "official": "إسقاطات المعهد 2026 + الفارق المحلي", "trend": "اتجاه 2014-2024 ثابت",
         "growth": "سيناريو النمو", "low": "منخفض", "central": "مركزي", "high": "مرتفع",
@@ -115,6 +119,13 @@ def get_explain_pdf(key: float, settings: tuple, spec_json: str, meta_json: str)
     return explain.build_pdf(get_data(key), an.SimSettings(*settings), json.loads(spec_json), json.loads(meta_json))
 
 
+@st.cache_data(show_spinner="Calcul du revenu par délégation…")
+def get_zone_finance(key: float, settings: tuple, radius_km: float, price_growth: float, ramp: bool, mode: str) -> pd.DataFrame:
+    data = get_data(key)
+    s = an.SimSettings(*settings)
+    return ec.zone_table(data["delegations"], get_compare(key, radius_km, settings), s, price_growth, ramp, mode)
+
+
 KEY = data_key()
 D = get_data(KEY)
 ATT = get_attrition(KEY)
@@ -126,7 +137,7 @@ DEF = an.default_settings(D)
 # Sidebar: navigation + assumptions + manual refresh
 # ---------------------------------------------------------------------------
 st.sidebar.title(L["title"])
-NAV_ORDER = [0, 2, 11, 6, 1, 3, 4, 5, 10, 7, 8, 9]   # display order; page indices stay stable
+NAV_ORDER = [0, 2, 11, 6, 1, 3, 4, 12, 5, 10, 7, 8, 9]   # display order; page indices stay stable
 page_idx = st.sidebar.radio("Navigation", NAV_ORDER, format_func=lambda i: L["nav"][i], label_visibility="collapsed")
 
 with st.sidebar.expander(L["settings"], expanded=False):
@@ -182,6 +193,13 @@ ZR_C = COMM[(COMM.governorate == "ZAGHOUAN") & (COMM.commune_name == "Zriba")].i
 
 def fmt(n) -> str:
     return "—" if n is None or (isinstance(n, float) and np.isnan(n)) else f"{int(round(n)):,}".replace(",", " ")
+
+
+def kdt(n) -> str:
+    """Thousands of dinars, so a 40-year estimate is not printed to the dinar."""
+    if n is None or (isinstance(n, float) and np.isnan(n)):
+        return "—"
+    return f"{int(round(n / 1000)):,}".replace(",", " ")
 
 
 def badge(text: str, kind: str = "warn") -> str:
@@ -539,6 +557,13 @@ def page_population():
     for c in fc.NEXT_CENSUSES:
         if c <= proj.year.max():
             fig.add_vline(x=c, line_dash="dot", line_color="#999")
+    eco = ec.load()
+    pop_s = ec.central_population(r.population_dpm, g, SETTINGS, horizon)
+    extra_hi = ec.extra_residents(eco, r.governorate, r.delegation, min(2035, horizon), "high")
+    if extra_hi >= 50:
+        plus = [ec.extra_residents(eco, r.governorate, r.delegation, int(y), "high") for y in pop_s.index]
+        fig.add_trace(go.Scatter(x=list(pop_s.index), y=pop_s.values + plus, name="Scénario haut (emplois non publiés)",
+                                 line=dict(dash="dash", color="#b45309")))
     fig.update_layout(height=430, margin=dict(t=10), yaxis_title="Habitants", legend=dict(orientation="h"))
     st.plotly_chart(fig, width="stretch")
     st.caption((f"Courbes bleues : projection nationale INS 2026 (base RGPH 2024) + {SETTINGS.k_local:.0%} de l'écart local observé "
@@ -556,6 +581,37 @@ def page_population():
     st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
     st.markdown(f"Taux annuels : faible {g.low:.2%} · central {g.central:.2%} · élevé {g.high:.2%}"
                 + (f" · linéaire {g.linear_slope:+.0f} hab./an" if g.linear_slope else ""))
+    touched = ec.events_touching(eco, r.governorate, r.delegation)
+    st.subheader("Événements économiques et habitants")
+    if touched:
+        st.dataframe(pd.DataFrame([{"Événement": e["title"], "Situation": e["status"], "Effet sur les habitants": e["resident_effect"],
+                                    "Source": e["source"]} for e in touched]), hide_index=True, width="stretch")
+    else:
+        st.caption("Aucun événement économique documenté dans ce dossier ne porte nommément sur cette délégation. "
+                   "La courbe reste la projection démographique.")
+    gap = (r.next_pop_A - r.population_dpm) if pd.notna(r.next_pop_A) else np.nan
+    cross = ec.crossing_year(pop_s, lambda _y: 0.0, r.next_pop_A) if pd.notna(r.next_pop_A) else None
+    cross_hi = ec.crossing_year(pop_s, lambda y: ec.extra_residents(eco, r.governorate, r.delegation, y, "high"), r.next_pop_A) if pd.notna(r.next_pop_A) else None
+
+    def _yr(y):
+        return str(y) if y else f"après {horizon}"
+
+    st.markdown(
+        f"Scénario retenu : **+{ec.extra_residents(eco, r.governorate, r.delegation, min(2035, horizon), 'central'):.0f} habitant** "
+        f"en 2035 par rapport à la courbe démographique. Aucun emploi futur chiffré par une source officielle n'est ajouté : "
+        f"les usines déjà ouvertes sont dans le recensement 2024, et un emploi industriel n'est pas un habitant supplémentaire "
+        f"(une grande partie des salariés fait la navette). "
+        f"Il manque **{fmt(gap)} habitants** pour la prochaine licence de catégorie A. "
+        f"Sur la courbe annuelle centrale, ce seuil est franchi en **{_yr(cross)}** "
+        f"(le tableau ci-dessus donne aussi le calendrier par recensement). "
+        f"Même le scénario haut (2 000 emplois hypothétiques à Enfidha, 0,30 habitant par emploi) n'ajoute que "
+        f"**{extra_hi:.0f} habitant** ici en 2035, et place le seuil en **{_yr(cross_hi)}**.")
+    if extra_hi >= 50:
+        st.caption("La courbe orange du graphique est cette hypothèse haute, pas une projection INS. "
+                   "Le revenu d'une officine est sur la page Économie et revenu.")
+    else:
+        st.caption("La courbe du graphique n'est pas modifiée. Le revenu d'une officine, le pouvoir d'achat et la comparaison "
+                   "par année sont sur la page Économie et revenu.")
     st.subheader("Communes de la délégation (catégorie B)")
     cc = COMM[COMM.located_on_delegation == r.delegation]
     if len(cc):
@@ -963,6 +1019,192 @@ def page_alternatives():
                "de colonne pour trier. Toute option implique de confirmer par écrit auprès de la DPM avant de retirer l'inscription actuelle.")
 
 
+def _open_label(y) -> str:
+    if y is None or (isinstance(y, float) and np.isnan(y)) or int(y) > horizon:
+        return f"après {horizon}"
+    return str(int(y))
+
+
+def page_economics():
+    st.title(L["nav"][12])
+    eco = ec.load()
+    st.warning("Estimation de capacité, pas un compte de résultat et pas un conseil d'installation. "
+               "Le chiffre d'affaires est la part du marché du médicament d'officine ; la parapharmacie n'y est pas. "
+               "Les dinars sont ceux de 2024, sauf si une hausse de prix est réglée ci-dessous. "
+               "Rien ici ne justifie de retirer l'inscription de Zriba.")
+    h = ec.historical_zaghouan(D["delegations"], SETTINGS.g_nat_1424)
+    ctx = eco["context"]
+    st.markdown(
+        f"Entre 2014 et 2024, Zaghouan est passé de **{fmt(h['pop_2014'])}** à **{fmt(h['pop_2024'])}** habitants "
+        f"({h['cagr']:.2%} par an, contre {h['national_cagr']:.2%} au niveau national). L'excédent sur la croissance "
+        f"nationale est d'environ **{fmt(h['excess_residents'])} habitants en dix ans**. "
+        f"Le stock industriel cité en 2023 est de **{fmt(ctx['zaghouan_jobs'])} emplois** dans {ctx['zaghouan_firms']} sociétés "
+        f"et {ctx['zaghouan_zones']} zones. Ces deux grandeurs ne se convertissent pas l'une dans l'autre : une grande partie "
+        f"des emplois existait déjà en 2014, et les salariés sont recensés là où ils dorment, pas là où ils travaillent. "
+        f"Le scénario retenu n'ajoute donc **aucun habitant** au-delà de la projection démographique.")
+
+    c1, c2, c3 = st.columns(3)
+    mode = c1.radio("Emplois futurs", ["central", "low", "high"],
+                    format_func=lambda m: {"central": "Retenu — emplois publiés seulement (aucun)",
+                                           "low": "Sensibilité basse — 500 emplois à Enfidha, 0,05 hab./emploi",
+                                           "high": "Sensibilité haute — 2 000 emplois à Enfidha, 0,30 hab./emploi"}[m])
+    price_pct = c2.slider("Hausse annuelle du prix du médicament après 2024 (%)", 0, 8, 0, 1,
+                          help=eco["spend_growth_note"] + " À 0 %, les montants restent en dinars de 2024.")
+    price = price_pct / 100
+    ramp = c3.toggle("Montée en charge (50 % / 75 % / 100 %)", True, help=eco["ramp_note"])
+    st.caption(f"Prix : le marché 2024 est déjà en dinars de 2024 ({eco['market']['public_price_tnd']/1e9:.3f} milliards, "
+               f"{eco['market']['value_growth']:+.1%} en valeur, {eco['market']['volume_growth']:+.2%} en unités). "
+               f"Une hausse réglée au-dessus de zéro exprime des dinars courants, pas un pouvoir d'achat. {eco['spend_growth_note']}")
+
+    tbl = get_zone_finance(KEY, STUPLE, radius, price, ramp, mode).sort_values("Cumul net médiane", ascending=False)
+    ref = ec.threshold_reference(D["delegations"])
+    national_dt = f"{ec.national_spend_2024(eco):.0f}"
+    st.subheader("Pouvoir d'achat et capacité d'une officine déjà en place")
+    st.markdown(
+        f"Deux mesures, qui ne sont pas multipliées entre elles. "
+        f"**L'indice médicament** lit le seuil légal de la zone (décret 2019-1013) : il vaut 1 pour un seuil de "
+        f"**{fmt(ref)} habitants** (moyenne harmonique des zones). À Zriba, seuil 10 000, l'indice vaut **{ref/10000:.2f}** : "
+        f"le décret y demande plus d'habitants par officine, ce qui revient à une dépense médicament par habitant plus faible. "
+        f"L'annexe du décret ne publie pas l'étude de chiffre d'affaires qui a fixé ces seuils : l'indice est une lecture "
+        f"du barème, recalée pour que la somme des délégations retrouve le marché national "
+        f"({national_dt} DT de médicament par habitant en 2024). "
+        f"**La DPA** est la dépense annuelle de consommation par personne, publiée par l'INS seulement par grande région "
+        f"(EBCNV 2021). Le proxy local applique le taux de pauvreté 2015 : "
+        f"DPA de la région × (1 − pauvreté locale) / (1 − pauvreté régionale). Ce n'est pas une dépense mesurée "
+        f"dans la délégation. Le poste santé-hygiène de l'enquête faisait {eco['health_hygiene_dpa_2021']} DT par personne "
+        f"en 2021 ({eco['health_hygiene_share_2021']:.1%} de la DPA), un agrégat plus large que le médicament d'officine.")
+    show = tbl.copy()
+    show["Ouverture médiane"] = show["Ouverture médiane"].map(_open_label)
+    show["Ouverture tôt (P10)"] = show["Ouverture tôt (P10)"].map(_open_label)
+    show["Seuil franchi (démographie)"] = show["Seuil franchi (démographie)"].map(lambda y: _open_label(y) if pd.notna(y) else f"après {horizon}")
+    show["Seuil franchi (événements)"] = show["Seuil franchi (événements)"].map(lambda y: _open_label(y) if pd.notna(y) else f"après {horizon}")
+    money_cols = ["CA officine en place", "Net officine en place", "Cumul net médiane", "Cumul net tôt"]
+    for col in money_cols:
+        show[col] = show[col].map(kdt)
+    show = show.rename(columns={
+        "CA officine en place": "CA en place (milliers DT)", "Net officine en place": "Net en place (milliers DT)",
+        "Cumul net médiane": "Somme nette, timing médian (milliers DT)",
+        "Cumul net tôt": "Somme nette, timing P10 (milliers DT)",
+        "DT / hab. médicament": "Médicament DT/hab.", "DPA région 2021": "DPA région 2021",
+        "Proxy DPA": "Proxy DPA 2021", "Habitants en plus (2035)": "Hab. en plus en 2035"})
+    keep = ["Délégation", "Gouvernorat", "km", "Zone N", "Indice médicament", "Région", "DPA région 2021", "Proxy DPA 2021",
+            "Pauvreté 2015", "Niveau pauvreté", "Médicament DT/hab.", "CA en place (milliers DT)", "Net en place (milliers DT)",
+            "Ouverture médiane", "Ouverture tôt (P10)", "Somme nette, timing médian (milliers DT)",
+            "Somme nette, timing P10 (milliers DT)", "Hab. en plus en 2035",
+            "Seuil franchi (démographie)", "Seuil franchi (événements)"]
+    st.dataframe(show[keep],
+                 hide_index=True, width="stretch", column_config={
+                     "km": st.column_config.NumberColumn(format="%.0f"),
+                     "Indice médicament": st.column_config.NumberColumn(format="%.2f"),
+                     "DPA région 2021": st.column_config.NumberColumn(format="%d"),
+                     "Proxy DPA 2021": st.column_config.NumberColumn(format="%.0f"),
+                     "Pauvreté 2015": st.column_config.NumberColumn(format="%.1%"),
+                     "Médicament DT/hab.": st.column_config.NumberColumn(format="%.0f"),
+                     "Hab. en plus en 2035": st.column_config.NumberColumn(format="%.0f")})
+    st.caption("« En place » = part égale des officines de jour déjà ouvertes, prix 2024, sans la future officine. "
+               "La somme nette part de l'année d'ouverture simulée (médiane, ou P10) et additionne le résultat net central "
+               f"({eco['margins']['net_central']:.0%} du CA) jusqu'en {horizon}, **sans actualisation**. "
+               f"Marge brute réglementaire retenue : {eco['margins']['gross_central']:.0%} (échelle 24–30 %, arrêté du 20 février 1996). "
+               f"Repère SPOT, mai 2025 : le bénéfice net « ne dépasse plus » 8 %, et {eco['margins']['spot_share_below']} des officines "
+               f"gagnent moins de {fmt(eco['margins']['spot_net_ceiling_month_tnd'] * 12)} DT par an. "
+               "Le chiffre calculé est une moyenne de zone ; une officine mal placée peut être dans ce groupe. "
+               f"{eco['margins']['cnam_source']}")
+    st.download_button("Télécharger le tableau (CSV)", tbl.to_csv(index=False).encode("utf-8-sig"),
+                       "revenu_delegations.csv", "text/csv")
+
+    st.subheader("Année par année")
+    ids = list(tbl.sort_values("km").del_code)
+    home_id = HOME.del_code
+    pick = st.multiselect("Délégations à comparer", ids, default=[home_id] + [i for i in ids if i != home_id][:2],
+                          format_func=lambda c: tbl.set_index("del_code").loc[c, "Délégation"])
+    if not pick:
+        pick = [home_id]
+    fig = go.Figure()
+    detail = None
+    for code in pick:
+        row = CAP[CAP.del_code == code].iloc[0]
+        g = an.growth_for_delegation(row)
+        meta = tbl[tbl.del_code == code].iloc[0]
+        open_y = None if pd.isna(meta["Ouverture médiane"]) else int(meta["Ouverture médiane"])
+        if open_y is not None and open_y > horizon:
+            open_y = None
+        ydf = ec.yearly_income(row.population_dpm, g, SETTINGS, row.governorate, row.delegation, row.zone_threshold,
+                               int(row.pharmacies_A), open_y, price, ramp, mode, eco, ref)
+        fig.add_trace(go.Scatter(x=ydf["Année"], y=ydf["Cumul net"], name=f"{row.delegation.title()} – somme nette",
+                                 line=dict(dash="solid")))
+        fig.add_trace(go.Scatter(x=ydf["Année"], y=ydf["Résultat net"], name=f"{row.delegation.title()} – net de l'année",
+                                 line=dict(dash="dot")))
+        if code == pick[0]:
+            detail = ydf
+    fig.add_hline(y=eco["margins"]["spot_net_ceiling_month_tnd"] * 12, line_dash="dash", line_color="#999",
+                  annotation_text="Repère SPOT : 36 000 DT/an")
+    fig.update_layout(height=440, margin=dict(t=10), yaxis_title="DT de 2024" if price == 0 else "DT courants",
+                      legend=dict(orientation="h", y=-0.25), hovermode="x unified")
+    st.plotly_chart(fig, width="stretch")
+    st.caption("Trait plein : somme des résultats nets depuis 2026 (zéro tant que la licence simulée n'est pas là). "
+               "Pointillé : résultat de l'année. Le palier de 36 000 DT est le plafond cité pour 60 à 70 % des officines, "
+               "pas le résultat calculé. Avant l'ouverture, le résultat est nul : une licence tardive ne se rattrape pas "
+               "sur le graphique, même si la capacité annuelle de la zone est correcte.")
+    if detail is not None:
+        name = CAP[CAP.del_code == pick[0]].delegation.iloc[0].title()
+        with st.expander(f"Compte annuel – {name}", expanded=True):
+            view = detail.copy()
+            for col in ["Habitants", "CA médicaments", "Marge brute", "Résultat net bas", "Résultat net", "Résultat net haut", "Cumul net"]:
+                view[col] = view[col].round(0)
+            st.dataframe(view, hide_index=True, width="stretch", column_config={
+                "Habitants": st.column_config.NumberColumn(format="%d"),
+                "CA médicaments": st.column_config.NumberColumn(format="%d"),
+                "Marge brute": st.column_config.NumberColumn(format="%d"),
+                "Résultat net bas": st.column_config.NumberColumn(format="%d"),
+                "Résultat net": st.column_config.NumberColumn(format="%d"),
+                "Résultat net haut": st.column_config.NumberColumn(format="%d"),
+                "Cumul net": st.column_config.NumberColumn(format="%d")})
+            st.caption(f"Bas / central / haut : {eco['margins']['net_low']:.0%} / {eco['margins']['net_central']:.0%} / "
+                       f"{eco['margins']['net_high']:.0%} du chiffre d'affaires médicament. {eco['margins']['net_source']}")
+
+    st.subheader("Événements retenus")
+    st.dataframe(pd.DataFrame([{"Événement": e["title"], "Lieu": e["delegation"].title(), "Situation": e["status"],
+                                "Habitants": e["resident_effect"], "Source": e["source"]} for e in eco["events"]]),
+                 hide_index=True, width="stretch")
+    st.caption(ctx["zaghouan_source"] + " " + eco["settlement_note"])
+
+    st.subheader("Scénarios rester / changer")
+    st.caption("Mêmes scénarios que le simulateur avec les cibles par défaut (délégation A la plus rapide dans le rayon, "
+               "commune B par défaut). Les officines de nuit ne sont pas chiffrées : le marché Sentinel ne sépare pas le jour "
+               "et la nuit, et une officine de nuit ne capte pas le budget médicament diurne.")
+    cmp = get_compare(KEY, radius, STUPLE)
+    scen = get_scenarios(KEY, STUPLE, default_target_del(cmp), _default_commune(), None, 1)
+    rows = []
+    fig = go.Figure()
+    for s in scen:
+        spec = s.get("spec") or {}
+        base = {"Scénario": f"{s['code']} – {s['title']}", "Juridique": "oui" if s["legally_feasible"] else "hypothèse non prévue",
+                "Ouverture médiane": _open_label(s["summary"].get("q50")), "Ouverture tôt (P10)": _open_label(s["summary"].get("q10"))}
+        if spec.get("rule") != "A":
+            rows.append({**base, "Net année pleine (milliers DT)": "—", "Somme nette jusqu'à l'horizon (milliers DT)": "—",
+                         "Lecture": "Non chiffré (catégorie B, nuit)."})
+            continue
+        unit = CAP[(CAP.governorate == spec["governorate"]) & (CAP.delegation == spec["unit"])].iloc[0]
+        g = an.growth_for_delegation(unit)
+        q50 = s["summary"].get("q50")
+        open_y = int(q50) if q50 and int(q50) <= horizon else None
+        ydf = ec.yearly_income(unit.population_dpm, g, SETTINGS, unit.governorate, unit.delegation, unit.zone_threshold,
+                               int(unit.pharmacies_A), open_y, price, ramp, mode, eco, ref)
+        full = ydf[ydf["Résultat net"] > 0]
+        mature = float(full["Résultat net"].iloc[min(2, len(full) - 1)]) if len(full) else 0.0
+        rows.append({**base, "Net année pleine (milliers DT)": kdt(mature),
+                     "Somme nette jusqu'à l'horizon (milliers DT)": kdt(float(ydf["Cumul net"].iloc[-1])),
+                     "Lecture": "Part égale du marché médicament de la délégation, après ouverture."
+                     + ("" if s["legally_feasible"] else " Transfert d'ancienneté non prévu par les textes.")})
+        fig.add_trace(go.Scatter(x=ydf["Année"], y=ydf["Cumul net"], name=f"{s['code']} – {s['title']}",
+                                 line=dict(dash="solid" if s["legally_feasible"] else "dot")))
+    st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+    fig.update_layout(height=420, margin=dict(t=10), yaxis_title="Somme nette (DT)", legend=dict(orientation="h", y=-0.35))
+    st.plotly_chart(fig, width="stretch")
+    st.error("Un scénario plus rémunérateur ou plus rapide ne suffit pas à retirer l'inscription. Conséquences d'un retrait : "
+             + " ".join("• " + x for x in D["regs"]["withdrawal_consequences"]))
+
+
 PAGES = [page_overview, page_map, page_compare, page_ab, page_population, page_history, page_simulator,
-         page_regulations, page_report, page_sources, page_verification, page_alternatives]
+         page_regulations, page_report, page_sources, page_verification, page_alternatives, page_economics]
 PAGES[page_idx]()
